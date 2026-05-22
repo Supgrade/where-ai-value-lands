@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Adoption Ladder — an ER&amp;I reading</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a48;
+    --rule: #c9c4b8;
+    --rule-soft: #ddd6c5;
+    --accent: #1f3a5f;
+    --accent-2: #6b7c95;
+    --accent-soft: #e3e7ed;
+    --source: #8b5a2b;
+    --hyp: #7a2128;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 64px 48px 120px 48px; }
+  header { border-bottom: 1px solid var(--rule); padding-bottom: 36px; margin-bottom: 56px; }
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 1.05;
+    letter-spacing: -0.012em;
+    margin: 0 0 18px 0;
+    max-width: 900px;
+  }
+  h1 em { font-style: italic; font-weight: 400; }
+  .dek {
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 760px;
+    margin: 0;
+  }
+  .byline {
+    margin-top: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+  .byline span + span::before { content: "  ·  "; color: var(--rule); }
+
+  /* Section heads */
+  h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 18px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  section { margin-bottom: 88px; }
+  .lede {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    font-style: italic;
+    max-width: 760px;
+    margin: 0 0 28px 0;
+  }
+  p { margin: 0 0 12px 0; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  a:hover { color: var(--ink); border-bottom-color: var(--accent); }
+  mono { font-family: 'JetBrains Mono', monospace; font-size: 0.86em; }
+  strong { font-weight: 600; }
+
+  /* HERO: Staircase */
+  .stair-frame {
+    position: relative;
+    width: 100%;
+    background: var(--bg);
+  }
+  .stair-svg { display: block; width: 100%; height: auto; }
+
+  /* U-curve */
+  .ucurve-svg { display: block; width: 100%; height: auto; margin: 0 auto; }
+
+  /* Graph */
+  #graph-svg {
+    display: block;
+    width: 100%;
+    height: 600px;
+    background: var(--bg);
+    cursor: grab;
+  }
+  #graph-svg:active { cursor: grabbing; }
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
+  .legend-swatch { display: inline-block; width: 10px; height: 10px; margin-right: 5px; vertical-align: 0px; }
+  .legend-line { display: inline-block; width: 18px; height: 1px; background: var(--ink-soft); margin-right: 5px; vertical-align: 4px; }
+  .legend-line.dashed { background: none; border-top: 1px dashed var(--ink-soft); height: 0; }
+
+  .tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: rgba(244,241,234,0.97);
+    border: 1px solid var(--rule);
+    padding: 8px 12px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--ink);
+    max-width: 260px;
+    opacity: 0;
+    transition: opacity 120ms;
+    z-index: 10;
+  }
+  .tooltip .ttl { font-weight: 600; display: block; margin-bottom: 2px; }
+  .tooltip .kind {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* Tensions */
+  .tensions { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 48px; }
+  .tension { font-size: 15px; line-height: 1.5; }
+  .tension .t-head {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--hyp);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* Sources */
+  .source-list { list-style: none; padding: 0; margin: 0; }
+  .source-list li { padding: 12px 0; border-bottom: 1px solid var(--rule-soft); font-size: 15px; line-height: 1.5; }
+  .source-list li:last-child { border-bottom: none; }
+  .source-list .s-title { font-weight: 600; color: var(--ink); }
+  .source-list .s-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    display: block;
+    margin-top: 2px;
+  }
+  .source-list .s-claim { color: var(--ink-soft); font-style: italic; margin-top: 4px; display: block; }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(8px); transition: opacity 600ms ease-out, transform 600ms ease-out; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .wrap { padding: 48px 20px 80px 20px; }
+    h1 { font-size: 36px; }
+    .tensions { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Where Value Lands &nbsp;·&nbsp; Visualisation</div>
+  <h1>The adoption ladder, an <em>Energy, Resources &amp; Industrials</em> reading.</h1>
+  <p class="dek">Five phases. Twelve use cases. One question — where does AI value actually land in an asset-heavy enterprise.</p>
+  <div class="byline">
+    <span>Concept: <mono>enterprise-adoption-ladder</mono></span>
+    <span>2026-05-22</span>
+    <span>Drawn from the current wiki state</span>
+  </div>
+</header>
+
+<!-- ============== HERO: STAIRCASE ============== -->
+<section class="reveal">
+  <h2>The ladder, with ER&amp;I anchors</h2>
+  <p class="lede">WEF/Accenture's five-phase maturity ladder, climbed left-to-right. Above each step, the load-bearing ER&amp;I deployment that anchors what the rung looks like in practice. The dashed line is the scaling gap: <strong>74% of firms cannot cross it</strong>.</p>
+  <div class="stair-frame">
+    <svg class="stair-svg" viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" aria-label="The five-phase enterprise adoption ladder with ER&I anchor deployments at each step">
+
+      <!-- Background grid (very subtle) -->
+      <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e8e2d2" stroke-width="0.5"/>
+        </pattern>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4a48"/>
+        </marker>
+        <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f3a5f"/>
+        </marker>
+      </defs>
+      <rect width="1200" height="760" fill="url(#grid)" opacity="0.45"/>
+
+      <!-- Axis labels -->
+      <text x="40" y="375" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#4a4a48" transform="rotate(-90 40 375)" text-anchor="middle">OPERATIONAL DEPTH</text>
+      <text x="600" y="745" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#4a4a48" text-anchor="middle">ADOPTION MATURITY  →</text>
+
+      <!-- Vertical axis arrow -->
+      <line x1="80" y1="660" x2="80" y2="100" stroke="#c9c4b8" stroke-width="1" marker-end="url(#arrow)"/>
+      <!-- Horizontal axis arrow -->
+      <line x1="80" y1="660" x2="1140" y2="660" stroke="#c9c4b8" stroke-width="1" marker-end="url(#arrow)"/>
+
+      <!-- Staircase polygon (filled, soft) -->
+      <path d="M 100 660 L 100 600 L 280 600 L 280 530 L 460 530 L 460 460 L 640 460 L 640 390 L 820 390 L 820 320 L 1100 320 L 1100 660 Z"
+            fill="#1f3a5f" fill-opacity="0.06" stroke="none"/>
+
+      <!-- Staircase stroke -->
+      <path d="M 100 600 L 280 600 L 280 530 L 460 530 L 460 460 L 640 460 L 640 390 L 820 390 L 820 320 L 1100 320"
+            fill="none" stroke="#1f3a5f" stroke-width="2.2" stroke-linejoin="miter"/>
+
+      <!-- Phase ticks on each tread -->
+      <g font-family="JetBrains Mono, monospace" fill="#1f3a5f" font-size="11" letter-spacing="1.5">
+        <text x="190" y="624" text-anchor="middle">PHASE 1</text>
+        <text x="370" y="554" text-anchor="middle">PHASE 2</text>
+        <text x="550" y="484" text-anchor="middle">PHASE 3</text>
+        <text x="730" y="414" text-anchor="middle">PHASE 4</text>
+        <text x="960" y="344" text-anchor="middle">PHASE 5</text>
+      </g>
+      <g font-family="Source Serif 4, serif" fill="#1a1a1a" font-size="16" font-weight="600">
+        <text x="190" y="646" text-anchor="middle">Ad hoc</text>
+        <text x="370" y="576" text-anchor="middle">Thousand flowers</text>
+        <text x="550" y="506" text-anchor="middle">One-domain</text>
+        <text x="730" y="436" text-anchor="middle">Enterprise</text>
+        <text x="960" y="366" text-anchor="middle">Value-chain</text>
+      </g>
+
+      <!-- Scaling gap dashed line (between P2 and P3, at x=460) -->
+      <line x1="460" y1="80" x2="460" y2="660" stroke="#7a2128" stroke-width="1.4" stroke-dasharray="5,4" opacity="0.85"/>
+      <text x="464" y="92" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#7a2128">THE SCALING GAP</text>
+      <text x="464" y="106" font-family="Source Serif 4, serif" font-style="italic" font-size="13" fill="#7a2128">74% of firms below · 16% above</text>
+
+      <!-- Curly brace for 74% (under P1-P2 zone, below staircase) -->
+      <path d="M 100 690 Q 100 700 110 700 L 275 700 Q 290 700 290 710 Q 290 700 305 700 L 450 700 Q 460 700 460 690"
+            fill="none" stroke="#7a2128" stroke-width="1" opacity="0.8"/>
+      <text x="280" y="722" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7a2128" letter-spacing="1">74% — STUCK IN PILOTS</text>
+
+      <!-- Curly brace for 16% (P4-P5) -->
+      <path d="M 460 690 Q 460 700 470 700 L 770 700 Q 785 700 785 710 Q 785 700 800 700 L 1100 700 Q 1110 700 1110 690"
+            fill="none" stroke="#1f3a5f" stroke-width="1" opacity="0.7"/>
+      <text x="785" y="722" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#1f3a5f" letter-spacing="1">16% — REINVENTION-READY</text>
+
+      <!-- Anchor cards (above each step) -->
+      <!-- Card 1: Phase 1 anchor (generic, no public exemplar) -->
+      <g transform="translate(110, 460)">
+        <rect x="0" y="0" width="170" height="100" fill="#f4f1ea" stroke="#c9c4b8" stroke-width="1"/>
+        <text x="12" y="20" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#4a4a48">NO PUBLIC EXEMPLAR</text>
+        <text x="12" y="42" font-family="Source Serif 4, serif" font-size="14" font-weight="600" fill="#1a1a1a">Sandbox pilots</text>
+        <text x="12" y="60" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">single CV trials, no data</text>
+        <text x="12" y="74" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">platform behind them</text>
+        <text x="12" y="92" font-family="JetBrains Mono, monospace" font-size="10" fill="#1f3a5f" letter-spacing="0.5">○ no path to scale</text>
+      </g>
+      <!-- Connector -->
+      <line x1="195" y1="560" x2="195" y2="600" stroke="#1f3a5f" stroke-width="1" opacity="0.4"/>
+      <circle cx="195" cy="600" r="3" fill="#1f3a5f"/>
+
+      <!-- Card 2: Phase 2 anchor (most ER&I firms) -->
+      <g transform="translate(290, 390)">
+        <rect x="0" y="0" width="170" height="100" fill="#f4f1ea" stroke="#c9c4b8" stroke-width="1"/>
+        <text x="12" y="20" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#4a4a48">MOST ER&amp;I FIRMS HERE</text>
+        <text x="12" y="42" font-family="Source Serif 4, serif" font-size="14" font-weight="600" fill="#1a1a1a">Disconnected pilots</text>
+        <text x="12" y="60" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">predictive maintenance,</text>
+        <text x="12" y="74" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">drone inspection, gen-design</text>
+        <text x="12" y="92" font-family="JetBrains Mono, monospace" font-size="10" fill="#1f3a5f" letter-spacing="0.5">○ no shared platform</text>
+      </g>
+      <line x1="375" y1="490" x2="375" y2="530" stroke="#1f3a5f" stroke-width="1" opacity="0.4"/>
+      <circle cx="375" cy="530" r="3" fill="#1f3a5f"/>
+
+      <!-- Card 3: Phase 3 anchor — BMW -->
+      <g transform="translate(470, 320)">
+        <rect x="0" y="0" width="170" height="100" fill="#f4f1ea" stroke="#1f3a5f" stroke-width="1.5"/>
+        <text x="12" y="20" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#1f3a5f">BMW · GERMANY</text>
+        <text x="12" y="42" font-family="Source Serif 4, serif" font-size="14" font-weight="600" fill="#1a1a1a">Supply-chain twin</text>
+        <text x="12" y="60" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">multi-agent genAI across</text>
+        <text x="12" y="74" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">the supplier graph</text>
+        <text x="12" y="92" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" fill="#1f3a5f">+30–40% productivity</text>
+      </g>
+      <line x1="555" y1="420" x2="555" y2="460" stroke="#1f3a5f" stroke-width="1" opacity="0.5"/>
+      <circle cx="555" cy="460" r="3" fill="#1f3a5f"/>
+
+      <!-- Card 4: Phase 4 anchor — Aker BP Yggdrasil -->
+      <g transform="translate(640, 250)">
+        <rect x="0" y="0" width="180" height="100" fill="#f4f1ea" stroke="#1f3a5f" stroke-width="1.5"/>
+        <text x="12" y="20" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#1f3a5f">AKER BP · NORWAY</text>
+        <text x="12" y="42" font-family="Source Serif 4, serif" font-size="14" font-weight="600" fill="#1a1a1a">Yggdrasil platform</text>
+        <text x="12" y="60" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">periodically unmanned</text>
+        <text x="12" y="74" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">offshore; onshore oversight</text>
+        <text x="12" y="92" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" fill="#1f3a5f">multi-agent orchestration</text>
+      </g>
+      <line x1="730" y1="350" x2="730" y2="390" stroke="#1f3a5f" stroke-width="1" opacity="0.5"/>
+      <circle cx="730" cy="390" r="3" fill="#1f3a5f"/>
+
+      <!-- Card 5: Phase 5 — no exemplar -->
+      <g transform="translate(840, 180)">
+        <rect x="0" y="0" width="240" height="100" fill="#f4f1ea" stroke="#c9c4b8" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="12" y="20" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#4a4a48">NO PUBLIC EXEMPLAR</text>
+        <text x="12" y="42" font-family="Source Serif 4, serif" font-size="14" font-weight="600" font-style="italic" fill="#1a1a1a">Value-chain orchestration</text>
+        <text x="12" y="60" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">AI extends across partners,</text>
+        <text x="12" y="74" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">suppliers, regulators</text>
+        <text x="12" y="92" font-family="JetBrains Mono, monospace" font-size="10" fill="#7a2128" letter-spacing="0.5">○ horizon-line in decks</text>
+      </g>
+      <line x1="960" y1="280" x2="960" y2="320" stroke="#1f3a5f" stroke-width="1" opacity="0.4"/>
+      <circle cx="960" cy="320" r="3" fill="#1f3a5f"/>
+
+      <!-- Lateral case study chips beside Phase 2 + 3 (smaller secondary anchors) -->
+      <g font-family="JetBrains Mono, monospace" font-size="10" fill="#4a4a48">
+        <text x="370" y="650" text-anchor="middle">SBB 60% inspection time ↓</text>
+        <text x="555" y="650" text-anchor="middle">Merck €100k+/campaign ↓</text>
+        <text x="730" y="650" text-anchor="middle">Siemens energy + waste ↓</text>
+      </g>
+
+      <!-- Small caption: what each phase means in one phrase, in the riser -->
+      <g font-family="Source Serif 4, serif" font-style="italic" font-size="11" fill="#6b7c95">
+        <!-- below the staircase, in the soil -->
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ============== U-CURVE ============== -->
+<section class="reveal">
+  <h2>Where the value lands in ER&amp;I</h2>
+  <p class="lede">Climbing the ladder is necessary but not sufficient. Across the AI value stack, ER&amp;I surplus concentrates at the <strong>top</strong> (vertical orchestration platforms) and at the <strong>bottom</strong> (proprietary operational data + physical assets). Generic foundation models in the middle are commoditised inputs to both ends.</p>
+  <svg class="ucurve-svg" viewBox="0 0 1200 460" xmlns="http://www.w3.org/2000/svg" aria-label="U-curve of AI value capture in ER&I">
+
+    <defs>
+      <linearGradient id="uFill" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0" stop-color="#1f3a5f" stop-opacity="0.18"/>
+        <stop offset="1" stop-color="#1f3a5f" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+
+    <!-- axes -->
+    <line x1="100" y1="380" x2="100" y2="60" stroke="#c9c4b8" stroke-width="1"/>
+    <line x1="100" y1="380" x2="1140" y2="380" stroke="#c9c4b8" stroke-width="1"/>
+    <text x="84" y="220" font-family="JetBrains Mono, monospace" font-size="11" fill="#4a4a48" letter-spacing="1.5" transform="rotate(-90 84 220)" text-anchor="middle">VALUE CAPTURED</text>
+    <text x="620" y="430" font-family="JetBrains Mono, monospace" font-size="11" fill="#4a4a48" letter-spacing="1.5" text-anchor="middle">STACK POSITION  →</text>
+
+    <!-- U-curve fill -->
+    <path d="M 100 80
+             C 280 90, 360 320, 480 340
+             C 600 360, 700 360, 820 340
+             C 940 320, 1020 90, 1140 80
+             L 1140 380 L 100 380 Z"
+          fill="url(#uFill)"/>
+    <!-- U-curve stroke -->
+    <path d="M 100 80
+             C 280 90, 360 320, 480 340
+             C 600 360, 700 360, 820 340
+             C 940 320, 1020 90, 1140 80"
+          fill="none" stroke="#1f3a5f" stroke-width="2.2"/>
+
+    <!-- Three position labels: bottom of stack, middle, top -->
+    <!-- bottom (left peak) -->
+    <circle cx="140" cy="86" r="6" fill="#1f3a5f"/>
+    <line x1="140" y1="86" x2="170" y2="60" stroke="#1f3a5f" stroke-width="0.7"/>
+    <g transform="translate(180, 36)">
+      <text font-family="JetBrains Mono, monospace" font-size="10" fill="#1f3a5f" letter-spacing="1.5">BOTTOM</text>
+      <text y="16" font-family="Source Serif 4, serif" font-size="15" font-weight="600" fill="#1a1a1a">Physical assets + ops data</text>
+      <text y="34" font-family="Source Serif 4, serif" font-size="13" fill="#4a4a48">wells, grids, sensors, geology,</text>
+      <text y="50" font-family="Source Serif 4, serif" font-size="13" fill="#4a4a48">incident history. Cannot be copied.</text>
+    </g>
+
+    <!-- middle (bottom of U) -->
+    <circle cx="640" cy="358" r="6" fill="#7a2128"/>
+    <line x1="640" y1="358" x2="640" y2="380" stroke="#7a2128" stroke-width="0.7"/>
+    <g transform="translate(540, 250)">
+      <text font-family="JetBrains Mono, monospace" font-size="10" fill="#7a2128" letter-spacing="1.5">MIDDLE — SQUEEZED</text>
+      <text y="16" font-family="Source Serif 4, serif" font-size="15" font-weight="600" fill="#1a1a1a">Generic foundation models</text>
+      <text y="34" font-family="Source Serif 4, serif" font-size="13" fill="#4a4a48">interchangeable; commoditised by</text>
+      <text y="50" font-family="Source Serif 4, serif" font-size="13" fill="#4a4a48">open weights + price compression.</text>
+    </g>
+
+    <!-- top (right peak) -->
+    <circle cx="1100" cy="86" r="6" fill="#1f3a5f"/>
+    <line x1="1100" y1="86" x2="1070" y2="60" stroke="#1f3a5f" stroke-width="0.7"/>
+    <g transform="translate(850, 36)">
+      <text font-family="JetBrains Mono, monospace" font-size="10" fill="#1f3a5f" letter-spacing="1.5">TOP</text>
+      <text y="16" font-family="Source Serif 4, serif" font-size="15" font-weight="600" fill="#1a1a1a">Vertical orchestration</text>
+      <text y="34" font-family="Source Serif 4, serif" font-size="13" fill="#4a4a48">multi-agent platforms with operational</text>
+      <text y="50" font-family="Source Serif 4, serif" font-size="13" fill="#4a4a48">context, escalation logic, liability.</text>
+    </g>
+
+    <!-- bottom of axis labels -->
+    <text x="140"  y="402" font-family="JetBrains Mono, monospace" font-size="10" fill="#4a4a48" text-anchor="middle">DATA + ASSETS</text>
+    <text x="640"  y="402" font-family="JetBrains Mono, monospace" font-size="10" fill="#4a4a48" text-anchor="middle">MODEL</text>
+    <text x="1100" y="402" font-family="JetBrains Mono, monospace" font-size="10" fill="#4a4a48" text-anchor="middle">ORCHESTRATION</text>
+
+  </svg>
+</section>
+
+<!-- ============== ENABLERS ============== -->
+<section class="reveal">
+  <h2>What moves a firm up the ladder</h2>
+  <p class="lede">Six foundational enablers, in the WEF/Accenture frame. Two industry-level (the substrate), four firm-level (what the company itself owns). The frame's load-bearing claim is that the scaling gap closes once these are in place.</p>
+  <svg viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto;" aria-label="The six foundational enablers — two industry-level + four firm-level">
+    <!-- bracket: industry-level -->
+    <text x="100" y="44" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#4a4a48">INDUSTRY-LEVEL</text>
+    <line x1="100" y1="56" x2="540" y2="56" stroke="#c9c4b8"/>
+    <!-- bracket: firm-level -->
+    <text x="580" y="44" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#4a4a48">FIRM-LEVEL</text>
+    <line x1="580" y1="56" x2="1140" y2="56" stroke="#c9c4b8"/>
+
+    <!-- 6 enablers as boxes -->
+    <g>
+      <!-- 1: ecosystem -->
+      <rect x="100" y="80" width="200" height="140" fill="#f4f1ea" stroke="#1f3a5f" stroke-width="1.2"/>
+      <text x="115" y="106" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#1f3a5f">01</text>
+      <text x="115" y="132" font-family="Source Serif 4, serif" font-size="16" font-weight="600" fill="#1a1a1a">Ecosystem</text>
+      <text x="115" y="150" font-family="Source Serif 4, serif" font-size="16" font-weight="600" fill="#1a1a1a">collaboration</text>
+      <text x="115" y="178" font-family="Source Serif 4, serif" font-size="13" fill="#4a4a48">cloud / AI partnerships,</text>
+      <text x="115" y="195" font-family="Source Serif 4, serif" font-size="13" fill="#4a4a48">shared data, public–private</text>
+
+      <!-- 2: trust -->
+      <rect x="320" y="80" width="200" height="140" fill="#f4f1ea" stroke="#1f3a5f" stroke-width="1.2"/>
+      <text x="335" y="106" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#1f3a5f">02</text>
+      <text x="335" y="132" font-family="Source Serif 4, serif" font-size="16" font-weight="600" fill="#1a1a1a">Stakeholder</text>
+      <text x="335" y="150" font-family="Source Serif 4, serif" font-size="16" font-weight="600" fill="#1a1a1a">trust</text>
+      <text x="335" y="178" font-family="Source Serif 4, serif" font-size="13" fill="#4a4a48">addressing the 61% who</text>
+      <text x="335" y="195" font-family="Source Serif 4, serif" font-size="13" fill="#4a4a48">hesitate to rely on AI</text>
+
+      <!-- 3: self-governance -->
+      <rect x="580" y="80" width="130" height="140" fill="#f4f1ea" stroke="#1f3a5f" stroke-width="1.2"/>
+      <text x="592" y="106" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#1f3a5f">03</text>
+      <text x="592" y="132" font-family="Source Serif 4, serif" font-size="15" font-weight="600" fill="#1a1a1a">Self-</text>
+      <text x="592" y="150" font-family="Source Serif 4, serif" font-size="15" font-weight="600" fill="#1a1a1a">governance</text>
+      <text x="592" y="178" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">chief AI officer,</text>
+      <text x="592" y="194" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">ethics committee</text>
+
+      <!-- 4: talent -->
+      <rect x="725" y="80" width="130" height="140" fill="#f4f1ea" stroke="#1f3a5f" stroke-width="1.2"/>
+      <text x="737" y="106" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#1f3a5f">04</text>
+      <text x="737" y="132" font-family="Source Serif 4, serif" font-size="15" font-weight="600" fill="#1a1a1a">Talent +</text>
+      <text x="737" y="150" font-family="Source Serif 4, serif" font-size="15" font-weight="600" fill="#1a1a1a">org</text>
+      <text x="737" y="178" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">fusion skills,</text>
+      <text x="737" y="194" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">change champions</text>
+
+      <!-- 5: cybersecurity -->
+      <rect x="870" y="80" width="130" height="140" fill="#f4f1ea" stroke="#1f3a5f" stroke-width="1.2"/>
+      <text x="882" y="106" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#1f3a5f">05</text>
+      <text x="882" y="132" font-family="Source Serif 4, serif" font-size="15" font-weight="600" fill="#1a1a1a">Cyber-</text>
+      <text x="882" y="150" font-family="Source Serif 4, serif" font-size="15" font-weight="600" fill="#1a1a1a">security</text>
+      <text x="882" y="178" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">defending against</text>
+      <text x="882" y="194" font-family="Source Serif 4, serif" font-size="12" fill="#4a4a48">AI-enabled attacks</text>
+
+      <!-- 6: digital core (the highlighted one) -->
+      <rect x="1015" y="80" width="125" height="140" fill="#1f3a5f"/>
+      <text x="1027" y="106" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#e3e7ed">06</text>
+      <text x="1027" y="132" font-family="Source Serif 4, serif" font-size="15" font-weight="600" fill="#f4f1ea">Digital</text>
+      <text x="1027" y="150" font-family="Source Serif 4, serif" font-size="15" font-weight="600" fill="#f4f1ea">core</text>
+      <text x="1027" y="174" font-family="Source Serif 4, serif" font-size="12" fill="#e3e7ed">apps · data</text>
+      <text x="1027" y="190" font-family="Source Serif 4, serif" font-size="12" fill="#e3e7ed">backbone ·</text>
+      <text x="1027" y="206" font-family="Source Serif 4, serif" font-size="12" fill="#e3e7ed">infrastructure</text>
+    </g>
+
+    <text x="1015" y="252" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.2" fill="#7a2128">⌃ binding constraint for ER&amp;I</text>
+  </svg>
+</section>
+
+<!-- ============== CONNECTIONS GRAPH ============== -->
+<section class="reveal">
+  <h2>The neighbourhood</h2>
+  <p class="lede">The adoption ladder sits in a small constellation: the enablers, the empirical gap, the strategic axes alongside it, the two hypotheses it interacts with, and the ER&amp;I use cases that anchor each phase. Drag nodes to explore.</p>
+  <svg id="graph-svg" viewBox="0 0 1100 600" preserveAspectRatio="xMidYMid meet"></svg>
+  <div class="legend">
+    <span><span class="legend-swatch" style="background:#1f3a5f;border-radius:50%"></span>Concept</span>
+    <span><span class="legend-swatch" style="background:transparent;border:1.5px solid #8b5a2b;border-radius:50%"></span>Source</span>
+    <span><span class="legend-swatch" style="background:#7a2128;transform:rotate(45deg)"></span>Hypothesis</span>
+    <span><span class="legend-swatch" style="background:#1f3a5f;border-radius:2px"></span>Ladder phase</span>
+    <span><span class="legend-line"></span>Wikilink</span>
+    <span><span class="legend-line dashed"></span>Citation</span>
+  </div>
+</section>
+
+<!-- ============== TENSIONS ============== -->
+<section class="reveal">
+  <h2>Tensions</h2>
+  <div class="tensions">
+    <div class="tension">
+      <span class="t-head">Value capture is invisible to the ladder</span>
+      A Phase 4 firm renting a foundation model pays surplus upward. A Phase 2 firm that owns proprietary data may capture more per AI dollar than the Phase 4 firm — even though it scores lower here.
+    </div>
+    <div class="tension">
+      <span class="t-head">The 74% is interpretation-flexible</span>
+      Sequencing problem, structural ceiling, or no-moat selection effect. The same number reads three ways in the wiki under <mono>scaling-gap</mono>.
+    </div>
+    <div class="tension">
+      <span class="t-head">OOD failure compounds at higher phases</span>
+      Deloitte itself is candid that ER&amp;I models fail on novel ores, unfamiliar geology, rare events. Three years of operational trust can be lost in one anomalous incident.
+    </div>
+    <div class="tension">
+      <span class="t-head">Firm-size dimension is missing from the wiki</span>
+      Every ER&amp;I case here is a large firm — BMW, Aker BP, SBB, Merck, Siemens, Chevron. SME industrial AI adoption needs <mono>/discover</mono> before the ladder can be re-read with size folded in.
+    </div>
+  </div>
+</section>
+
+<!-- ============== SOURCES ============== -->
+<section class="reveal">
+  <h2>Sources</h2>
+  <ul class="source-list">
+    <li>
+      <span class="s-title">WEF / Accenture — AI in Action</span>
+      <span class="s-meta">World Economic Forum · January 2025 · <mono>wef-ai-in-action-2025</mono></span>
+      <span class="s-claim">The 5-phase ladder, the 6 foundational enablers, and the 74% / 16% scaling gap.</span>
+    </li>
+    <li>
+      <span class="s-title">Deloitte AI Dossier — Energy, Resources &amp; Industrials</span>
+      <span class="s-meta">Deloitte · via wiki synthesis · <mono>deloitte-ai-dossier-eri</mono></span>
+      <span class="s-claim">The 12 ER&amp;I use cases anchored to each phase; the analytical → agentic transition.</span>
+    </li>
+    <li>
+      <span class="s-title">BCG — AI Adoption in 2024</span>
+      <span class="s-meta">October 2024 · via WEF</span>
+      <span class="s-claim">"74% of companies struggle to achieve and scale value." The headline empirical artefact.</span>
+    </li>
+  </ul>
+</section>
+
+<footer>
+  <span>outputs/enterprise-adoption-ladder.html &nbsp;·&nbsp; generated 2026-05-22</span>
+  <span>Where Value Lands &nbsp;·&nbsp; open inquiry</span>
+</footer>
+
+</div>
+
+<div id="tooltip" class="tooltip"></div>
+
+<script>
+// ---- Graph data ----
+const nodes = [
+  { id: "enterprise-adoption-ladder", label: "Adoption Ladder", kind: "center",  summary: "WEF/Accenture 5-phase buyer-side maturity ladder." },
+  { id: "phase-1", label: "P1 · Ad hoc",          kind: "phase", summary: "Sandbox experiments, no strategy." },
+  { id: "phase-2", label: "P2 · 1000 flowers",    kind: "phase", summary: "Disconnected pilots; tech-savvy leaders." },
+  { id: "phase-3", label: "P3 · One-domain",      kind: "phase", summary: "Formal AI strategy in one domain; ROI measurable." },
+  { id: "phase-4", label: "P4 · Enterprise",      kind: "phase", summary: "Cross-functional data products; ethical AI board." },
+  { id: "phase-5", label: "P5 · Value-chain",     kind: "phase", summary: "AI extends across partners and suppliers. No exemplar." },
+  { id: "foundational-enablers",    label: "Foundational enablers",   kind: "concept", summary: "Six readiness factors WEF claims close the scaling gap." },
+  { id: "scaling-gap",              label: "Scaling gap",              kind: "concept", summary: "74% of firms cannot scale AI past pilots; 16% are reinvention-ready." },
+  { id: "digital-core",             label: "Digital core",             kind: "concept", summary: "Three-layer enterprise stack: apps · data backbone · infrastructure." },
+  { id: "taker-shaper-maker",       label: "Taker / Shaper / Maker",   kind: "concept", summary: "Strategic-positioning typology: rent / customize / train the model." },
+  { id: "fusion-skills",            label: "Fusion skills",            kind: "concept", summary: "Workforce capability for working alongside AI; verification bottleneck." },
+  { id: "agentic-revolution",       label: "Agentic revolution",       kind: "concept", summary: "Analytical → agentic. Value moves from prediction to action." },
+  { id: "vertical-ai-orchestration",label: "Vertical AI orchestration",kind: "concept", summary: "Multi-agent industrial-domain orchestrators as the durable moat." },
+  { id: "middle-layer-defensibility",label:"Middle-layer defensibility",kind:"concept", summary: "Distribution-embedded workflow platforms survive the middle-dies thesis." },
+  { id: "H1-L0-L7-ladder",          label: "H1 · L0–L7",               kind: "hypothesis", summary: "Substrate-side ownership ladder, orthogonal to adoption maturity." },
+  { id: "H2-u-curve",               label: "H2 · U-curve",             kind: "hypothesis", summary: "Value concentrates at top + bottom of the stack." },
+  { id: "predictive-maintenance",      label: "Predictive maintenance",      kind: "usecase", summary: "Multimodal sensors → failure prediction. SBB: 60% faster inspections." },
+  { id: "autonomous-drone-inspection", label: "Drone inspection",            kind: "usecase", summary: "Drone-in-a-box BVLOS missions; >50% cycle-time reduction." },
+  { id: "autonomous-field-operations", label: "Autonomous field ops",        kind: "usecase", summary: "Aker BP Yggdrasil: periodically unmanned offshore." },
+  { id: "supply-chain-digital-twin",   label: "Supply-chain twin",           kind: "usecase", summary: "BMW: multi-agent genAI; 30–40% productivity gains." },
+  { id: "ai-materials-science",        label: "AI materials science",        kind: "usecase", summary: "Merck: €100k+ saved per testing campaign." },
+  { id: "grid-optimization",           label: "Grid optimization",           kind: "usecase", summary: "Dispatch + market trading + demand-response on stressed grids." },
+  { id: "wef-ai-in-action-2025",     label: "WEF · AI in Action",          kind: "source", summary: "WEF/Accenture flagship; 5-phase ladder + 6 enablers + 74%/16%." },
+  { id: "deloitte-ai-dossier-eri",   label: "Deloitte · ER&I",             kind: "source", summary: "12 ER&I use cases; analytical → agentic; vertical orchestration." },
+  { id: "bcg-2024-adoption",         label: "BCG · 2024",                  kind: "source", summary: "74% of companies struggle to scale AI." }
+];
+
+const links = [
+  { source: "enterprise-adoption-ladder", target: "phase-1", kind: "wiki" },
+  { source: "enterprise-adoption-ladder", target: "phase-2", kind: "wiki" },
+  { source: "enterprise-adoption-ladder", target: "phase-3", kind: "wiki" },
+  { source: "enterprise-adoption-ladder", target: "phase-4", kind: "wiki" },
+  { source: "enterprise-adoption-ladder", target: "phase-5", kind: "wiki" },
+  { source: "enterprise-adoption-ladder", target: "foundational-enablers",    kind: "wiki" },
+  { source: "enterprise-adoption-ladder", target: "scaling-gap",              kind: "wiki" },
+  { source: "enterprise-adoption-ladder", target: "digital-core",             kind: "wiki" },
+  { source: "enterprise-adoption-ladder", target: "taker-shaper-maker",       kind: "wiki" },
+  { source: "enterprise-adoption-ladder", target: "fusion-skills",            kind: "wiki" },
+  { source: "enterprise-adoption-ladder", target: "H1-L0-L7-ladder",          kind: "wiki" },
+  { source: "enterprise-adoption-ladder", target: "H2-u-curve",               kind: "wiki" },
+  { source: "foundational-enablers",  target: "digital-core",         kind: "wiki" },
+  { source: "foundational-enablers",  target: "fusion-skills",        kind: "wiki" },
+  { source: "foundational-enablers",  target: "scaling-gap",          kind: "wiki" },
+  { source: "digital-core",           target: "taker-shaper-maker",   kind: "wiki" },
+  { source: "scaling-gap",            target: "H2-u-curve",           kind: "wiki" },
+  { source: "scaling-gap",            target: "middle-layer-defensibility", kind: "wiki" },
+  { source: "agentic-revolution",     target: "vertical-ai-orchestration",  kind: "wiki" },
+  { source: "vertical-ai-orchestration", target: "H2-u-curve",        kind: "wiki" },
+  { source: "vertical-ai-orchestration", target: "middle-layer-defensibility", kind: "wiki" },
+  { source: "phase-2", target: "predictive-maintenance",      kind: "wiki" },
+  { source: "phase-2", target: "autonomous-drone-inspection", kind: "wiki" },
+  { source: "phase-2", target: "ai-materials-science",        kind: "wiki" },
+  { source: "phase-3", target: "supply-chain-digital-twin",   kind: "wiki" },
+  { source: "phase-3", target: "grid-optimization",           kind: "wiki" },
+  { source: "phase-4", target: "autonomous-field-operations", kind: "wiki" },
+  { source: "predictive-maintenance",      target: "agentic-revolution",        kind: "wiki" },
+  { source: "autonomous-field-operations", target: "vertical-ai-orchestration", kind: "wiki" },
+  { source: "supply-chain-digital-twin",   target: "vertical-ai-orchestration", kind: "wiki" },
+  { source: "enterprise-adoption-ladder", target: "wef-ai-in-action-2025",  kind: "cite" },
+  { source: "foundational-enablers",      target: "wef-ai-in-action-2025",  kind: "cite" },
+  { source: "scaling-gap",                target: "wef-ai-in-action-2025",  kind: "cite" },
+  { source: "scaling-gap",                target: "bcg-2024-adoption",      kind: "cite" },
+  { source: "digital-core",               target: "wef-ai-in-action-2025",  kind: "cite" },
+  { source: "taker-shaper-maker",         target: "wef-ai-in-action-2025",  kind: "cite" },
+  { source: "fusion-skills",              target: "wef-ai-in-action-2025",  kind: "cite" },
+  { source: "agentic-revolution",         target: "deloitte-ai-dossier-eri",kind: "cite" },
+  { source: "vertical-ai-orchestration",  target: "deloitte-ai-dossier-eri",kind: "cite" },
+  { source: "predictive-maintenance",     target: "deloitte-ai-dossier-eri",kind: "cite" },
+  { source: "autonomous-drone-inspection",target: "deloitte-ai-dossier-eri",kind: "cite" },
+  { source: "autonomous-field-operations",target: "deloitte-ai-dossier-eri",kind: "cite" },
+  { source: "supply-chain-digital-twin",  target: "deloitte-ai-dossier-eri",kind: "cite" },
+  { source: "ai-materials-science",       target: "deloitte-ai-dossier-eri",kind: "cite" },
+  { source: "grid-optimization",          target: "deloitte-ai-dossier-eri",kind: "cite" }
+];
+
+const svg = d3.select("#graph-svg");
+const W = 1100, H = 600;
+const g = svg.append("g");
+svg.call(d3.zoom().scaleExtent([0.5, 2.5]).on("zoom", (e) => g.attr("transform", e.transform)));
+
+const link = g.append("g")
+  .attr("fill", "none")
+  .attr("stroke-opacity", 0.55)
+  .selectAll("line")
+  .data(links)
+  .join("line")
+    .attr("stroke", "#7a7466")
+    .attr("stroke-width", 1)
+    .attr("stroke-dasharray", d => d.kind === "cite" ? "3,3" : null);
+
+const nodeG = g.append("g").selectAll("g.node").data(nodes).join("g")
+  .attr("class", "node")
+  .style("cursor", "default");
+
+nodeG.each(function(d) {
+  const sel = d3.select(this);
+  if (d.kind === "hypothesis") {
+    sel.append("rect").attr("x", -7).attr("y", -7).attr("width", 14).attr("height", 14)
+      .attr("transform", "rotate(45)").attr("fill", "#7a2128").attr("stroke", "#f4f1ea").attr("stroke-width", 1.5);
+  } else if (d.kind === "phase") {
+    sel.append("rect").attr("x", -8).attr("y", -8).attr("width", 16).attr("height", 16)
+      .attr("fill", "#1f3a5f").attr("stroke", "#f4f1ea").attr("stroke-width", 1.5).attr("rx", 1);
+  } else if (d.kind === "source") {
+    sel.append("circle").attr("r", 7).attr("fill", "transparent").attr("stroke", "#8b5a2b").attr("stroke-width", 1.8);
+  } else if (d.kind === "center") {
+    sel.append("circle").attr("r", 13).attr("fill", "#1f3a5f").attr("stroke", "#f4f1ea").attr("stroke-width", 2);
+  } else if (d.kind === "usecase") {
+    sel.append("circle").attr("r", 5.5).attr("fill", "#6b7c95");
+  } else {
+    sel.append("circle").attr("r", 7).attr("fill", "#1f3a5f");
+  }
+});
+
+nodeG.append("text")
+  .attr("x", d => d.kind === "center" ? 0 : 12)
+  .attr("y", d => d.kind === "center" ? -20 : 4)
+  .attr("text-anchor", d => d.kind === "center" ? "middle" : "start")
+  .attr("font-family", "Source Serif 4, serif")
+  .attr("font-size", d => d.kind === "center" ? 14 : 12)
+  .attr("font-weight", d => d.kind === "center" || d.kind === "phase" ? 600 : 400)
+  .attr("fill", "#1a1a1a")
+  .text(d => d.label);
+
+const tooltip = d3.select("#tooltip");
+nodeG
+  .on("mouseenter", function(event, d) {
+    tooltip.style("opacity", 1)
+      .html(`<span class="ttl">${d.label}</span>${d.summary}<span class="kind">${d.kind}</span>`);
+    d3.select(this).select("circle, rect").attr("stroke", "#1a1a1a").attr("stroke-width", 2);
+  })
+  .on("mousemove", function(event) {
+    tooltip.style("left", (event.pageX + 14) + "px").style("top", (event.pageY + 14) + "px");
+  })
+  .on("mouseleave", function(event, d) {
+    tooltip.style("opacity", 0);
+    d3.select(this).select("circle, rect")
+      .attr("stroke", d.kind === "source" ? "#8b5a2b" : (d.kind === "phase" || d.kind === "center" || d.kind === "hypothesis") ? "#f4f1ea" : "none")
+      .attr("stroke-width", d.kind === "source" ? 1.8 : 1.5);
+  });
+
+const sim = d3.forceSimulation(nodes)
+  .force("link", d3.forceLink(links).id(d => d.id).distance(d => d.kind === "cite" ? 110 : 80).strength(0.6))
+  .force("charge", d3.forceManyBody().strength(-260))
+  .force("center", d3.forceCenter(W/2, H/2))
+  .force("collide", d3.forceCollide().radius(d => d.kind === "center" ? 28 : 22))
+  .force("y", d3.forceY().y(d => {
+    if (d.kind === "phase") return H/2 + 30;
+    if (d.kind === "source") return H - 50;
+    if (d.kind === "hypothesis") return 60;
+    return H/2;
+  }).strength(d => d.kind === "phase" || d.kind === "source" || d.kind === "hypothesis" ? 0.35 : 0.05))
+  .force("x", d3.forceX().x(d => {
+    if (d.kind === "phase") {
+      const order = { "phase-1": 0.1, "phase-2": 0.3, "phase-3": 0.5, "phase-4": 0.7, "phase-5": 0.88 };
+      return W * (order[d.id] ?? 0.5);
+    }
+    return W/2;
+  }).strength(d => d.kind === "phase" ? 0.6 : 0.04))
+  .alphaDecay(0.04)
+  .on("tick", () => {
+    link.attr("x1", d => d.source.x).attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x).attr("y2", d => d.target.y);
+    nodeG.attr("transform", d => `translate(${d.x},${d.y})`);
+  });
+
+setTimeout(() => sim.alphaTarget(0).stop(), 2400);
+
+const drag = d3.drag()
+  .on("start", (event, d) => { if (!event.active) sim.alphaTarget(0.2).restart(); d.fx = d.x; d.fy = d.y; })
+  .on("drag",  (event, d) => { d.fx = event.x; d.fy = event.y; })
+  .on("end",   (event, d) => { if (!event.active) sim.alphaTarget(0); d.fx = null; d.fy = null; });
+nodeG.call(drag);
+
+const reveals = document.querySelectorAll("section.reveal");
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+reveals.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

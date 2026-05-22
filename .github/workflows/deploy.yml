@@ -1,0 +1,69 @@
+name: Deploy wiki to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Allow only one concurrent deployment. Skip runs queued between an in-progress
+# run and the latest run, but do NOT cancel the in-progress run.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history so Quartz can compute last-modified dates
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Clone Quartz (pinned to v4)
+        run: |
+          git clone --depth 1 --branch v4 https://github.com/jackyzha0/quartz.git quartz
+
+      - name: Apply project Quartz config
+        run: |
+          cp quartz-config/quartz.config.ts quartz/quartz.config.ts
+          if [ -f quartz-config/quartz.layout.ts ]; then
+            cp quartz-config/quartz.layout.ts quartz/quartz.layout.ts
+          fi
+
+      - name: Install Quartz dependencies
+        working-directory: quartz
+        run: npm ci
+
+      - name: Build the site
+        working-directory: quartz
+        run: npx quartz build -d ../wiki -o public
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: quartz/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

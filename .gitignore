@@ -1,0 +1,36 @@
+# Quartz install (cloned fresh on each build via .github/workflows/deploy.yml)
+quartz/
+
+# Node
+node_modules/
+npm-debug.log*
+.npm
+
+# Build outputs
+public/
+.quartz-cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE / editor local state
+.vscode/
+.idea/
+*.swp
+*.swo
+.obsidian/
+.cursor/
+
+# Agent / Claude local config (machine-specific paths and permissions)
+.claude/settings.local.json
+.claude/*.local.json
+
+# Local environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Author-only daily notes (never publish; /reflect writes annotated siblings here)
+raw/daily tougths/
+/raw/daily thoughts/
