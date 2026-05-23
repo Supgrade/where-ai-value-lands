@@ -6,7 +6,7 @@ tags:
   - economics
   - distribution
   - strategy
-last-updated: 2026-05-22
+last-updated: 2026-05-23
 ---
 
 # Distribution Moat
@@ -27,6 +27,12 @@ Perplexity's strategy operationalizes this: own the search interface directly; a
 ## Relationship to [[H2_u-curve-of-value]]
 
 The distribution moat concept provides specific content to what H2 calls "the top of the U" — workflow + distribution ownership: who owns the user, the schema, the habits. It also sharpens the mechanism: the top of the U is defensible not because it is technically complex but because it accumulates behavioral data and switching costs that a commoditized foundation model cannot replicate by absorbing features.
+
+## Precursor — Choudary's Aggregator archetype
+
+The distribution-moat argument has a direct precursor in [[choudary-ecosystem-teardown]] (2022). His **Aggregator archetype** ([[ecosystem-business-archetypes]]) is defined by exactly the asset Srinivas / Truell / Mohan describe: **ownership of consumer engagement** as the increasingly scarce digital resource, with three concrete functions — provisioning consumer services, capturing consumer data, matchmaking producers ↔ consumers. The distribution-moat AI firms (Cursor, Perplexity, Windsurf) are best read as **Aggregators in B2B clothing**: consumer-of-developer engagement, data flywheel, gatekeeping foundation-model providers below.
+
+This pre-AI framing matters because it locates the distribution-moat claim inside a **structural pattern** (Aggregation Theory + horizontal-business-model emergence under unbundling — see [[vertical-to-horizontal-unbundling]]) rather than presenting it as a novel AI-era observation. The AI wave does not invent the distribution moat; it concentrates the conditions for it.
 
 ## What doesn't qualify as a distribution moat
 
@@ -50,3 +56,6 @@ A thin wrapper — a UI that proxies prompts to an external API without accumula
 - [[scaling-gap]] — middle-dies reading: the 74% that fail to scale are largely the firms without a pre-existing distribution moat.
 - [[oecd-sme-ai-adoption-2025]] — OECD G7 SME source: SMEs adopt AI primarily through the platforms that already own their distribution (Shopify, Microsoft, Google Workspace).
 - [[sme-optimiser-cross-functional-stack]] · [[sme-champion-vertical-ai]] — SME case patterns where the bundling platform captures most surplus from the SME's AI adoption.
+- [[choudary-ecosystem-teardown]] — 2022 pre-AI precursor; the Aggregator archetype defines "ownership of consumer engagement" as the canonical distribution-moat asset.
+- [[ecosystem-business-archetypes]] — Choudary's four-archetype taxonomy; distribution moats live in the Aggregator archetype.
+- [[vertical-to-horizontal-unbundling]] — the structural mechanism that makes Aggregator-archetype distribution moats possible.

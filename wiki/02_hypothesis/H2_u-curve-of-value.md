@@ -6,7 +6,7 @@ tags:
   - hypothesis
   - economics
   - margin
-last-updated: 2026-05-22
+last-updated: 2026-05-23
 ---
 
 # H2 — The U-Curve of Value
@@ -51,6 +51,17 @@ The Karpathy source adds two pressures on the U-curve, pulling in opposite direc
 - **Reinforces the top.** [[llm-as-operating-system]] implies install-base moats compound the way OS ecosystems do; [[democratization-of-programming]] implies distribution + workflow ownership matter more than syntax-level production. The defensible top is *verification + distribution*, not "we built an AI app."
 - **Reinforces the bottom.** [[agentic-scaling-law]] argues inference (not training) is the load-bearing economic activity. If correct, AI-factory substrate has a margin profile closer to a utility than to a speculative R&D bet — partially restoring the bottom of the U threatened by [[circular-ai-economy]].
 - **Threatens the top differently.** Steinberger's "agents eliminate 80% of apps" prediction (same source) says agents talk directly to endpoints, making consumer-facing GUIs redundant. If true, the **top of the U is not the verification GUI** — it's whatever the agent-facing API layer becomes. The application layer specializes, doesn't disappear, but its shape changes.
+
+## Structural precursor — Choudary's horizontal-value thesis (via [[choudary-ecosystem-teardown]])
+
+Choudary's 2022 four-archetype framework ([[ecosystem-business-archetypes]]) is a **pre-AI structural precursor** to H2. His claim: as transaction costs fall ([[vertical-to-horizontal-unbundling]]), vertically integrated value chains unbundle into horizontal layers, and value concentrates in specific horizontal positions. H2 is the AI-era specialisation of the same pattern.
+
+Mapped onto the U-curve:
+- **Aggregators and Infrastructures** → top and bottom of the U respectively (distribution + substrate).
+- **Integrators** → **bimodal middle**: defensible if switchboard-essential (Stripe-class, Plaid-class, Visa-class network effects); squeezed if generic. This **partially defends** H2 by giving the middle a richer taxonomy than "wrappers"; it **partially threatens** H2 by surfacing durable Integrator-class plays that capture middle-stack value.
+- **Capabilities** → either concentrate (when IP-defensible) or commoditise; the wrong-archetype-confusion failure mode ([[cross-archetype-confusion]]) drives many failed Capability bets.
+
+The thin-wrapper firms that motivate "the middle dies" are not an archetype in Choudary's taxonomy at all — they are **failed Capability attempts**. This sharpens H2: the squeezed middle is the population of firms that **tried to be Capabilities without IP / data advantage and failed**, plus the population of generic Integrators displaced by switchboard incumbents.
 
 ## Historical analogies (to be tested, not assumed)
 - **Intel vs. PC OEMs in the 90s** — chip and OS captured margin; assemblers in the middle were squeezed.
@@ -120,3 +131,6 @@ The Karpathy source adds two pressures on the U-curve, pulling in opposite direc
 - [[sme-broadband-firm-size-gap]] — five-year-flat ~25–28 pp connectivity divide.
 - [[ai-skill-shortage-as-diffusion-bottleneck]] — skills as the most-cited SME adoption barrier.
 - [[g7-sme-large-firm-ai-adoption-ratio]] — country-level variance (1.65× US → 4.7× Italy).
+- [[choudary-ecosystem-teardown]] — 2022 pre-AI structural precursor; supplies four-archetype vocabulary for the U.
+- [[ecosystem-business-archetypes]] — Choudary's four-archetype taxonomy mapped onto top/middle/bottom of the U.
+- [[vertical-to-horizontal-unbundling]] — the structural mechanism behind the recurring U-shape pattern across industries.

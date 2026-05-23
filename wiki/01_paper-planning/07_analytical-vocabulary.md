@@ -5,7 +5,7 @@ tags:
   - planning
   - vocabulary
   - framework
-last-updated: 2026-05-22
+last-updated: 2026-05-23
 ---
 
 # Analytical Vocabulary
@@ -104,6 +104,17 @@ Fifteen archetypes identified so far. Each archetype combines: what the organiza
 - "Business model" — acceptable in casual speech, but imprecise. "Business model" typically refers only to the *revenue mechanism* (subscription, API fees, etc.). "Archetype" names the full organizational form.
 
 **Open question:** → [[05_open-questions]] — is "archetype" the right term, or should it be "value-capture pattern" or "firm type"?
+
+**Sub-vocabulary — Choudary's four ecosystem archetypes** ([[ecosystem-business-archetypes]], from [[choudary-ecosystem-teardown]]). The fifteen-archetype roster above mixes stack position, margin mechanism, and accessibility. Choudary's four-way taxonomy is the cleanest off-the-shelf decomposition of *ecosystem position*:
+
+| Choudary archetype | Faces | Mechanism |
+|---|---|---|
+| **Aggregator** | Consumer (B2C) | Owns consumer engagement and data; gatekeeps producer market access |
+| **Integrator** | B2B (producer ↔ distributor) | API switchboard between supply-side and demand-side surfaces |
+| **Infrastructure** | Whole ecosystem | Substrate + standards + roadmap; coordinates other firms toward a shared output |
+| **Capability** | Embedded inside the other three | Specialised licensable function (Stripe-class) |
+
+This sub-vocabulary is **orthogonal** to Axis 1 (stack layer). A foundation-model lab is an Infrastructure in Choudary's frame regardless of where it sits on the technical stack; Cursor is an Aggregator-in-B2B-clothing regardless of "application layer." Open question: should the paper adopt Choudary's four as the **primary** Axis-3 vocabulary, with the fifteen-archetype roster as elaboration? See [[cross-archetype-confusion]] for the failure mode this taxonomy is designed to prevent.
 
 ---
 
@@ -239,4 +250,8 @@ See also [[05_open-questions]].
 - [[oecd-sme-adopter-taxonomy]] — source for Axis 5b.
 - [[middle-layer-defensibility]] — sharpens the Axis 4 "squeezed middle" claim.
 - [[distribution-moat]] — the mechanism behind top-of-curve positions.
+- [[ecosystem-business-archetypes]] — Choudary's four-archetype sub-vocabulary for Axis 3.
+- [[vertical-to-horizontal-unbundling]] — the structural mechanism behind ecosystem-archetype emergence.
+- [[cross-archetype-confusion]] — failure mode the Axis-3 vocabulary is designed to prevent.
+- [[choudary-ecosystem-teardown]] — primary source for the four-archetype sub-vocabulary.
 - [[03_structure]] — where each axis appears in the paper.
