@@ -6,7 +6,7 @@ tags:
   - economics
   - distribution
   - orchestration
-last-updated: 2026-05-22
+last-updated: 2026-05-23
 ---
 
 # Middle-Layer Defensibility
@@ -35,6 +35,15 @@ The distinction is not about which layer of the stack a company occupies. It is 
 **LangGraph (Harrison Chase / LangChain):** Not a wrapper but a stateful orchestration engine. Provides: HITL intervention, HOTL time-travel debugging, state management (short-term thread + long-term memory), real-time streaming and observability. By making these production-grade features the default, LangGraph embeds itself as essential enterprise infrastructure — the operating system governing how commoditized intelligence interacts with proprietary corporate data. See [[context-control]].
 
 **Perplexity (Aravind Srinivas):** Owns the direct user relationship; applies an 80/20 power-law approach to queries; dynamically swaps backend models at will; forces model providers to compete ruthlessly on price. See [[distribution-moat]].
+
+## Disambiguating "the middle" via Choudary
+
+[[choudary-ecosystem-teardown]] supplies a four-archetype taxonomy ([[ecosystem-business-archetypes]]) that resolves what "middle" actually contains. The pre-AI vocabulary distinguishes:
+
+- **Integrators** (B2B switchboards: Stripe, Plaid, Amadeus, Galileo) — sit "in the middle" by position but capture top-of-U economics when the switchboard is essential. **Defensible middle.**
+- **Capabilities** (specialised licensable modules) — defensible only when IP / data advantage is real. The "thin wrapper" middle is the **failed-Capability** subset.
+
+The "middle dies" claim is sharpest when re-stated in Choudary's vocabulary: **failed Capability attempts die; switchboard-essential Integrators do not**. Cursor / Windsurf / LangGraph all behave like Aggregator-archetype plays in B2B clothing rather than Integrator or Capability — which is why they fit the "workflow-embedded platform" column above. See [[cross-archetype-confusion]] for the strategic failure mode this disambiguation is designed to expose.
 
 ## Why this is partially compatible with [[H2_u-curve-of-value]]
 
@@ -76,3 +85,6 @@ LeCun's [[world-models-jepa]] argument adds a long-horizon risk: if autoregressi
 - [[agentic-revolution]] — sharpens the thesis to "action-orchestration platforms survive, prediction wrappers die."
 - [[oecd-sme-ai-adoption-2025]] — OECD source documents how SMEs disproportionately access AI through middle-layer bundles (Shopify, Microsoft 365, vertical SaaS).
 - [[sme-optimiser-cross-functional-stack]] · [[sme-explorer-custom-agent]] · [[sme-champion-vertical-ai]] — SME case patterns whose value-capture is mediated by the platforms they orchestrate through.
+- [[choudary-ecosystem-teardown]] — pre-AI source that supplies the four-archetype taxonomy used to disambiguate the "middle".
+- [[ecosystem-business-archetypes]] — Choudary's Aggregator / Integrator / Infrastructure / Capability framework.
+- [[cross-archetype-confusion]] — strategic failure mode the archetype disambiguation is designed to expose.

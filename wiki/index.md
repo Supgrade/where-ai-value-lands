@@ -7,7 +7,7 @@ last-updated: 2026-05-23
 ---
 
 # Wiki Index
-<!-- Last edit: 2026-05-23 — collaboration infrastructure (T0 + T1) shipped; charter added; license, repo, Quartz, /contribute skill resolved -->
+<!-- Last edit: 2026-05-23 — Choudary ecosystem-archetype vocabulary ingested; 4 new pages + Axis 3 sub-vocabulary -->
 
 
 Catalog of every page in the wiki, one-line summary each. Read first when answering any question. Updated on every ingest.
@@ -73,6 +73,9 @@ Catalog of every page in the wiki, one-line summary each. Read first when answer
 - [[sme-connectivity-divide]] — persistent ~27 pp small-vs-large broadband gap; widening urban-rural mobile gap (5 → 45 Mbps, 2019–2024).
 - [[sme-policy-pathway-novice-to-champion]] — stage-conditional policy matrix mapping OECD adopter stages to enabler interventions.
 - [[g7-sme-ai-policy-pluralism]] — four operationally distinct G7 SME-AI policy optima (market-led / state-coordinated industrial / state-coordinated soft-law / federal-regional); convergence on instruments alongside divergent framing.
+- [[ecosystem-business-archetypes]] — Choudary's four-archetype taxonomy (Aggregator / Integrator / Infrastructure / Capability) for horizontal business models; the cleanest off-the-shelf sub-vocabulary for Axis 3.
+- [[vertical-to-horizontal-unbundling]] — structural thesis: falling transaction costs unbundle vertical chains into modular horizontal ecosystems where value concentrates in archetype positions.
+- [[cross-archetype-confusion]] — strategic failure mode of benchmarking the wrong ecosystem archetype (B2B firms aping BigTech aggregators).
 
 ## Sources — `05_sources/`
 - [[bear-case-synthesis]] — internal synthesis of the four-pillar bear case.
@@ -90,6 +93,7 @@ Catalog of every page in the wiki, one-line summary each. Read first when answer
 - [[deloitte-ai-dossier-eri]] — vertical-industrial deep-dive on Energy, Resources & Industrials; 12 ER&I AI use cases; introduces the [[agentic-revolution]], [[vertical-ai-orchestration]], [[synthetic-data-generation]], and [[ai-factory-huang]] concepts (stub-via-synthesis of the Deloitte AI Dossier integrated with WEF and Karpathy/Huang material).
 - [[non-tech-digital-core-synthesis]] — secondary LLM-generated executive digest condensing WEF + Karpathy + Huang into a non-tech-enterprise prescription; elevates [[digital-core]], [[taker-shaper-maker]], [[fusion-skills]] to dedicated concept pages.
 - [[oecd-sme-ai-adoption-2025]] — OECD discussion paper for the G7 (2025); canonical official-multilateral document on SME-specific AI diffusion; four-enabler quartet, four-stage adopter taxonomy, G7 country policy profiles; load-bearing for [[diffusion-vs-innovation]] and the bottom-right of [[H2_u-curve-of-value]].
+- [[choudary-ecosystem-teardown]] — Sangeet Paul Choudary 2022 newsletter teardown; pre-AI canonical statement of the four-archetype ecosystem-business-model taxonomy; structural precursor to [[H2_u-curve-of-value]] and to [[distribution-moat]].
 
 ## Ideas — `06_ideas/`
 Concrete use-case patterns: how AI is *actually being used* on the ground. Pattern-level pages (not theoretical frameworks) — what the AI does, who's deploying it, what's been measured, what concepts it connects to.
