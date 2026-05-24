@@ -84,3 +84,6 @@ Useful as the **labor-side restatement of the autonomy-slider question**. The pa
 - [[scaling-gap]] — the empirical artifact the frame attributes partly to workforce readiness.
 - [[middle-layer-defensibility]] — where fusion happens at the product layer.
 - [[agentic-scaling-law]] — the long-horizon threat to a fusion-skills curriculum.
+- [[observed-exposure-measure]] — augmentative use is half-weighted, which structurally discounts the fusion-skills outcome the frame promotes.
+- [[ai-young-worker-hiring-slowdown]] — labor-side anchor for whether new entrants can develop fusion skills if entry-level slots disappear.
+- [[exposed-worker-demographics]] — the cohort whose fusion-skills capacity determines the labor-side incidence.

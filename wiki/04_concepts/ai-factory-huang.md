@@ -63,3 +63,4 @@ The federation matters because it constrains who can own the substrate. Hypersca
 - [[sovereign-ai]] — federated-factory topology opens room for sovereign-infra strategies.
 - [[wef-ai-in-action-2025]] — the WEF "Energy Paradox" framing the factory creates and must resolve.
 - [[divergent-value-stack-optima]] — different blocs are building different factory topologies (US-private, China-state, EU-sovereign).
+- [[ai-capex-cycle]] — the financial-cycle pressure the factory framing must absorb.

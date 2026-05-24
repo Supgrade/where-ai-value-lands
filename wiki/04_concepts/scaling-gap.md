@@ -26,6 +26,12 @@ The gap is interpretation-flexible. Three readings of the same number:
 
 The three readings are not mutually exclusive. The same gap can be evidence for all three pressures operating at once.
 
+## A parallel worker-level gap
+
+The 74% enterprise gap has an **occupation-level twin**: [[theoretical-vs-observed-capability-gap]] from [[massenkoff-mccrory-labor-market-impacts-2026]]. In the most-exposed occupational category (Computer & Math), LLM **theoretical capability covers 94% of tasks** but **observed Claude work-context usage covers only ~33%**. The same diffusion-lag pattern recurs at a different unit of analysis. The two gaps are sibling phenomena of [[diffusion-vs-innovation]] — capability outruns deployment everywhere it is measured.
+
+The two are not redundant evidence; they measure different things. The enterprise gap is **intra-firm scaling difficulty** (firms have started but can't scale); the occupational gap is **task-level deployment shortfall** (capability exists but isn't being used in work). They compound: an enterprise that cannot scale AI will leave its workers' theoretically exposed tasks unautomated, lengthening the occupational gap.
+
 ## Mechanisms / SME-specific evidence
 
 The BCG / Accenture survey reports the gap but not its mechanism. The OECD G7 paper ([[oecd-sme-ai-adoption-2025]]) supplies the SME-level mechanism: pilots fail to scale not because the model is wrong, but because the adopting firm lacks the workforce capacity to operate and adapt it. Three concrete SME-side bottlenecks compound:
@@ -71,3 +77,6 @@ These mechanisms map onto the OECD adopter taxonomy: SMEs stall transitioning fr
 - [[ai-skill-shortage-as-diffusion-bottleneck]] — skills mechanism.
 - [[sme-ai-finance-gap]] — finance mechanism.
 - [[sme-connectivity-divide]] — infrastructure mechanism.
+- [[massenkoff-mccrory-labor-market-impacts-2026]] — occupation-level sibling gap.
+- [[theoretical-vs-observed-capability-gap]] — worker-level diffusion-lag twin.
+- [[observed-exposure-measure]] — the measurement instrument exposing the worker-level gap.

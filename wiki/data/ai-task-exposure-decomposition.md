@@ -47,3 +47,4 @@ Sensitivity is real: deployment cost, verification overhead, and the easy-vs-har
 - [[capital-labor-divergence]] — same decomposition supplies the labor-displacement projection.
 - [[scaling-wall]] — the architectural argument for why the 23% profitability figure may *also* be optimistic.
 - [[acemoglu-simple-macroeconomics]] — primary source.
+- [[eloundou-beta-exposure]] — adjacent task-exposure framework that feeds into [[observed-exposure-measure]] in the Anthropic source.

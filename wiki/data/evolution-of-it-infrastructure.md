@@ -1,6 +1,6 @@
 
 To understand the technical evolution shown in the McKinsey image, you have to look at it as a shift from **Human-to-Machine (H2M)** manual labor to **Machine-to-Machine (M2M)** autonomous orchestration.
-[[The evolution of IT infrastructure.png]]
+![[evolution-of-it-infrastructure.png]]
 
 Here is the technical breakdown of the infrastructure stack from 2000 to 2030.
 

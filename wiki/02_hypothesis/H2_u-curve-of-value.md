@@ -1,7 +1,7 @@
 ---
 title: H2 — The U-Curve of Value
-status: working-hypothesis (under pressure from three directions; top empirically validated)
-confidence: low-to-medium — top empirically validated; bottom uncertain; **bottom-right thin in SME / lagging-sector dimension per [[oecd-sme-ai-adoption-2025]]**; U-shape may be a US-stack artifact ([[divergent-value-stack-optima]])
+status: working-hypothesis (under pressure from three directions; top empirically validated; labor-side mirror documented)
+confidence: low-to-medium — top empirically validated; bottom uncertain; **bottom-right thin in SME / lagging-sector dimension per [[oecd-sme-ai-adoption-2025]]**; U-shape may be a US-stack artifact ([[divergent-value-stack-optima]]); **labor-side mirror established by [[massenkoff-mccrory-labor-market-impacts-2026]]**
 tags:
   - hypothesis
   - economics
@@ -79,12 +79,24 @@ The thin-wrapper firms that motivate "the middle dies" are not an archetype in C
 - **Enterprise-side evidence is ambiguous.** [[wef-ai-in-action-2025]] reports a [[scaling-gap]] of **74% of firms struggling to scale AI** and only **16% prepared for enterprise reinvention**. This is interpretation-flexible: it can be read as managerial (closeable with enablers — the WEF stance), bear-structural (most enterprise AI does not deliver — compatible with [[bear-case-synthesis]]), or middle-dies (most internal initiatives are thin wrappers without distribution or substrate — compatible with [[middle-layer-defensibility]]). The same number supports all three readings, which means the gap is suggestive evidence but not yet adjudicating.
 - **Bull projections worth triangulating against.** WEF / Accenture project $7.6–17.9T global AI contribution by 2038 — a figure incompatible with [[task-based-framework]]'s <0.71% TFP cap. The source-of-projection (consultancy with commercial interest in scaling) should be weighed; useful as the canonical bull-multilateral number to contrast against.
 - **The shape may not be universal.** [[divergent-value-stack-optima]] argues — drawing on [[geopolitics-global-ai-divide]] — that the U-curve is plausibly **a US-stack artifact**. China's open-weight asymmetry ([[open-weight-asymmetry]]) deliberately *destroys* the bottom of the U to force value downstream into application and B2B integration: a bottom-*light*, application-heavy shape. Europe attempts a third shape — value at the compliance and sovereign-infra layer ([[brussels-effect-and-mirage]], [[sovereign-ai]]) — that does not resemble a U at all. If the where-does-value-land answer is bloc-specific, the single-curve framing is the wrong unit of analysis.
-- **The bottom-right of the U may be thin where the population is thickest (SME-side floor effect).** [[oecd-sme-ai-adoption-2025]] documents a [[sme-ai-adoption-gap]] of 40% large vs 11.9% small firms using AI OECD-wide in 2024. Only **29% of SMEs using generative AI deploy it in core activities**; the rest is peripheral (marketing, drafting, customer service). The long-tail SME application population that the U's bottom-right relies on is **shallow in depth and concentrated in capability-poor sectors** ([[sectoral-ai-diffusion-pattern]]: ~7% in construction, hospitality, transport vs ~45% in ICT). Three further empirical findings, gated by the [[OECD-sme-enabler-quartet]], narrow the tail:
+- **The bottom-right of the U may be thin where the population is thickest (SME-side floor effect).** [[oecd-sme-ai-adoption-2025]] documents a [[sme-ai-adoption-gap]] of 40% large vs 11.9% small firms using AI OECD-wide in 2024. Only **29% of SMEs using generative AI deploy it in core activities**; the rest is peripheral (marketing, drafting, customer service). The long-tail SME application population that the U's bottom-right relies on is **shallow in depth and concentrated in capability-poor sectors** ([[sectoral-ai-diffusion-pattern]]: ~7% in construction, hospitality, transport vs ~45% in ICT). Three further empirical findings, gated by the [[oecd-sme-enabler-quartet]], narrow the tail:
     - The firm-size broadband gap in OECD countries has been **flat at ~25–28 pp for five years** ([[sme-broadband-firm-size-gap]]) — connectivity is not converging.
     - Skills are the most-cited adoption barrier, with **50%+ of SMEs across G7 countries** reporting they lack the knowledge to use generative AI ([[ai-skill-shortage-as-diffusion-bottleneck]]).
     - AI adoption ratios between large and small firms range from **1.65× (US) to 4.7× (Italy)** across the G7 ([[g7-sme-large-firm-ai-adoption-ratio]]).
     
     If SMEs settle at the [[oecd-sme-adopter-taxonomy]] Novice / Optimiser corner — wide-but-shallow off-the-shelf use — the application-side surplus pools at a small number of digitally mature large firms and AI-intensive sectors, not at the broad SME base. The U may be **asymmetric in the SME dimension**: top captured by a small Champion-adjacent population, large middle of Optimisers paying recurring SaaS rent upward. The US has the thinnest divide and likely the fattest application-layer tail; the EU bloc, despite richer policy, has the widest divides. This doesn't refute the U, but it makes the application-layer-as-broad-base claim contingent on policy, not architectural.
+
+## Labor-side mirror (via [[massenkoff-mccrory-labor-market-impacts-2026]])
+
+The value-stack U has a **labor-exposure twin** on a different axis. Anthropic's 2026 internal study finds AI exposure concentrated on the **upper half of the wage distribution** (computer programmers 74.5%, customer service reps 70.1%, financial analysts 57.2%, market research analysts 64.8%) while **30% of workers — manual physical labor (cooks, mechanics, lifeguards, bartenders) — have zero exposure**. Exposed workers are **older, more female, more white/Asian, more educated** (4× the graduate-degree share), and earn **47% more per hour** than unexposed ones (see [[exposed-worker-demographics]]).
+
+This produces a labor-exposure shape that is also U-like but on a different axis: **high-skill knowledge work at one end, manual physical labor at the other, semi-skilled service work compressed in the middle**. The two U's interact:
+
+- **Surplus-side.** Capital owners of L4–L6 application-layer firms (Cursor, GitHub Copilot, Anthropic, LangChain customers) capture surplus by automating tasks performed by the highest-paid labor on the curve. The labor-side incidence is the inverse of prior automation waves: this one hits the educated, not the routine.
+- **Detection-side.** The [[unemployment-did-exposed-workers]] DiD is flat post-ChatGPT (+0.002, SE 0.002, insignificant) — labor-side displacement is **invisible in unemployment** at the 1pp differential detectability threshold. The only detectable signal is [[ai-young-worker-hiring-slowdown]]: a ~14% drop in 22–25-year-old job-start rates in exposed occupations. Capital captures surplus; senior incumbents retain jobs; the entry-level cohort bears the suppressed-hiring cost.
+- **Diffusion-side.** [[theoretical-vs-observed-capability-gap]] shows actual Claude deployment is ~3× behind theoretical capability in the most-exposed category. As that gap closes, the labor-side incidence scales — the U-shape sharpens.
+
+For *Where Value Lands*, this updates the central claim: **value lands on capital at the top of the value-stack U, with the cost borne not by the bottom of the labor distribution but by the entry-level cohort of the top half**. The redistribution story is *intra*-class (incumbent vs entrant within knowledge-work) before it is *inter*-class.
 
 ## What would retire this hypothesis
 - Three or more profitable, durable, mid-stack players emerge with no distribution moat and no substrate moat — pure "middle of the stack" winners.
@@ -97,6 +109,7 @@ The thin-wrapper firms that motivate "the middle dies" are not an archetype in C
 ## Related
 - [[H1_L0-L7-ladder]] — the map this depends on.
 - [[H3_orthogonal-axes-under-priced]] — what the U misses.
+- [[H4_rl-specialization-value-pocket]] — proposes a *vertical-scale* instantiation of the top of the U: RL-fine-tuned proprietary models inside one industrial customer as a [[distribution-moat]] alternative to consumer-facing workflow ownership. Tests whether the model layer can be pulled into the moat for non-software industrials, rather than concentrating only at the application + orchestration layer.
 - [[bear-case-synthesis]] — the cluster of evidence pressuring this hypothesis.
 - [[circular-ai-economy]] — the strongest direct threat to the bottom of the U.
 - [[task-based-framework]] — caps the size of the underlying surplus.
@@ -127,10 +140,117 @@ The thin-wrapper firms that motivate "the middle dies" are not an archetype in C
 - [[oecd-sme-adopter-taxonomy]] — buyer-side decomposition that makes the bottom-right granular.
 - [[sectoral-ai-diffusion-pattern]] — the sectoral compounding factor (ICT-heavy vs construction/hospitality/transport).
 - [[ai-productivity-firm-level]] — productivity gains mediated by complementary capital; surplus partially routed to substrate vendors.
-- [[OECD-sme-enabler-quartet]] — the four gating enablers behind the SME floor effect.
+- [[oecd-sme-enabler-quartet]] — the four gating enablers behind the SME floor effect.
 - [[sme-broadband-firm-size-gap]] — five-year-flat ~25–28 pp connectivity divide.
 - [[ai-skill-shortage-as-diffusion-bottleneck]] — skills as the most-cited SME adoption barrier.
 - [[g7-sme-large-firm-ai-adoption-ratio]] — country-level variance (1.65× US → 4.7× Italy).
+- [[massenkoff-mccrory-labor-market-impacts-2026]] — labor-side mirror source.
+- [[observed-exposure-measure]] — the measure used to score the labor-side incidence.
+- [[exposed-worker-demographics]] — who absorbs the labor-side displacement.
+- [[ai-young-worker-hiring-slowdown]] — the entry-level signal that does the surplus-capture work.
+- [[unemployment-did-exposed-workers]] — the *null* finding that locates the displacement in hiring rather than unemployment.
+- [[theoretical-vs-observed-capability-gap]] — the diffusion process that scales the labor-side incidence as deployment catches up.
 - [[choudary-ecosystem-teardown]] — 2022 pre-AI structural precursor; supplies four-archetype vocabulary for the U.
 - [[ecosystem-business-archetypes]] — Choudary's four-archetype taxonomy mapped onto top/middle/bottom of the U.
 - [[vertical-to-horizontal-unbundling]] — the structural mechanism behind the recurring U-shape pattern across industries.
+
+## Referenced by
+
+*Auto-generated reverse-link index — pages in the wiki that link here. Maintained by `/lint` and reverse-link sweeps.*
+
+**Paper planning**
+- [[00_initial-brief]]
+- [[02_purpose-and-justification]]
+- [[03_structure]]
+- [[05_open-questions]]
+- [[06_collaboration]]
+- [[07_analytical-vocabulary]]
+- [[08_contributor-charter]]
+
+**Hypotheses**
+- [[H1_L0-L7-ladder]]
+- [[H3_orthogonal-axes-under-priced]]
+
+**Search**
+- [[01_source-list]]
+
+**Concepts**
+- [[agentic-revolution]]
+- [[agentic-scaling-law]]
+- [[ai-capex-cycle]]
+- [[ai-factory-huang]]
+- [[ai-productivity-firm-level]]
+- [[ai-skill-shortage-as-diffusion-bottleneck]]
+- [[ai-young-worker-hiring-slowdown]]
+- [[application-layer]]
+- [[autonomy-slider]]
+- [[capital-labor-divergence]]
+- [[circular-ai-economy]]
+- [[context-control]]
+- [[democratization-of-programming]]
+- [[digital-core]]
+- [[distribution-moat]]
+- [[divergent-value-stack-optima]]
+- [[ecosystem-business-archetypes]]
+- [[enterprise-adoption-ladder]]
+- [[exposed-worker-demographics]]
+- [[jevons-paradox-ai]]
+- [[llm-as-operating-system]]
+- [[middle-layer-defensibility]]
+- [[observed-exposure-measure]]
+- [[oecd-sme-adopter-taxonomy]]
+- [[oecd-sme-enabler-quartet]]
+- [[scaling-gap]]
+- [[scaling-wall]]
+- [[sectoral-ai-diffusion-pattern]]
+- [[sme-ai-adoption-gap]]
+- [[sme-ai-finance-gap]]
+- [[sme-connectivity-divide]]
+- [[software-3-paradigm]]
+- [[task-based-framework]]
+- [[theoretical-vs-observed-capability-gap]]
+- [[value-capture]]
+- [[vertical-ai-orchestration]]
+- [[vertical-to-horizontal-unbundling]]
+- [[world-models-jepa]]
+
+**Sources**
+- [[acemoglu-simple-macroeconomics]]
+- [[bear-case-synthesis]]
+- [[choudary-ecosystem-teardown]]
+- [[deloitte-ai-dossier-eri]]
+- [[geopolitics-global-ai-divide]]
+- [[goldman-sachs-too-much-spend]]
+- [[karpathy-software-3]]
+- [[massenkoff-mccrory-labor-market-impacts-2026]]
+- [[oecd-sme-ai-adoption-2025]]
+- [[wef-ai-in-action-2025]]
+- [[where-value-lands-2026]]
+- [[zitron-circular-economics]]
+
+**Ideas**
+- [[sme-champion-vertical-ai]]
+- [[sme-explorer-custom-agent]]
+- [[sme-novice-off-the-shelf-llm]]
+- [[sme-optimiser-cross-functional-stack]]
+
+**Data**
+- [[ai-exposure-vs-bls-growth]]
+- [[cursor-50b-valuation]]
+- [[g7-sme-large-firm-ai-adoption-ratio]]
+- [[high-vs-low-exposure-worker-characteristics]]
+- [[most-exposed-occupations]]
+- [[oecd-ai-adoption-trajectory-2020-2024]]
+- [[oecd-g7-productivity-gain-projection]]
+- [[oecd-sectoral-ai-adoption-2024]]
+- [[scaling-gap-74-16]]
+- [[sme-broadband-firm-size-gap]]
+- [[sme-vs-large-firm-ai-gap]]
+- [[task-based-tfp-ceiling]]
+- [[unemployment-did-exposed-workers]]
+- [[wef-7-6t-projection]]
+- [[windsurf-acquisition-battle]]
+- [[young-worker-hiring-did]]
+
+**Thoughts**
+- [[archetypes-vocabulary-personal-frame]]

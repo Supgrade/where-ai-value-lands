@@ -44,7 +44,7 @@ Each data point gets its own short markdown file:
   2. **Source** — full citation, primary attribution, and the wiki source page it was ingested through.
   3. **What it shows** — 1–3 sentences of plain-language interpretation.
   4. **How to cite** — a one-line format the author can paste into the paper.
-  5. **Connections** — `[[wikilinks]]` to concept/hypothesis pages, each annotated with *how* the data is used there.
+  5. **Connections** — `` `[[wikilinks]]` `` to concept/hypothesis pages, each annotated with *how* the data is used there.
 
 ## The forward → reverse rule still applies
 

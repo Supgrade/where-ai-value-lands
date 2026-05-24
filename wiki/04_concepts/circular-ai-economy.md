@@ -16,7 +16,7 @@ last-updated: 2026-05-21
 > The claim that **current AI "revenue" is largely VC capital pass-through** flowing in a closed loop from venture funds → application startups → foundation models → hyperscalers, with very little net-new non-tech enterprise revenue entering the system.
 
 ## The loop
-1. **VC** funds application-layer startups (Cursor, Perplexity, etc.) at high valuations.
+1. **VC** funds [[application-layer]] startups (Cursor, Perplexity, etc.) at high valuations.
 2. **Startups** immediately spend most of their cash on API calls to foundation models. Many spend **>100% of revenue on compute** — Perplexity reportedly ~164% of revenue in 2024.
 3. **Foundation models** (OpenAI, Anthropic) spend the bulk of their incoming revenue on hyperscaler compute. OpenAI reportedly ~50% on [[inference]] + ~75% on training.
 4. **Hyperscalers** book this cash as "AI revenue" on earnings calls, justifying the next leg of capex.
@@ -68,3 +68,4 @@ This concept is the single most direct threat to the U-curve. The U assumes valu
 - [[H2_u-curve-of-value]]
 - [[H1_L0-L7-ladder]]
 - [[wef-ai-in-action-2025]] — bull counterpart that does not engage with the circularity question; assumes the $632B spend trajectory will produce durable enterprise demand.
+- [[ai-capex-cycle]] — the time-axis framing of the same financial structure; boom-then-bust mechanism.

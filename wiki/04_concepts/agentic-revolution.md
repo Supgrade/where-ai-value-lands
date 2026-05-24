@@ -12,7 +12,7 @@ last-updated: 2026-05-22
 # The Agentic Revolution
 
 > [!abstract] One-line
-> The transition from **analytical AI** (predicts a failure, displays a dashboard) to **agentic AI** (predicts the failure, orders the replacement part, reroutes the supply chain, schedules a drone inspection, escalates only on exception). The unit of value capture moves from *prediction* to *action*.
+> The transition from **analytical AI** (predicts a failure, displays a dashboard) to **agentic AI** (predicts the failure, orders the replacement part, reroutes the supply chain, schedules a drone inspection, escalates only on exception). The unit of [[value-capture]] moves from *prediction* to *action*.
 
 ## The shift articulated
 

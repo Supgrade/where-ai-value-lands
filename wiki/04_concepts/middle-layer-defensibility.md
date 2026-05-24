@@ -78,6 +78,7 @@ LeCun's [[world-models-jepa]] argument adds a long-horizon risk: if autoregressi
 - [[karpathy-software-3]] — earlier bull-frame source; this concept sharpens what the bull frame means
 - [[circular-ai-economy]] — the counter-risk: are Cursor's enterprise clients paying with VC money?
 - [[autonomy-slider]] — the human-in-the-loop design pattern that makes distribution moats sticky
+- [[application-layer]] — the layer this concept describes the defensible subset of
 - [[wef-ai-in-action-2025]] — enterprise-side artifact: the 74% scaling gap reads naturally as a middle-dies signal at the *adoption* layer.
 - [[scaling-gap]] — the empirical observation that most enterprise AI initiatives fail to scale; middle-dies-compatible reading.
 - [[deloitte-ai-dossier-eri]] — non-software vertical instantiation; the workflow-embedded thesis applied to industrial operations.
@@ -88,3 +89,4 @@ LeCun's [[world-models-jepa]] argument adds a long-horizon risk: if autoregressi
 - [[choudary-ecosystem-teardown]] — pre-AI source that supplies the four-archetype taxonomy used to disambiguate the "middle".
 - [[ecosystem-business-archetypes]] — Choudary's Aggregator / Integrator / Infrastructure / Capability framework.
 - [[cross-archetype-confusion]] — strategic failure mode the archetype disambiguation is designed to expose.
+- [[most-exposed-occupations]] — the user base of L4–L6 application-layer platforms; empirical confirmation that the workflow-embedded layer serves the highest-exposure occupations.

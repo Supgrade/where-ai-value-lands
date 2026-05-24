@@ -30,10 +30,26 @@ No apocalyptic mass displacement yet. What is visible:
 
 Wage effects are early and noisy, but theoretical models predict steady downward pressure on the lower half of the distribution without policy intervention.
 
-## Demographic specificity (per [[acemoglu-simple-macroeconomics]])
+## Demographic specificity — a live disagreement
+
+### Acemoglu's prior prediction (2024)
 - AI-exposed tasks are more **demographically even** than prior automation waves (which concentrated on male blue-collar manufacturing).
 - However, the **wage incidence is uneven**: empirical projections point to a specific negative effect on **low-education, native-born women** in administrative and routine cognitive work.
 - No projection that AI **reduces** overall labor income inequality. Multiple projections show it **widens** it.
+
+### Anthropic's 2026 empirical update (partial contradiction)
+[[massenkoff-mccrory-labor-market-impacts-2026]] uses an **observed-usage-weighted** exposure measure ([[observed-exposure-measure]]) and finds the exposed cohort is **more educated, higher-paid, more white/Asian, and older** than the population — *not* low-education clerical women. See [[exposed-worker-demographics]] and [[high-vs-low-exposure-worker-characteristics]]:
+
+- Graduate-degree share **~4× higher** in the exposed cohort (17.4% vs 4.5%).
+- Hourly wage **47% higher** ($32.69 vs $22.23).
+- The female over-representation (+15.5 pp) survives, but it is a **college-educated female** profile, not a clerical one.
+
+The reconciliation is methodological: Acemoglu's task-exposure framework treats theoretical LLM applicability uniformly; Anthropic's measure adds realized Claude usage as a second layer. Theoretical exposure concentrates on routine clerical work; realized usage is concentrated in **higher-skill knowledge work** because that is where current LLM products are sold, trusted, and deployed.
+
+The question is whether this is **stable** (LLM diffusion permanently concentrates on knowledge work) or **transitional** (the [[theoretical-vs-observed-capability-gap]] eventually closes and the incidence shifts toward Acemoglu's prediction as low-education routine tasks become routinely automated). Current evidence sides with the Anthropic empirical measure; the Acemoglu prediction remains the strongest theoretical alternative.
+
+### Where the displacement actually lands
+[[ai-young-worker-hiring-slowdown]] adds an age-stratified channel: 22–25-year-old labor-market entrants in exposed occupations face a **~14% drop in job-start rate** post-ChatGPT. Senior incumbents are unaffected; the displacement is **intra-class (entrant vs incumbent within high-skill work)** rather than inter-class. The displaced cohort accrues no surplus; capital owners and senior incumbents capture it.
 
 ## The capital side
 The other side of the coin:
@@ -68,3 +84,11 @@ A subtle but important corollary: AI lowers the cost of producing tasks with **n
 - [[ai-productivity-firm-level]] — productivity premium evidence and methodological caveats relevant to the surplus-distribution question.
 - [[sme-champion-vertical-ai]] — Champion-tier case studies where SMEs build proprietary AI and capture more of the surplus locally.
 - [[sectoral-ai-diffusion-pattern]] — uneven diffusion concentrates AI surplus in ICT and professional services.
+- [[massenkoff-mccrory-labor-market-impacts-2026]] — Anthropic source providing the empirical update.
+- [[observed-exposure-measure]] — the measure that reframes the incidence question.
+- [[exposed-worker-demographics]] — labor-side demographic profile that partially contradicts the Acemoglu prediction.
+- [[high-vs-low-exposure-worker-characteristics]] — citation data table.
+- [[ai-young-worker-hiring-slowdown]] — age-stratified channel through which the displacement actually lands.
+- [[unemployment-did-exposed-workers]] — the *null* unemployment finding that pushes the incidence into hiring/exit channels.
+- [[theoretical-vs-observed-capability-gap]] — diffusion-side mechanism that may eventually shift incidence to Acemoglu's predicted cohort.
+- [[displacement]] — labor-side counterpart concept; the substitution side of the augmentation/displacement distinction.

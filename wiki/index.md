@@ -3,11 +3,13 @@ title: Wiki Index
 status: living
 tags:
   - index
-last-updated: 2026-05-23
+last-updated: 2026-05-24
 ---
 
 # Wiki Index
-<!-- Last edit: 2026-05-23 — Choudary ecosystem-archetype vocabulary ingested; 4 new pages + Axis 3 sub-vocabulary -->
+<!-- Last edit: 2026-05-24 — added H4 hypothesis (RL-driven specialization as value pocket) + new `tech/` reference subfolder with 7 RL explainer pages (rlhf, rlaif, rl-from-verifiable-rewards, rl-data-preparation, rl-testing-validation, rl-open-vs-closed-source, rl-apis). Patched H1, H2, post-scaling-research-pivot, value-functions-as-algorithmic-emotion, agentic-scaling-law, continual-learning-paradigm, scaling-wall with H4 forward references.
+
+Previous: 2026-05-24 — ingested Sutskever "Age of Research" interview synthesis. Added 4 new concept pages (post-scaling-research-pivot, continual-learning-paradigm, eval-real-world-gap, value-functions-as-algorithmic-emotion) + 1 source (sutskever-age-of-research). Patched scaling-wall, agentic-scaling-law, karpathy-software-3, world-models-jepa, autonomy-slider with cross-source synthesis. -->
 
 
 Catalog of every page in the wiki, one-line summary each. Read first when answering any question. Updated on every ingest.
@@ -26,17 +28,24 @@ Catalog of every page in the wiki, one-line summary each. Read first when answer
 ## Hypotheses — `02_hypothesis/`
 - [[H1_L0-L7-ladder]] — agentic AI stack as a ladder of substrate ownership and autonomy.
 - [[H2_u-curve-of-value]] — value concentrates at the top and bottom of the stack, evaporates in the middle. **Top now empirically validated (Cursor, Windsurf). Bottom uncertain. U-shape may be US-stack artifact.**
+- [[H3_orthogonal-axes-under-priced]] — *deferred stub.* Claims axes that cut across L0–L7 (autonomy, deployment topology, buyer maturity) are more predictive of where value lands than ladder position alone. Premise authored in kickoff; evidence not yet developed.
+- [[H4_rl-specialization-value-pocket]] — **new 2026-05-24.** RL-driven domain-specific fine-tuning of base models — sold to a single industrial customer or a narrow vertical as a *proprietary operational asset* — may be a real value pocket as pre-training saturates. Technical premise grounded in [[post-scaling-research-pivot]] + [[agentic-scaling-law]]; business case unvalidated. The thing sold is closer to AlphaFold-class domain specialization than to generic image/text-to-3D fine-tuning.
 
 ## Search — `03_search/`
 - [[01_source-list]] — prioritized bibliography organized by paper section.
 - [[02_deep-research-prompts]] — agent-ready research briefs.
 - [[03_keyword-search-strings]] — boolean search strings.
+- [[suggested-sources]] — candidate sources proposed by `/discover` for author review.
 
 ## Concepts — `04_concepts/`
 - [[scaling-wall]] — the architectural ceiling on next-token-prediction reasoning.
 - [[task-based-framework]] — Hulten's theorem applied to AI; the <0.71% TFP ceiling.
 - [[circular-ai-economy]] — the financial ouroboros from VC → apps → models → hyperscalers.
+- [[ai-capex-cycle]] — boom-then-bust pattern in hyperscaler training capex → inference demand → potential overcapacity; bear-case mechanism.
 - [[capital-labor-divergence]] — how AI directs surplus toward capital and away from labor.
+- [[displacement]] — the substitution side of AI's labor effect, distinct from augmentation; measurement debate (theoretical vs observed exposure) and the unemployment-invisibility / hiring-suppression evidence.
+- [[value-capture]] — the share of generated surplus that a firm or stack position actually retains; the value-creation-vs-capture wedge.
+- [[application-layer]] — L0–L2 territory where end-user AI products live; the layer the top-of-U thesis depends on and the circular-economy thesis threatens.
 - [[software-3-paradigm]] — Karpathy's 1.0/2.0/3.0 framing of computing.
 - [[autonomy-slider]] — continuous human↔agent control spectrum; "Iron Man suit" partial-autonomy default.
 - [[llm-as-operating-system]] — LLM as CPU, context window as RAM; 1960s-time-sharing analogy.
@@ -73,9 +82,18 @@ Catalog of every page in the wiki, one-line summary each. Read first when answer
 - [[sme-connectivity-divide]] — persistent ~27 pp small-vs-large broadband gap; widening urban-rural mobile gap (5 → 45 Mbps, 2019–2024).
 - [[sme-policy-pathway-novice-to-champion]] — stage-conditional policy matrix mapping OECD adopter stages to enabler interventions.
 - [[g7-sme-ai-policy-pluralism]] — four operationally distinct G7 SME-AI policy optima (market-led / state-coordinated industrial / state-coordinated soft-law / federal-regional); convergence on instruments alongside divergent framing.
+- [[observed-exposure-measure]] — Massenkoff–McCrory usage-weighted occupation-level AI displacement-risk measure; theoretical capability + realized Claude work-context usage.
+- [[theoretical-vs-observed-capability-gap]] — Claude work-context usage covers ~33% of Computer & Math tasks vs ~94% theoretical; "the red area will grow to cover the blue" diffusion lag at occupation granularity.
+- [[exposed-worker-demographics]] — AI-exposed workers are older, female, more white/Asian, more educated (4× graduate-degree share), 47% higher-paid; partial contradiction of the Acemoglu wage-incidence prediction.
+- [[ai-young-worker-hiring-slowdown]] — the only detectable AI labor-side signal: ~14% drop in 22–25-year-old job-start rate in exposed occupations post-ChatGPT; "canary in the coal mine."
+- [[eloundou-beta-exposure]] — theoretical LLM task-exposure scoring (β=0/0.5/1) used as input to most modern exposure measures; 97% of Claude work-context usage falls on β≥0.5 tasks.
 - [[ecosystem-business-archetypes]] — Choudary's four-archetype taxonomy (Aggregator / Integrator / Infrastructure / Capability) for horizontal business models; the cleanest off-the-shelf sub-vocabulary for Axis 3.
 - [[vertical-to-horizontal-unbundling]] — structural thesis: falling transaction costs unbundle vertical chains into modular horizontal ecosystems where value concentrates in archetype positions.
 - [[cross-archetype-confusion]] — strategic failure mode of benchmarking the wrong ecosystem archetype (B2B firms aping BigTech aggregators).
+- [[post-scaling-research-pivot]] — Sutskever's "Age of Research" reframe; pre-training data exhausted, algorithmic research replaces brute-force scaling as the binding leap.
+- [[continual-learning-paradigm]] — sample-efficient on-the-job learning as the proposed successor to static pre-trained models; the algorithmic answer to anterograde amnesia.
+- [[eval-real-world-gap]] — superhuman benchmarks coexisting with brittle real-world performance; "human reward hacking" by researchers optimising for evals.
+- [[value-functions-as-algorithmic-emotion]] — Sutskever's RL proposal: biological emotions as the proof-of-concept for cheap robust intermediate trajectory signals during long-horizon learning.
 
 ## Sources — `05_sources/`
 - [[bear-case-synthesis]] — internal synthesis of the four-pillar bear case.
@@ -93,7 +111,9 @@ Catalog of every page in the wiki, one-line summary each. Read first when answer
 - [[deloitte-ai-dossier-eri]] — vertical-industrial deep-dive on Energy, Resources & Industrials; 12 ER&I AI use cases; introduces the [[agentic-revolution]], [[vertical-ai-orchestration]], [[synthetic-data-generation]], and [[ai-factory-huang]] concepts (stub-via-synthesis of the Deloitte AI Dossier integrated with WEF and Karpathy/Huang material).
 - [[non-tech-digital-core-synthesis]] — secondary LLM-generated executive digest condensing WEF + Karpathy + Huang into a non-tech-enterprise prescription; elevates [[digital-core]], [[taker-shaper-maker]], [[fusion-skills]] to dedicated concept pages.
 - [[oecd-sme-ai-adoption-2025]] — OECD discussion paper for the G7 (2025); canonical official-multilateral document on SME-specific AI diffusion; four-enabler quartet, four-stage adopter taxonomy, G7 country policy profiles; load-bearing for [[diffusion-vs-innovation]] and the bottom-right of [[H2_u-curve-of-value]].
+- [[massenkoff-mccrory-labor-market-impacts-2026]] — Anthropic internal study (March 2026); introduces [[observed-exposure-measure]]; finds no detectable AI unemployment effect through 2025 but tentative entry-level hiring slowdown for 22–25-year-olds; partial contradiction of Acemoglu's incidence prediction; bull-frame internal datapoint.
 - [[choudary-ecosystem-teardown]] — Sangeet Paul Choudary 2022 newsletter teardown; pre-AI canonical statement of the four-archetype ecosystem-business-model taxonomy; structural precursor to [[H2_u-curve-of-value]] and to [[distribution-moat]].
+- [[sutskever-age-of-research]] — Sutskever (2026) declares the Age of Scaling over and the Age of Research begun; primary-architect concession of the empirical scaling wall; proposes continual learning + value functions + a "straight-shot" deployment posture.
 
 ## Ideas — `06_ideas/`
 Concrete use-case patterns: how AI is *actually being used* on the ground. Pattern-level pages (not theoretical frameworks) — what the AI does, who's deploying it, what's been measured, what concepts it connects to.
@@ -118,8 +138,22 @@ Concrete use-case patterns: how AI is *actually being used* on the ground. Patte
 - [[sme-explorer-custom-agent]] — custom/frontier model in narrow scope. **Tokyo B2B with multilingual sales-mediation agents.**
 - [[sme-champion-vertical-ai]] — custom/frontier across functions. **Calgary healthcare-tech, Cambridge biotech.**
 
+## Tech — `tech/`
+Reference layer: short technical explainer pages grounding the analytical concepts and hypotheses in real algorithmic detail. New 2026-05-24 to support [[H4_rl-specialization-value-pocket]]. See [[README]] for the catalog.
+
+- [[rlhf]] — Reinforcement Learning from Human Feedback. SFT → reward model → PPO/DPO. The production recipe behind aligned chat models.
+- [[rlaif]] — Reinforcement Learning from AI Feedback. Replace the human labeler with a strong model labeler (Constitutional AI).
+- [[rl-from-verifiable-rewards]] — RLVR. Deterministic checker as reward (unit tests, theorem provers, simulators). The mechanism behind reasoning-tuned models (o1, R1).
+- [[rl-data-preparation]] — trajectory collection, preference labeling, deduplication, contamination filtering, reward shaping.
+- [[rl-testing-validation]] — held-out evals, reward-hacking probes, distribution-shift checks, real-world A/B; closes (or fails to close) [[eval-real-world-gap]].
+- [[rl-open-vs-closed-source]] — open algorithms (PPO, DPO, GRPO) and frameworks (TRL, OpenRLHF, verl) vs closed recipes inside frontier labs; strategic implications for moat location.
+- [[rl-apis]] — the commercial fine-tuning surface: OpenAI RFT, Anthropic custom models, Google Vertex tuning, Together, Fireworks, Predibase, Modal-hosted TRL.
+
 ## Data — `data/`
 Citable units of evidence: statistics, tables, figures, images. Each numeric claim in a concept page should resolve to one of these. See [[README]] for conventions.
+
+### Infrastructure evolution
+- [[evolution-of-it-infrastructure]] — McKinsey-framed H2M→M2M shift from CLI/bare-metal (2000) through IaC/NLP (2020s) to intent-based autonomous infrastructure (2030 vision).
 
 ### Bear-case ceilings
 - [[task-based-tfp-ceiling]] — Acemoglu's <0.71% 10-year US TFP ceiling.
@@ -143,6 +177,13 @@ Citable units of evidence: statistics, tables, figures, images. Each numeric cla
 ### Vertical-industrial deltas
 - [[eri-use-case-deltas]] — SBB 60% / BMW 30–40% / Merck €100k / drone >50%.
 
+### Labor-side AI exposure (Massenkoff–McCrory, 2026)
+- [[most-exposed-occupations]] — Top-10 list: computer programmers (74.5%), customer service reps (70.1%), data entry keyers (67.1%), medical record specialists, market research analysts.
+- [[ai-exposure-vs-bls-growth]] — Slope −6.07 (SE 1.32), R² 0.027 — 10pp more coverage → 0.6pp less BLS projected growth; theoretical β alone does *not* correlate.
+- [[high-vs-low-exposure-worker-characteristics]] — CPS Aug–Oct 2022: top-quartile-exposed vs zero-exposure demographic/wage/education table.
+- [[unemployment-did-exposed-workers]] — DiD pooled post-ChatGPT +0.0020 (SE 0.0019) — no detectable unemployment effect.
+- [[young-worker-hiring-did]] — DiD pooled post-ChatGPT −14.3% (SE 7.2) — tentative entry-level hiring suppression for 22–25-year-olds.
+
 ### SME diffusion (OECD G7, 2025)
 - [[sme-vs-large-firm-ai-gap]] — 40% large / 20.4% medium / 11.9% small OECD-wide 2024.
 - [[oecd-ai-adoption-trajectory-2020-2024]] — 5.6% → 14% OECD-wide AI adoption.
@@ -151,6 +192,9 @@ Citable units of evidence: statistics, tables, figures, images. Each numeric cla
 - [[sme-broadband-firm-size-gap]] — persistent ~27.5 pp small-vs-large high-speed broadband gap.
 - [[ai-skill-shortage-sme-share]] — skill-shortage shares and skill-importance shift across G7.
 - [[g7-sme-large-firm-ai-adoption-ratio]] — Italy 4.7× (widest) to US 1.65× (narrowest).
+
+## Glossary — `Glossary/`
+- [[inference]] — glossary stub.
 
 ## Thoughts — `wiki/thoughts/`
 - [[archetypes-vocabulary-personal-frame]] — reflection on 2026-05-22: business archetype taxonomy, analytical vocabulary, personal research frame.

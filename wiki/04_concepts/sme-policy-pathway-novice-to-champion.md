@@ -21,7 +21,7 @@ The OECD G7 paper maps its descriptive four-stage SME AI taxonomy (Novices → O
 
 It is doing three things simultaneously:
 
-1. **Operationalising the [[OECD-sme-enabler-quartet]]**: the four enablers don't matter equally at every stage. Skills and connectivity matter most for Novices; compute and data most for Explorers; ecosystems most for Champions.
+1. **Operationalising the [[oecd-sme-enabler-quartet]]**: the four enablers don't matter equally at every stage. Skills and connectivity matter most for Novices; compute and data most for Explorers; ecosystems most for Champions.
 2. **Linking diagnosis to prescription**: the descriptive taxonomy isn't theatre — it tells policymakers *which instruments to use on which firms*.
 3. **Anchoring instrument heterogeneity**: a country that spends only on Champion-stage interventions (frontier compute, AI Factories) while neglecting Novice-stage awareness leaves most of its SME base behind. This is the diffusion-vs-frontier debate (see [[diffusion-vs-innovation]]) made operational.
 

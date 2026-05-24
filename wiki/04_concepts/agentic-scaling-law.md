@@ -25,6 +25,8 @@ If both axes scale, the **effective intelligence available per task** grows much
 ## Where the claim comes from
 [[karpathy-software-3]] (Huang material cited as synthesis inside Karpathy's lecture). Empirically anchored in the post-2024 wave of reasoning-tuned models and multi-agent orchestration frameworks.
 
+**Demand-side validation from Sutskever (2026).** [[sutskever-age-of-research]] argues that pre-training data is exhausted and the frontier of scaling has *already* shifted to RL and inference-time compute — the same axis Huang named. Sutskever and Huang agree on direction but diverge sharply on methodology: aesthetic top-down research taste vs first-principles-physics co-design ([[ai-factory-huang]]). See [[post-scaling-research-pivot]]. The cross-source agreement on the *axis* materially strengthens the agentic-scaling claim; the methodological disagreement is the live question.
+
 ## Relationship to [[scaling-wall]] — direct contradiction (partial)
 
 This is the **strongest bull counter to [[scaling-wall]]**. The two framings disagree about *what* is scaling:
@@ -69,3 +71,8 @@ The honest synthesis is probably:
 - [[circular-ai-economy]]
 - [[bear-case-synthesis]]
 - [[wef-ai-in-action-2025]] — paper's "wave 1" (full automation of complex repetitive tasks via multi-agent systems) maps onto this concept; cites Anthropic computer use and OpenAI o1.
+- [[sutskever-age-of-research]] — demand-side counterpart: Sutskever's pivot from pre-training to RL + inference-time compute names the same scaling axis.
+- [[post-scaling-research-pivot]] — Sutskever's reframe of the broader paradigm shift this concept fits inside.
+- [[value-functions-as-algorithmic-emotion]] — the algorithmic component Sutskever proposes to make long-horizon RL tractable; complementary to test-time compute.
+- [[H4_rl-specialization-value-pocket]] — uses test-time-compute + RL as the technical premise that motivates domain-specific fine-tuning as a value pocket; also the strongest bear pressure on H4 (if base + harness already wins, RL fine-tuning expense is margin destruction).
+- [[rl-from-verifiable-rewards]] — the post-training mechanism where test-time-compute meets training-time RL most cleanly.

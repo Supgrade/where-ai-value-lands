@@ -45,3 +45,4 @@ The financial scale of the capex commitment that the [[circular-ai-economy]] the
 - [[bear-case-synthesis]] — pillar of the bear case.
 - [[ai-factory-huang]] — the bull-frame interpretation: this capex *is* the AI factory.
 - [[goldman-sachs-too-much-spend]] — middle-position skeptic on the same trajectory.
+- [[ai-capex-cycle]] — the boom-then-bust framing this data sizes.

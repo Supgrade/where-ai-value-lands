@@ -50,3 +50,8 @@ This is the empirical anchor for [[fusion-skills]] — adoption demands a blend 
 ## Open question
 
 Why is Japan such an extreme outlier — 80% reporting a knowledge barrier, 90.8% reporting no change in skill needs, lowest training rate? Either (a) Japan's SMEs are using gen-AI for narrower, more turnkey use cases that genuinely don't require skill changes, or (b) Japanese respondents systematically under-report. The OECD paper does not adjudicate. Worth flagging as a research gap.
+
+## See also
+
+- [[theoretical-vs-observed-capability-gap]] — worker-level twin: capability outruns deployment, and the binding constraint is the same skill shortage.
+- [[massenkoff-mccrory-labor-market-impacts-2026]] — Anthropic source where the gap is documented at occupation granularity.

@@ -21,7 +21,7 @@ last-updated: 2026-05-21
 | **China — state-driven** | Technology as instrument of state security, industrial policy, and global infrastructure projection. | Infrastructure power — 5G, undersea cables, data centers, surveillance kit (Digital Silk Road). |
 | **EU — rights-driven** | Fundamental rights, democratic structures, fair redistribution of digital gains. Check corporate power. | Regulatory power — the Brussels Effect ([[brussels-effect-and-mirage]]). |
 
-## Why this matters for value capture
+## Why this matters for [[value-capture]]
 
 Each model's export mechanism dictates *where value lands*:
 - The US captures rent at the **API meter** because its model exports the platforms.

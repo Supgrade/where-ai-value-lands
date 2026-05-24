@@ -6,7 +6,7 @@ tags:
   - hypothesis
   - stack
   - framework
-last-updated: 2026-05-22
+last-updated: 2026-05-23
 ---
 
 # H1 — The L0–L7 Ladder
@@ -49,6 +49,16 @@ last-updated: 2026-05-22
 - **L7 is a bet on a paradigm shift, not a glide path.** "Intelligence as commodity, energy included" requires inference that is cheap *and* reliable on hard tasks. The bear case argues the second condition is the unsolved one — see [[bear-case-synthesis]]. The bull case ([[llm-as-operating-system]] + [[agentic-scaling-law]]) argues L7 is exactly the structural destination if inference is the load-bearing economic activity and the LLM becomes the new OS-with-install-base.
 - **An OECD buyer-side taxonomy mirrors the ladder from the demand side.** [[oecd-sme-ai-adoption-2025]] proposes [[oecd-sme-adopter-taxonomy]] — Novices / Optimisers / Explorers / Champions — crossed on *complexity of AI use* (Embedded → Off-the-shelf → Customised → Frontier) and *scope of AI application* (Isolated → Functional → Cross-functional → Enterprise-wide), with *digital maturity* as a diagonal third dimension. Unlike the linear [[enterprise-adoption-ladder]], it distinguishes "wide-but-shallow" Optimisers from "deep-but-narrow" Explorers — a distinction L0–L7 has no native vocabulary for. The taxonomy is the **buyer-side mirror** of the supply-side ladder: where L0–L7 describes who in the stack captures value as it flows downstream, the OECD frame describes which firms can reach upstream to extract it. The mapping to substrate ownership is loose — most Champion SMEs in the case studies still sit at L0–L2 substrate (rented APIs, embedded features). Useful pairing for the white paper: a country's economic capture of AI-generated value is a product of (a) where its firms sit in the stack as suppliers, and (b) where its firms sit in the adopter taxonomy as buyers. A country can win the stack but lose diffusion, or vice versa. The taxonomy also aligns with [[taker-shaper-maker]]: Novices/Optimisers behave as takers, Explorers as shapers, Champions as (small-scale) makers — see [[sme-policy-pathway-novice-to-champion]]. A firm's full coordinates are now closer to (substrate L0–L7, maturity Phase 1–5, positioning Taker/Shaper/Maker, **SME-adopter Novice/Optimiser/Explorer/Champion**) — i.e., the SME taxonomy is a *fourth independent decomposition*, primarily useful in the long-tail population the other three frames under-resolve.
 
+## Confidence
+
+Confidence varies substantially by layer and is not uniform across the ladder.
+
+**High (L0–L3).** These levels are directly observable today. Users actively move between them — from web chat (L0) to IDE assistance (L1) to workflow automation (L2) to single-agent loops (L3). The tooling is well-documented, products are shipping at scale, and the substrate-ownership distinction between levels is empirically legible. The ladder's descriptive validity here is not seriously contested.
+
+**Medium (L4–L5).** Sustained autonomous execution and multi-agent fleets exist in production, but reliability under real-world enterprise conditions is uneven. Confidence here depends partly on how the [[scaling-wall]] argument resolves: if long-horizon tasks on hard-to-learn enterprise problems require a paradigm shift beyond next-token prediction, L4–L5 becomes a wall rather than a staircase for most buyers. Confidence is partially restored by the [[agentic-scaling-law]] (test-time compute as a second scaling axis), which suggests that sub-agent reasoning and search can route around the wall for tasks with verifiable intermediate steps — but the honest position is that both the wall and the counter-axis are partially real and unsettled.
+
+**Low / speculative (L6–L7).** Vertical integration at this scale — own weights, own GPUs, own datacenter, own energy — is currently hyperscaler-centric. Evidence for broad enterprise adoption of L6 economics is sparse; L7 (intelligence as commodity, energy included) is a structural bet on a paradigm shift in inference cost and reliability that has not yet generalized beyond a handful of firms. Confidence here depends on energy and silicon economics that remain deeply uncertain. Useful as a visionary horizon, not a near-term operational claim.
+
 ## What would retire this hypothesis
 - The field converges on a different canonical taxonomy (e.g., an Anthropic or DeepMind "levels of autonomy" frame becomes dominant) and ours adds nothing.
 - In interviews, no operator finds the L4 / L5 distinction useful for their own positioning.
@@ -57,6 +67,7 @@ last-updated: 2026-05-22
 ## Related
 - [[H2_u-curve-of-value]] — the economic claim that depends on this map.
 - [[H3_orthogonal-axes-under-priced]] — what the ladder leaves out.
+- [[H4_rl-specialization-value-pocket]] — sits at L3–L5 substrate (agent + harness + RL-tuned model) and proposes a Maker posture at vertical scale; tests whether the ladder's middle rungs admit durable third-party value capture via RL specialization.
 - [[scaling-wall]] — the architectural ceiling that may cap the ladder above L3.
 - [[agentic-scaling-law]] — the counter-axis (test-time compute) that may route around the wall.
 - [[autonomy-slider]] — competing/orthogonal single-axis taxonomy.
@@ -76,3 +87,56 @@ last-updated: 2026-05-22
 - [[sme-policy-pathway-novice-to-champion]] — the policy-pathway framing that links the adopter quadrants to [[taker-shaper-maker]] positioning.
 - [[sme-ai-adoption-gap]] — empirical evidence that most SMEs sit at L0–L2 regardless of taxonomy quadrant.
 - [[ai-productivity-firm-level]] — the productivity premium that the ladder's strategic claim implicitly depends on.
+
+## Referenced by
+
+*Auto-generated reverse-link index — pages in the wiki that link here. Maintained by `/lint` and reverse-link sweeps.*
+
+**Paper planning**
+- [[00_initial-brief]]
+- [[02_purpose-and-justification]]
+- [[03_structure]]
+- [[06_collaboration]]
+- [[07_analytical-vocabulary]]
+
+**Hypotheses**
+- [[H2_u-curve-of-value]]
+- [[H3_orthogonal-axes-under-priced]]
+
+**Concepts**
+- [[agentic-scaling-law]]
+- [[ai-factory-huang]]
+- [[application-layer]]
+- [[autonomy-slider]]
+- [[circular-ai-economy]]
+- [[digital-core]]
+- [[enterprise-adoption-ladder]]
+- [[foundational-enablers]]
+- [[g7-sme-ai-policy-pluralism]]
+- [[llm-as-operating-system]]
+- [[oecd-sme-adopter-taxonomy]]
+- [[oecd-sme-enabler-quartet]]
+- [[scaling-gap]]
+- [[scaling-wall]]
+- [[software-3-paradigm]]
+- [[taker-shaper-maker]]
+- [[vertical-ai-orchestration]]
+- [[world-models-jepa]]
+
+**Sources**
+- [[bear-case-synthesis]]
+- [[choudary-ecosystem-teardown]]
+- [[deloitte-ai-dossier-eri]]
+- [[geopolitics-global-ai-divide]]
+- [[karpathy-software-3]]
+- [[marcus-world-models-failure]]
+- [[massenkoff-mccrory-labor-market-impacts-2026]]
+- [[non-tech-digital-core-synthesis]]
+- [[oecd-sme-ai-adoption-2025]]
+- [[wef-ai-in-action-2025]]
+
+**Ideas**
+- [[sme-champion-vertical-ai]]
+- [[sme-explorer-custom-agent]]
+- [[sme-novice-off-the-shelf-llm]]
+- [[sme-optimiser-cross-functional-stack]]

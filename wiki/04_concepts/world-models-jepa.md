@@ -22,7 +22,7 @@ LLMs are restricted to **System 1** thinking — reactive, pattern-matching, opt
 
 For long-horizon agentic tasks, these limitations become structural, not engineering. Attempting to build reliable autonomous agents on autoregressive LLMs is, in LeCun's framing, "a recipe for disaster."
 
-This critique reinforces [[scaling-wall]] (Marcus's architectural ceiling argument) from a different angle: Marcus focuses on reasoning plateau; LeCun focuses on the absence of world-state modeling.
+This critique reinforces [[scaling-wall]] (Marcus's architectural ceiling argument) from a different angle: Marcus focuses on reasoning plateau; LeCun focuses on the absence of world-state modeling. Sutskever ([[sutskever-age-of-research]]) reinforces it from a *third* angle: human-like sample efficiency (a teenager learns to drive in ~10 hours) is mathematically possible but unreachable from the pre-training-only recipe. The three diagnoses converge on the same incumbent paradigm; the *proposed successor* differs — LeCun's JEPA is architectural (latent-space prediction), Sutskever's is algorithmic ([[continual-learning-paradigm]] + [[value-functions-as-algorithmic-emotion]]), Huang's is computational ([[agentic-scaling-law]]).
 
 The counter-argument is [[agentic-scaling-law]] (Huang): test-time compute as a second scaling axis may route around the base-model ceiling. LeCun and Huang can be partially right simultaneously if the ceiling is task-distributional — autoregressive models work for language tasks, fall short for physical/causal tasks.
 
@@ -38,7 +38,7 @@ By predicting in latent space rather than pixel/token space, JEPA:
 - Focuses strictly on meaningful causal variables
 - Enables **System 2** reasoning: deliberate, multi-step, outcome-directed planning
 
-## Why this matters for value capture
+## Why this matters for [[value-capture]]
 
 If JEPA-style world models become the next dominant paradigm:
 - The current open-weight LLM wave is a transitional phase, not a terminal state
@@ -64,3 +64,7 @@ LeCun warned at Davos that Western labs restricting foundational research repeat
 - [[open-weight-asymmetry]] — geopolitical dimension of the open-research debate
 - [[H1_L0-L7-ladder]] — upper rungs (L4–L5) depend on architectural reliability this concept questions
 - [[H2_u-curve-of-value]] — long-horizon risk to distribution moats
+- [[theoretical-vs-observed-capability-gap]] — if frontier capability shifts under JEPA, the "blue area" of theoretical capability itself moves, complicating diffusion-lag measurement
+- [[sutskever-age-of-research]] — parallel paradigm-reset claim from a different angle: algorithmic (continual learning + value functions) rather than architectural (latent-space prediction).
+- [[continual-learning-paradigm]] — algorithmic successor proposed by Sutskever, complementary to JEPA's architectural answer.
+- [[post-scaling-research-pivot]] — the broader pivot frame that contains both successor paradigms.

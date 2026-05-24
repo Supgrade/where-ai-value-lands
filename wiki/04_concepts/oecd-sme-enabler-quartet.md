@@ -39,3 +39,7 @@ The paper is explicit that "one size does not fit all": the relative weight of e
 The quartet is a **demand-side, buyer-side** complement to the **supply-side** [[H1_L0-L7-ladder]]. The supply side asks where value lands in the stack; the OECD demand side asks which firms can actually reach far enough up the stack to capture value at all. Where any enabler is missing, that firm cannot meaningfully participate at the application layer — thinning out the bottom-right of the [[H2_u-curve-of-value]].
 
 Also directly supports [[diffusion-vs-innovation]]: the entire enabler frame is a diffusion playbook.
+
+## See also
+
+- [[theoretical-vs-observed-capability-gap]] — worker/occupation-level version of the same binding-constraint logic; the firm-level enabler quartet has a worker-level mirror.

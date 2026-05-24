@@ -2,6 +2,31 @@
 
 Append-only chronological record of wiki operations. Entry format: `## [YYYY-MM-DD] {ingest|ask|lint|discover|edit} | Title`.
 
+## [2026-05-24] edit | New hypothesis H4 + tech/ reference subfolder (RL-driven specialization)
+
+- **Trigger:** author-proposed working hypothesis — pre-training has saturated, RL (especially [[rl-from-verifiable-rewards]]) is the still-scaling axis, and the entrepreneurial opportunity is domain-specific RL fine-tuning of base models sold as a *proprietary operational asset* to a single industrial customer or narrow vertical. Worked example: industrial-implant intervention-proposal model trained on a company's own (state, proposal, outcome) history. Technical premise grounded; business case explicitly under-validated.
+- **New hypothesis page:** `wiki/02_hypothesis/H4_rl-specialization-value-pocket.md` — status `working-hypothesis`, confidence `low-to-medium (technically grounded above; business case unvalidated)`. Sections cover claim, technical premise, business premise, the worked industrial-implant example, six bear arguments, four falsifiability conditions, six open research questions.
+- **New subfolder `wiki/tech/`** introduced as a NEW page kind: short didactic technical-reference pages (200–500 words each) grounding the analytical layer in algorithmic detail. Seven content pages + a README:
+  - `tech/README.md` — catalog + framing.
+  - `tech/rlhf.md` — Reinforcement Learning from Human Feedback (InstructGPT recipe; SFT → RM → PPO/DPO).
+  - `tech/rlaif.md` — Reinforcement Learning from AI Feedback (Constitutional AI; judge-model labelers).
+  - `tech/rl-from-verifiable-rewards.md` — RLVR (o1/R1/AlphaProof recipe; the technical engine under H4).
+  - `tech/rl-data-preparation.md` — trajectory collection, dedup, contamination filtering, reward shaping.
+  - `tech/rl-testing-validation.md` — held-out evals, reward-hacking probes, real-world A/B; closes (or fails to close) [[eval-real-world-gap]].
+  - `tech/rl-open-vs-closed-source.md` — algorithms commoditised, recipes + data + value-function research stay closed; mirrors [[open-weight-asymmetry]] one floor down.
+  - `tech/rl-apis.md` — frontier-lab tuning (OpenAI RFT, Anthropic custom, Vertex) vs open-weight tuning (Together, Fireworks, Predibase, Modal/Replicate/RunPod, Lamini, Anyscale); the most consequential vendor unit-economics choice in H4.
+- **Patches to existing pages** (forward + reverse link integrity):
+  - `wiki/index.md` — H4 added to Hypotheses catalog; new `## Tech` section listing the 7 pages.
+  - `wiki/01_paper-planning/05_open-questions.md` — new "RL-driven specialization as value pocket" section with six open questions (break-even contract size, verifiable-reward feasibility across verticals, open-weight vs closed-frontier base choice, boutique vendor vs frontier-lab fine-tuning API, customer data exclusivity, position on H1 ladder).
+  - `wiki/02_hypothesis/H1_L0-L7-ladder.md` — H4 added to Related (L3–L5 substrate, Maker posture at vertical scale).
+  - `wiki/02_hypothesis/H2_u-curve-of-value.md` — H4 added to Related (vertical-scale top-of-U via RL specialization).
+  - `wiki/04_concepts/post-scaling-research-pivot.md` — H4 added to Related (load-bearing premise).
+  - `wiki/04_concepts/value-functions-as-algorithmic-emotion.md` — H4 + four tech pages added (value-function tractability is the gating constraint).
+  - `wiki/04_concepts/agentic-scaling-law.md` — H4 + [[rl-from-verifiable-rewards]] added.
+  - `wiki/04_concepts/continual-learning-paradigm.md` — H4 + three tech pages added (continual learning is the single-customer compounding moat).
+  - `wiki/04_concepts/scaling-wall.md` — H4 added (entrepreneurial wager on the wall + bear pressure if wall generalises to RL).
+- **Status note.** H4 is the first hypothesis page with explicit technical-layer scaffolding underneath it. Confidence is asymmetric: higher that RL specialization will matter more in the next 18 months, much lower that boutique RL-fine-tuning vendors capture the surplus (vs frontier-lab tuning APIs or the customers themselves). The `tech/` subfolder is intentionally light — sufficient depth for an operator to weigh the hypothesis above, not encyclopaedic. Future `/lint` sweep will populate the `Referenced by` blocks across the new pages.
+
 ## [2026-05-23] edit | Quartz publish filter + baseUrl fix
 
 - **Problem:** Live site at `https://supgrade.github.io/where-ai-value-lands/` showed only empty RSS XML — no HTML home page.
@@ -196,3 +221,71 @@ Append-only chronological record of wiki operations. Entry format: `## [YYYY-MM-
   - **US-stack bias.** Choudary's framework does not cleanly accommodate [[open-weight-asymmetry]] or [[brussels-effect-and-mirage]]; needs cross-checking against [[divergent-value-stack-optima]].
   - **Should the paper adopt Choudary's four as primary Axis-3 sub-vocabulary** with the fifteen-archetype roster as elaboration? Promoted to [[05_open-questions]] candidate.
 - Suggested next: `/lint` to verify reverse-link integrity across the 4 new pages and 4 updates; `/edit` to fold "Should Choudary's four be the primary Axis-3 sub-vocabulary?" into [[05_open-questions]]; `/discover` for a primary Stripe / Plaid case-study source to stress-test the bimodal-Integrator hypothesis; `/ask` to draft the per-archetype value-capture map (Aggregator → top of U; Infrastructure → bottom of U; Integrator → bimodal middle; Capability → IP-defended or failed).
+
+## [2026-05-23] ingest | Labor Market Impacts of AI — A New Measure and Early Evidence (Massenkoff & McCrory, Anthropic 2026)
+- Pages created (11):
+  - Source (1): [[massenkoff-mccrory-labor-market-impacts-2026]]
+  - Concepts (5): [[observed-exposure-measure]], [[theoretical-vs-observed-capability-gap]], [[exposed-worker-demographics]], [[ai-young-worker-hiring-slowdown]], [[eloundou-beta-exposure]]
+  - Data (5): [[most-exposed-occupations]], [[ai-exposure-vs-bls-growth]], [[high-vs-low-exposure-worker-characteristics]], [[unemployment-did-exposed-workers]], [[young-worker-hiring-did]]
+- Pages updated (15):
+  - Hypothesis: [[H2_u-curve-of-value]] (labor-side mirror documented; status updated; new section on labor-exposure U; +7 backlinks)
+  - Concepts: [[capital-labor-divergence]] (Acemoglu-vs-Anthropic incidence disagreement made explicit; entry-level channel added), [[diffusion-vs-innovation]] (worker-level diffusion lag added as load-bearing evidence), [[scaling-gap]] (worker-level twin documented), [[task-based-framework]] (labor-side empirical anchor connected), [[ai-productivity-firm-level]] (worker-level companion linked), [[autonomy-slider]] (operationalisation in observed-exposure weighting noted), [[fusion-skills]] (half-weight discounting flagged), [[sme-ai-adoption-gap]] (entry-level cascade question), [[ai-skill-shortage-as-diffusion-bottleneck]] (worker-level twin), [[middle-layer-defensibility]] (user-base empirical confirmation), [[jevons-paradox-ai]] (software-developer outlier), [[world-models-jepa]] (capability frontier shifting), [[oecd-sme-enabler-quartet]] (worker-level mirror)
+  - Source: [[acemoglu-simple-macroeconomics]] (partial-contradiction note + see-also), [[bear-case-synthesis]] (labor-side update integrated)
+  - Data: [[ai-task-exposure-decomposition]] (eloundou-β backlink)
+  - Planning: [[05_open-questions]] (4 new labor-side questions added; Acemoglu-vs-Anthropic disagreement, unemployment-vs-hiring leading indicator, two-curve story, conflict-of-interest)
+  - Index: 6 new concept entries, 5 new data entries, 1 new source entry; header timestamp updated
+- Key takeaway: this is the first wiki source that closes the loop between **theoretical AI capability** and **realized labor-market deployment**. Massenkoff–McCrory's [[observed-exposure-measure]] adds usage-weighting on top of Eloundou's β, producing the first labor-side measure that **predicts independent BLS occupational growth projections** (slope −6.07, R² 0.027) where theoretical β alone does not. The headline finding — [[theoretical-vs-observed-capability-gap]], with deployment running ~3× behind capability in the most-exposed category — operationalises [[diffusion-vs-innovation]] at occupation granularity and provides a parallel to the firm-level [[scaling-gap]]. Labor-side displacement is not detectable in unemployment data through mid-2025 ([[unemployment-did-exposed-workers]]) but the entry-level cohort (22–25) faces a ~14% hiring-rate suppression ([[ai-young-worker-hiring-slowdown]]) — the only detectable AI labor signal in the wiki to date.
+- Contradictions surfaced:
+  - **Acemoglu (2024) vs Anthropic (2026) on labor incidence.** Acemoglu predicted low-education clerical women bear the cost; Anthropic finds exposed workers are *more* educated, *higher*-paid, more white/Asian. Live empirical disagreement; reconciliation depends on whether [[theoretical-vs-observed-capability-gap]] is structural or transitional. Documented in [[exposed-worker-demographics]] and as a new [[05_open-questions]] item.
+  - **Unemployment as the wrong dashboard.** Labor-side AI displacement is **invisible** in unemployment data but **visible** in 22–25-year-old hiring rates. Conventional labor-market dashboards may systematically miss the disruption.
+  - **Bull-frame internal source.** Anthropic publishes labor-market research about its own deployment surface. The conflict-of-interest dimension is unstated in the source but added as an [[05_open-questions]] item.
+- Open questions sharpened (added to [[05_open-questions]]):
+  - Acemoglu vs Anthropic on labor incidence
+  - Unemployment vs hiring as the leading indicator
+  - Labor-side U vs value-stack U presentation in the paper
+  - Anthropic as both measurer and deployer (conflict of interest)
+- Suggested next: ingest the **Brynjolfsson, Chandar & Chen (2025) "Canaries in the coal mine"** paper and the **Hampole et al. (2025) NBER paper** to triangulate the labor-side findings with independent measures (different data sources, different identification strategies); run `/lint` to verify the 11 new pages have clean reverse-link integrity; revisit [[03_structure]] to decide whether the labor-side U gets its own section or sits inside Section 3.
+
+## [2026-05-23] lint | Full wiki health check (124 content pages)
+- T1 findings: 30 broken wikilinks (9× to never-created `[[H3_orthogonal-axes-under-priced]]`; case bug on `[[OECD-sme-enabler-quartet]]`; stub demo links in `[[06_collaboration]]` and `wiki/data/README`; skill-name links in `[[08_contributor-charter]]`; missing `[[ai-capex-cycle]]`); 459 missing reverse links (forward→reverse invariant decayed broadly — top hubs `[[H2_u-curve-of-value]]` (77 in), `[[H1_L0-L7-ladder]]` (37), `[[wef-ai-in-action-2025]]` (40) all under-linked back); 3 pages missing from `wiki/index.md` (`[[inference]]`, `[[suggested-sources]]`, `[[The evolution of IT infrastructure]]`); 2 genuine slug violations (`README`, `The evolution of IT infrastructure` in `wiki/data/`).
+- T2 findings: `[[H1_L0-L7-ladder]]` lacks explicit body `Confidence` block (only in frontmatter); 4 widely-used terms lack pages (`value capture` ×14, `application layer` ×23, `displacement` ×14, `model layer` ×6); 7 pages over 1500 words ripe for splitting, led by `[[H2_u-curve-of-value]]` at 2852 words.
+- T3 findings: 4 orphans (mostly legitimate planning/discover output); 31 hubs ≥15 incoming (healthy distribution); all pages carry `last-updated` 2026-05-21 to 2026-05-23 (no staleness); log chronological order intact.
+- Suggested next: `/edit` to resolve H3 ghost references and add reverse-links to top hubs; split `[[H2_u-curve-of-value]]`; create concept pages for `value-capture`, `application-layer`, `displacement`, `ai-capex-cycle`; ingest queued sources in `raw/Clippings/` and the Massenkoff/McCrory-companion Anthropic PDF.
+
+## [2026-05-23] edit | Lint Tier 1 cleanup + hypothesis health + 4 concept pages + top-5 hub reverse-link sweep
+- Orchestrated three waves: parallel Sonnet pair → Opus → Sonnet sweep.
+- **Wave 1A (Sonnet, planning/data/index):** `[[06_collaboration]]` cleaned of demo `[[index.md]]` refs (→ `[[index]]` or backticks); `[[08_contributor-charter]]` skill wikilinks (`[[ingest]]`, `[[lint]]`, `[[edit]]`, `[[contribute]]`, `[[reflect]]`, `[[log]]`) converted to slash-commands or backticked filenames; `[[CLAUDE]]`/`[[CONTRIBUTORS]]` → backticked filenames; `wiki/data/README.md` template placeholders wrapped in backticks; `wiki/data/The evolution of IT infrastructure.md` renamed via `git mv` to `wiki/data/evolution-of-it-infrastructure.md` (substantive McKinsey-derived analysis, kept); `wiki/index.md` gained Glossary section + `[[inference]]`, `[[suggested-sources]]` under Search, `[[evolution-of-it-infrastructure]]` under Data.
+- **Wave 1B (Sonnet, hypothesis files):** CREATED `[[H3_orthogonal-axes-under-priced]]` stub (~270 words; status `deferred-stub`; reconstructs premise from how 9 linking pages use it — that axes cutting across L0–L7, e.g. autonomy, deployment topology, buyer maturity, are more predictive of value-landing than ladder position alone; resolves all 9 ghost references). Added `## Confidence` body section to `[[H1_L0-L7-ladder]]` (3 bands: high L0–L3, medium L4–L5 conditional on [[agentic-scaling-law]] vs [[scaling-wall]], speculative L6–L7). Fixed `[[OECD-sme-enabler-quartet]]` casing in `[[H2_u-curve-of-value]]` (×2) and `[[sme-policy-pathway-novice-to-champion]]` (×1). Converted `[[04_search-log]]` in `[[03_keyword-search-strings]]` to backticked filename.
+- **Wave 2 (Opus, concept pages):** CREATED 4 concept pages with proper forward + non-hub reverse links:
+  - `[[value-capture]]` — share of generated surplus a stack-position keeps vs. creates; bear-case wedge; reverse links from `[[lee-01ai-pivot]]`, `[[agentic-revolution]]`, `[[digital-empires-tripartite]]`, `[[sovereign-ai]]`, `[[world-models-jepa]]`.
+  - `[[application-layer]]` — L0–L2 territory; top-of-U as a claim about workflow-embedded app-layer firms; reverse links from `[[circular-ai-economy]]`, `[[middle-layer-defensibility]]`, `[[distribution-moat]]`, `[[zitron-circular-economics]]`, `[[karpathy-software-3]]`.
+  - `[[displacement]]` — substitution side of labor effect (vs augmentation); names theoretical-vs-observed measurement debate; reverse links from `[[capital-labor-divergence]]`, `[[task-based-framework]]`, `[[observed-exposure-measure]]`, `[[ai-young-worker-hiring-slowdown]]`, `[[exposed-worker-demographics]]`.
+  - `[[ai-capex-cycle]]` — hyperscaler boom-then-bust mechanism (training capex → uncertain inference demand → overcapacity → write-downs on short-half-life GPUs and stranded power); reverse links from `[[circular-ai-economy]]`, `[[hyperscaler-capex-trajectory]]`, `[[ai-factory-huang]]`; previously-broken `[[ai-capex-cycle]]` refs in `[[bear-case-synthesis]]` and `[[goldman-sachs-too-much-spend]]` now resolve.
+  - `wiki/index.md` updated with all 4 entries under concepts.
+- **Wave 3 (Sonnet, reverse-link sweep):** appended `## Referenced by` sections to the top 5 hubs listing all inbound pages grouped by directory. Counts: `[[H2_u-curve-of-value]]` 79, `[[H1_L0-L7-ladder]]` 39, `[[wef-ai-in-action-2025]]` 41, `[[oecd-sme-ai-adoption-2025]]` 33, `[[diffusion-vs-innovation]]` 32. New concept pages picked up automatically. Frontmatter `last-updated` refreshed to 2026-05-23.
+- **Orchestrator follow-up:** added `[[H3_orthogonal-axes-under-priced]]` to `wiki/index.md` under Hypotheses.
+- **Net change vs pre-edit lint:** content pages 124 → 129 (+5: H3, value-capture, application-layer, displacement, ai-capex-cycle). Broken wikilinks 30 → 7 (remaining 7 are false positives — wikilinks intentionally inside backticks or image-embed syntax for `evolution-of-it-infrastructure.png`). Index gaps 3 → 0. Missing reverse links 459 → 424 (full remediation still requires sweeping non-hub pages; deferred).
+- **Suggested next:** `/lint` re-run to confirm; consider splitting `[[H2_u-curve-of-value]]` (2852 words, now even larger with Referenced-by section); `/ingest` the queued sources in `raw/Clippings/`; future reverse-link sweep on the next tier of hubs (`[[capital-labor-divergence]]`, `[[autonomy-slider]]`, `[[middle-layer-defensibility]]`, `[[bear-case-synthesis]]`, `[[task-based-framework]]`, `[[circular-ai-economy]]`) to recover most of the remaining 424.
+
+## [2026-05-24] ingest | Sutskever — From the Age of Scaling to the Age of Research
+- **Source:** secondary analysis of a Sutskever interview/talk (Main thesis / Evidence / Critique / Methodology structure). LLM-generated structural digest, not verbatim transcript — claims are Sutskever's; scaffolding is the analyst's. Promoted to [[sutskever-age-of-research]].
+- **Routing:** inline path (53 lines, no subsections — single orchestrator pass, no extraction agents).
+- **New pages (5):**
+  - [[sutskever-age-of-research]] — source summary.
+  - [[post-scaling-research-pivot]] — central reframe: Age of Scaling (2020–2025) exhausted, Age of Research begins.
+  - [[continual-learning-paradigm]] — sample-efficient on-the-job learning vs static pre-trained AGI.
+  - [[eval-real-world-gap]] — superhuman benchmarks + brittle iterative real performance; researcher-side reward hacking diagnosis.
+  - [[value-functions-as-algorithmic-emotion]] — biological emotions as cheap robust intermediate RL signals; Sutskever's load-bearing speculative claim.
+- **Patches (5):**
+  - [[scaling-wall]] — added Sutskever inside-operator concession of the empirical wall (not the architectural form).
+  - [[agentic-scaling-law]] — added demand-side validation; Sutskever and Huang agree on the axis (test-time compute + RL), diverge on methodology (aesthetic top-down vs first-principles physics).
+  - [[karpathy-software-3]] — cross-linked Karpathy's "anterograde amnesia" with Sutskever's continual-learning gap (same diagnosis, different label).
+  - [[world-models-jepa]] — added Sutskever as a third convergent diagnosis of the autoregressive-pretrain bottleneck (algorithmic successor, complementary to LeCun's architectural answer).
+  - [[autonomy-slider]] — added Iron Man vs straight-shot tension; Karpathy's partial-autonomy default vs Sutskever's silo-and-release posture; eval-real-world gap anchors the slider on the left.
+- **Hypothesis touches:** [[scaling-wall]] gains a high-credibility inside-operator endorsement. [[agentic-scaling-law]] gains cross-source agreement on direction. [[H2_u-curve-of-value]] is reshaped without being adjudicated — the bottom-of-U mechanism partially shifts from "owns the GPUs" to "owns the algorithmic insight." [[H3_orthogonal-axes-under-priced]] modestly reinforced — Sutskever's aesthetic-vs-physics methodological axis is exactly the kind of cross-cutting variable H3 names.
+- **Contradictions surfaced:**
+  - Sutskever's straight-shot deployment posture directly contradicts Karpathy's Iron Man partial autonomy.
+  - Value-functions claim is explicitly unfalsifiable in public ("safety + competitive reasons") — scientifically unverifiable.
+  - "Neuralink plus plus" alignment equilibrium falls outside the WEF/Deloitte regulatory frame; pushes alignment from policy to transhumanist biology.
+- **Open questions surfaced:** Does the research pivot favour incumbents or small algorithmic teams? Is the "Age of Research" a phase (months) or a paradigm reset (years/decades)? What signal drives next-gen training if natural data is exhausted?
+- **Source moved** to `raw/ingested/`.

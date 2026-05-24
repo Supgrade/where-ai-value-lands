@@ -17,6 +17,8 @@ last-updated: 2026-05-21
 ## Where the claim comes from
 Most rigorously articulated in [[marcus-world-models-failure]], drawing on Apple's *Illusion of Thinking* paper. Adjacent in spirit to the architectural critiques in cognitive science that have argued for decades that statistical prediction is not reasoning.
 
+**Inside-operator validation (2026).** [[sutskever-age-of-research]] — one of the primary architects of the GPT-era pre-training paradigm — publicly concedes the *empirical* form of the wall: natural data is exhausted, and 100× more compute under the current recipe will not produce 100× of the historic gains. See [[post-scaling-research-pivot]]. Sutskever does *not* concede Marcus's *architectural* claim (he still believes deep learning can route around it via continual learning and value functions); but the empirical concession from an insider materially strengthens the bear-side empirical reading of this page.
+
 ## Two failure modes that anchor the claim
 
 ### 1. Failure to induce world models
@@ -56,3 +58,8 @@ Notable that the source acknowledging this is a bull-frame consultancy document,
 - [[deloitte-ai-dossier-eri]] — vertical-application manifestation; OOD failure in industrials.
 - [[synthetic-data-generation]] — the proposed workaround that inherits a partial version of the ceiling.
 - [[vertical-ai-orchestration]] — where the ceiling bites in industrial deployments.
+- [[sutskever-age-of-research]] — inside-operator concession of the empirical wall, with proposed algorithmic route around it.
+- [[post-scaling-research-pivot]] — Sutskever's "Age of Research" reframe, the bull-side response to the empirical wall.
+- [[continual-learning-paradigm]] — algorithmic alternative claimed to solve the symptoms the wall surfaces.
+- [[eval-real-world-gap]] — the empirical manifestation of compositionality failure at the deployment surface.
+- [[H4_rl-specialization-value-pocket]] — the entrepreneurial wager that bets on the wall being real *for pre-training* and on RL specialization being the axis that still scales; also the strongest bear pressure point against H4 if the wall generalises to RL on top of base-model substrate.

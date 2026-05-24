@@ -30,14 +30,14 @@ Computing is undergoing a generational paradigm shift driven by **Software 3.0**
 - **Steinberger — agentic engineering.** Building self-modifying software architectures via voice/natural-language prompts. The "agentic trap": novice developers trying to automate massive software stacks with single monolithic prompts. Steinberger's deployment of OpenClaw exposed severe security flaws — prompt injection is not a cognitive deficit but a **critical system vulnerability**.
 
 ## Quantitative / structural anchors worth preserving
-- LLM cognitive deficits as Karpathy frames them: **"jagged intelligence"** (superhuman in some domains, sub-toddler in others) and **"anterograde amnesia"** (no native cross-session memory consolidation — context must be explicitly programmed each session).
+- LLM cognitive deficits as Karpathy frames them: **"jagged intelligence"** (superhuman in some domains, sub-toddler in others) and **"anterograde amnesia"** (no native cross-session memory consolidation — context must be explicitly programmed each session). Sutskever ([[sutskever-age-of-research]]) gives the same diagnosis under a different label: pre-trained models are not [[continual-learning-paradigm|continual learners]]. Karpathy's framing is descriptive; Sutskever's is prescriptive — naming the gap as the target of the next research wave.
 - Steinberger forecast: agents will eliminate ~80% of human-facing apps, turning GUIs into slow APIs as agents communicate directly with endpoints.
 - Huang: as compute scales, the **install base** (e.g., NVIDIA's CUDA) becomes the durable economic moat, not the chip itself.
 
 ## Stance — what this contributes to the inquiry
 Karpathy's lecture is the strongest **bull-side paradigm document** ingested so far. It contributes:
 - A **competing taxonomy** to [[H1_L0-L7-ladder]]: the "autonomy slider" is a single axis (human ↔ agent control), simpler than the L0–L7 substrate-ownership backbone. The two are not incompatible — the slider may be a useful orthogonal axis (cf. [[H3_orthogonal-axes-under-priced]]).
-- **Top-of-U reinforcement** for [[H2_u-curve-of-value]]: if Steinberger is right that agents eliminate 80% of apps, the surviving "top of the U" is workflow + distribution + install-base moats (Cursor, Perplexity, CUDA), not just brand. The application layer doesn't disappear — it specializes into verification surfaces and agent-facing APIs.
+- **Top-of-U reinforcement** for [[H2_u-curve-of-value]]: if Steinberger is right that agents eliminate 80% of apps, the surviving "top of the U" is workflow + distribution + install-base moats (Cursor, Perplexity, CUDA), not just brand. The [[application-layer]] doesn't disappear — it specializes into verification surfaces and agent-facing APIs.
 - **Bottom-of-U reinforcement** via Huang: AI factories, power generation, and silicon-as-system reinforce that the bottom is **physical and capital-intensive**, not commodity cloud.
 - **A direct challenge to [[scaling-wall]]:** Huang's "agentic scaling law" reframes scaling — it's no longer just bigger base models, it's test-time compute (reasoning, search, sub-agents). If this scaling axis works, the wall Marcus describes may be routed around rather than hit. See contradictions below.
 
@@ -80,3 +80,6 @@ Karpathy's lecture is the strongest **bull-side paradigm document** ingested so 
 - [[vertical-ai-orchestration]] — what Software 3.0 looks like when specialized to one industrial domain.
 - [[non-tech-digital-core-synthesis]] — secondary LLM-generated digest that condenses this source + WEF + Huang into a single non-tech-enterprise prescription.
 - [[fusion-skills]] — workforce restatement of the Iron Man Suit / [[autonomy-slider]] argument.
+- [[sutskever-age-of-research]] — same diagnosis (jagged intelligence / anterograde amnesia → continual-learning gap), opposite deployment posture (straight-shot vs Iron Man partial autonomy).
+- [[continual-learning-paradigm]] — the algorithmic target Sutskever names; Karpathy describes the symptom (anterograde amnesia) that this paradigm is meant to solve.
+- [[eval-real-world-gap]] — Karpathy's jagged-intelligence + Steinberger's agentic-trap, formalised by Sutskever as a structural consequence of researcher-side reward hacking.

@@ -7,7 +7,7 @@ tags:
   - accenture
   - adoption
   - consultancy-frame
-last-updated: 2026-05-22
+last-updated: 2026-05-23
 ---
 
 # WEF — AI in Action: Beyond Experimentation to Transform Industry (2025)
@@ -140,3 +140,58 @@ No primary data collection. No counterfactual analysis. No engagement with skept
 - [[agentic-revolution]] — the paradigm shift that WEF's "wave 1" implicitly describes.
 - [[vertical-ai-orchestration]] — the moat structure that the case studies in this paper exhibit.
 - [[ai-factory-huang]] — Huang's infrastructure framing that complements WEF's enabler frame.
+
+## Referenced by
+
+*Auto-generated reverse-link index — pages in the wiki that link here. Maintained by `/lint` and reverse-link sweeps.*
+
+**Hypotheses**
+- [[H1_L0-L7-ladder]]
+- [[H2_u-curve-of-value]]
+
+**Concepts**
+- [[agentic-revolution]]
+- [[agentic-scaling-law]]
+- [[ai-factory-huang]]
+- [[application-layer]]
+- [[capital-labor-divergence]]
+- [[circular-ai-economy]]
+- [[diffusion-vs-innovation]]
+- [[digital-core]]
+- [[distribution-moat]]
+- [[divergent-value-stack-optima]]
+- [[enterprise-adoption-ladder]]
+- [[foundational-enablers]]
+- [[fusion-skills]]
+- [[middle-layer-defensibility]]
+- [[scaling-gap]]
+- [[taker-shaper-maker]]
+- [[task-based-framework]]
+- [[vertical-ai-orchestration]]
+
+**Sources**
+- [[acemoglu-simple-macroeconomics]]
+- [[bear-case-synthesis]]
+- [[bradford-digital-empires]]
+- [[deloitte-ai-dossier-eri]]
+- [[goldman-sachs-too-much-spend]]
+- [[karpathy-software-3]]
+- [[marcus-world-models-failure]]
+- [[non-tech-digital-core-synthesis]]
+- [[zitron-circular-economics]]
+
+**Ideas**
+- [[ai-materials-science]]
+- [[autonomous-drone-inspection]]
+- [[autonomous-field-operations]]
+- [[drone-footage-smart-summaries]]
+- [[grid-optimization]]
+- [[predictive-maintenance]]
+- [[supply-chain-digital-twin]]
+
+**Data**
+- [[ai-leader-productivity-delta]]
+- [[eri-use-case-deltas]]
+- [[global-ai-spend-632b]]
+- [[scaling-gap-74-16]]
+- [[wef-7-6t-projection]]

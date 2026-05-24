@@ -78,3 +78,6 @@ In SME surveys (OECD 2025), generative AI shows up as the most-used AI type, and
 - [[foundational-enablers]] — the complements that gate the gain.
 - [[digital-core]] — the architectural precondition.
 - [[fusion-skills]] — the labour complement.
+- [[massenkoff-mccrory-labor-market-impacts-2026]] — worker-level companion to firm-level productivity evidence.
+- [[theoretical-vs-observed-capability-gap]] — diffusion lag that may explain why firm-level premia have not yet shown up at macro scale.
+- [[ai-young-worker-hiring-slowdown]] — labor-substitution channel through which firm-level productivity gains translate into intra-firm composition shifts.

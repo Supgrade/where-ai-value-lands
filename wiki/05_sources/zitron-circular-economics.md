@@ -21,7 +21,7 @@ last-updated: 2026-05-21
 
 ## Core argument (as inherited)
 The AI application and product layer is a **financial ouroboros**:
-1. Venture capital funds application startups (Cursor, Perplexity, etc).
+1. Venture capital funds [[application-layer]] startups (Cursor, Perplexity, etc).
 2. Startups immediately pay foundation models (OpenAI, Anthropic) for API access — many at deeply inverted margins (Perplexity ~164% of revenue on compute in 2024).
 3. Foundation models pay hyperscalers (AWS, Azure, GCP) for compute — OpenAI ~50% revenue on inference + ~75% on training.
 4. Hyperscalers report this VC cash as "AI revenue" to Wall Street, justifying further capex.

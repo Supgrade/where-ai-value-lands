@@ -61,7 +61,7 @@ The OECD G7 paper ([[oecd-sme-ai-adoption-2025]]) documents the operational foot
 
 The **EuroHPC AI Factories network** functions as a multilateral overlay across France, Germany and Italy, partially decoupling EU compute sovereignty from individual member-state balance sheets.
 
-## Where this leaves value capture
+## Where this leaves [[value-capture]]
 
 In [[divergent-value-stack-optima]], the EU's intended optimum is **regulatory-centric** — value lands at the compliance + sovereign-infra layer. Sovereign AI is the attempt to make this real at the hardware end. Whether it produces durable economic surplus or merely subsidized national-prestige projects is the open empirical question.
 

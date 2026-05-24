@@ -6,7 +6,7 @@ tags:
   - economics
   - geopolitics
   - productivity
-last-updated: 2026-05-22
+last-updated: 2026-05-23
 ---
 
 # Innovation vs. Diffusion — The GPT Frame
@@ -40,6 +40,10 @@ Combined with [[task-based-framework]] (which caps US TFP gains from AI at <0.71
 
 ## Supporting evidence
 
+### Worker-level: capability is 3× ahead of deployment
+[[massenkoff-mccrory-labor-market-impacts-2026]] supplies the first systematic occupation-level measurement of the diffusion lag. In the most-exposed category (Computer & Math), Eloundou et al.'s theoretical capability covers ~94% of tasks while Claude's observed work-context usage covers only ~33% — see [[theoretical-vs-observed-capability-gap]]. The "red area will grow to cover the blue" framing is the diffusion process itself, at occupation granularity. Critically, **theoretical capability alone does not predict BLS occupational growth forecasts; observed exposure does** (see [[ai-exposure-vs-bls-growth]], slope −6.07, SE 1.32). This is the strongest single empirical argument for diffusion-aware measures over capability-only ones in labor economics: capability without diffusion is invisible in the labor market.
+
+### Firm-level: OECD G7 SME measurement layer
 The OECD G7 discussion paper on SME AI adoption (2025) operationalises this thesis at the firm level. Its entire policy half — the [[oecd-sme-enabler-quartet]] (connectivity, AI-enabling inputs, skills, finance), the [[sme-policy-pathway-novice-to-champion]] matrix, and the [[g7-sme-ai-policy-pluralism]] of instruments — is a diffusion playbook applied to SMEs. The paper notes that nearly 70 countries have adopted national AI strategies; the convergence of G7 instruments on compute-access, sectoral subsidies, skills programmes and innovation hubs (despite divergent rhetorics) is itself evidence that diffusion has become a recognised policy frontier alongside frontier-model invention.
 
 ## Tensions
@@ -66,3 +70,55 @@ The OECD G7 discussion paper on SME AI adoption (2025) operationalises this thes
 - [[oecd-ai-adoption-trajectory-2020-2024]] — where the OECD economy sits on the S-curve.
 - [[ai-productivity-firm-level]] — the productivity link that makes diffusion economically load-bearing.
 - [[oecd-g7-productivity-gain-projection]] — the macro projection that *requires* the diffusion to happen.
+- [[massenkoff-mccrory-labor-market-impacts-2026]] — worker-level measurement layer.
+- [[observed-exposure-measure]] — usage-weighted exposure that operationalises diffusion-aware measurement.
+- [[theoretical-vs-observed-capability-gap]] — the diffusion-lag artefact at occupation granularity.
+- [[ai-exposure-vs-bls-growth]] — empirical proof that theoretical-only measures don't predict labor-market outcomes.
+- [[eloundou-beta-exposure]] — the theoretical-capability layer that on its own is not predictive.
+
+## Referenced by
+
+*Auto-generated reverse-link index — pages in the wiki that link here. Maintained by `/lint` and reverse-link sweeps.*
+
+**Paper planning**
+- [[03_structure]]
+
+**Search**
+- [[01_source-list]]
+
+**Concepts**
+- [[ai-skill-shortage-as-diffusion-bottleneck]]
+- [[ai-young-worker-hiring-slowdown]]
+- [[displacement]]
+- [[divergent-value-stack-optima]]
+- [[eloundou-beta-exposure]]
+- [[exposed-worker-demographics]]
+- [[g7-sme-ai-policy-pluralism]]
+- [[observed-exposure-measure]]
+- [[oecd-sme-adopter-taxonomy]]
+- [[oecd-sme-enabler-quartet]]
+- [[open-weight-asymmetry]]
+- [[scaling-gap]]
+- [[sectoral-ai-diffusion-pattern]]
+- [[sme-ai-adoption-gap]]
+- [[sme-ai-finance-gap]]
+- [[sme-connectivity-divide]]
+- [[sme-policy-pathway-novice-to-champion]]
+- [[theoretical-vs-observed-capability-gap]]
+
+**Sources**
+- [[ding-diffusion-marathon]]
+- [[geopolitics-global-ai-divide]]
+- [[lee-01ai-pivot]]
+- [[massenkoff-mccrory-labor-market-impacts-2026]]
+- [[oecd-sme-ai-adoption-2025]]
+- [[wef-ai-in-action-2025]]
+
+**Data**
+- [[ai-exposure-vs-bls-growth]]
+- [[ai-skill-shortage-sme-share]]
+- [[oecd-ai-adoption-trajectory-2020-2024]]
+- [[oecd-g7-productivity-gain-projection]]
+- [[oecd-sectoral-ai-adoption-2024]]
+- [[sme-vs-large-firm-ai-gap]]
+- [[young-worker-hiring-did]]

@@ -50,6 +50,7 @@ A thin wrapper — a UI that proxies prompts to an external API without accumula
 - [[H2_u-curve-of-value]] — distribution moat is the mechanism behind the top of the U
 - [[where-value-lands-2026]] — primary source (Srinivas, Truell, Mohan)
 - [[autonomy-slider]] — the verification-surface design pattern that makes distribution moats sticky (humans verify AI output at the interface; that verification loop = behavioral data)
+- [[application-layer]] — the stack layer where distribution moats live
 - [[democratization-of-programming]] — the broader context in which Cursor/Windsurf operate
 - [[context-control]] — the technical complement: distribution moats are durable because they sit on top of proprietary context
 - [[wef-ai-in-action-2025]] — case-study set (LSEG, BMW, AT&T, Chevron, Beko) is dominated by firms that *already* owned distribution before adopting AI; consistent with the moat-as-prerequisite story.

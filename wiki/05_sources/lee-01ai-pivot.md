@@ -16,7 +16,7 @@ last-updated: 2026-05-21
 
 ## Who
 
-Kai-Fu Lee. Founder of Beijing-based 01.AI; previously head of Google China; author of *AI Superpowers*. Among the most articulate Chinese-side strategists of AI value capture.
+Kai-Fu Lee. Founder of Beijing-based 01.AI; previously head of Google China; author of *AI Superpowers*. Among the most articulate Chinese-side strategists of AI [[value-capture]].
 
 ## Central contributions
 

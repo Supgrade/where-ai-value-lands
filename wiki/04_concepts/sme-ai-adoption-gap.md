@@ -68,3 +68,4 @@ These are the OECD's "four enablers" — the policy lever framework Section 4 of
 - [[enterprise-adoption-ladder]] — large-firm parallel ladder.
 - [[foundational-enablers]] — the four-enabler frame the OECD shares with WEF.
 - [[capital-labor-divergence]] — the gap is one of the mechanisms by which AI surplus concentrates in large-firm capital pools.
+- [[ai-young-worker-hiring-slowdown]] — if entry-level workers displaced from large-firm exposed occupations cascade into SMEs, the gap interacts with the absorption capacity of smaller firms.

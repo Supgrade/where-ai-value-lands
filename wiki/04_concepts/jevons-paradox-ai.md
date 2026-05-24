@@ -36,3 +36,4 @@ The paradox operates at the hardware layer (silicon, energy) — the bottom of t
 - [[open-weight-asymmetry]] — DeepSeek's efficiency gains are what triggered the paradox
 - [[where-value-lands-2026]] — source where the Jevons Paradox is documented
 - [[capital-labor-divergence]] — even if the hardware layer is durable, the surplus flows to capital (GPU owners, hyperscalers), not labor
+- [[ai-exposure-vs-bls-growth]] — software developers as the high-exposure / high-growth outlier; a Jevons-Paradox-style demand expansion at the labor-market level

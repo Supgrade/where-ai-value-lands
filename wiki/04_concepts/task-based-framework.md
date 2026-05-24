@@ -65,3 +65,9 @@ Empirical productivity gains from gen AI are derived almost exclusively from eas
 - [[oecd-sme-ai-adoption-2025]] — OECD G7 SME source: macro projection of 0.2–1.3 pp annual labour-productivity gain is in tension with Acemoglu's <0.71% cumulative cap; the two views remain unreconciled.
 - [[ai-productivity-firm-level]] — firm-level productivity-premium evidence relevant to whether macro projections close to the cap.
 - [[oecd-g7-productivity-gain-projection]] — the specific 0.2–1.3 pp figure to weigh against the cap.
+- [[massenkoff-mccrory-labor-market-impacts-2026]] — labor-side empirical anchor inside this macro frame; documents the [[theoretical-vs-observed-capability-gap]] that explains why current TFP gains may be running below the ceiling.
+- [[observed-exposure-measure]] — the realized-deployment measure that sharpens task-exposure scoring.
+- [[eloundou-beta-exposure]] — the theoretical-capability layer this framework consumes.
+- [[exposed-worker-demographics]] — incidence finding that partially contradicts the Acemoglu wage-demographics projection.
+- [[ai-young-worker-hiring-slowdown]] — entry-level channel through which displacement appears before unemployment.
+- [[displacement]] — the concept page that names the substitution side and its measurement debate.

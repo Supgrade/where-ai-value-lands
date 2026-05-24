@@ -1,0 +1,41 @@
+---
+title: H3 — Orthogonal Axes Under-Priced
+status: deferred-stub (premise authored, evidence not yet developed)
+confidence: not-yet-assessed
+tags:
+  - hypothesis
+  - axes
+  - scaffolding
+last-updated: 2026-05-23
+---
+
+# H3 — Orthogonal Axes Under-Priced
+
+> [!abstract] Hypothesis
+> The [[H1_L0-L7-ladder]] and [[H2_u-curve-of-value]] share a common blind spot: both treat substrate ownership as the primary axis along which value distributes. H3 proposes that several **orthogonal axes** — dimensions that cut across the ladder rather than running along it — may be more predictive of where defensible value lands than position on the ladder or the U alone. Candidate axes surfaced so far: **autonomy level** (the [[autonomy-slider]]: human ↔ agent control, orthogonal to substrate ownership), **deployment topology** (cloud vs. edge/on-device, which doesn't fit the ladder cleanly), **buyer maturity** (the [[enterprise-adoption-ladder]] and [[oecd-sme-adopter-taxonomy]]), and **strategic positioning** ([[taker-shaper-maker]]). The working claim is that the most defensible plays in the near term sit at specific intersections of these axes — off the simple ladder or curve — and that the axes are systematically under-priced in current analytical frames.
+
+> [!warning] Status
+> Deferred stub. The premise was authored in the kickoff conversation alongside H1 and H2 and is referenced throughout the wiki as a placeholder. No evidence has been gathered specifically to test or develop it. It is included here so that cross-references resolve and the hypothesis remains visible as a research target. H3 may be developed into a live hypothesis, retired, or merged into H1 or H2 as evidence accumulates. It is scaffolding, not a claim.
+
+## Why this is here
+
+The following pages currently reference this hypothesis and motivated its creation as a named placeholder:
+
+- [[00_initial-brief]] — named as the third of the three working frames from the kickoff conversation: "the most defensible plays sit off-axis."
+- [[02_purpose-and-justification]] — lists H3 alongside H1 and H2 as starting scaffolding that the research may reshape.
+- [[03_structure]] — the practical half of the paper (Section 6, "who wins and how") is described as "currently scaffolded by H3."
+- [[07_analytical-vocabulary]] — notes H3 as what the six-axis analytical frame may still be missing.
+- [[H1_L0-L7-ladder]] — notes that edge/on-device inference doesn't fit the ladder cleanly and points here as the orthogonal-axis home; also notes the [[autonomy-slider]] as plausibly orthogonal to the ladder.
+- [[H2_u-curve-of-value]] — points here as "what the U misses."
+- [[autonomy-slider]] — explicitly frames the ladder × slider intersection as two orthogonal axes and cross-references this hypothesis.
+- [[karpathy-software-3]] — introduces the autonomy slider as a "competing" taxonomy that is more likely orthogonal than competing.
+- [[bear-case-synthesis]] — notes that the "killer app has not emerged" critique threatens any application-layer winner-take-most thesis embedded here.
+
+## What would activate this
+
+H3 would be promoted from stub to live hypothesis if any of the following conditions are met:
+
+- Evidence emerges that two or more of the candidate orthogonal axes explain variance in value capture *better* than L0–L7 position alone — e.g., a firm at L2 substrate with high autonomy and high buyer maturity outperforms a firm at L5 with low buyer maturity.
+- A dominant analytical frame in the literature explicitly organizes value-capture predictions around cross-cutting axes rather than a single stack dimension.
+- The paper's practical half (per [[03_structure]] Section 6) requires finer-grained positioning claims that the ladder and U cannot supply without the additional axes.
+- Interview or case evidence surfaces a durable winner whose position is best described by axis-intersection coordinates rather than by ladder level or U position.

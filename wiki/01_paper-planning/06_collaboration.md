@@ -69,7 +69,7 @@ This is the canonical surface for contributors.
 
 A static render of `wiki/` — browsable pages with working wikilinks — deployed without any backend. No account required. Read-only.
 
-**Recommended tool: [Quartz](https://quartz.jzhao.dev/)** — designed specifically for Obsidian-flavored Markdown, handles `[[wikilinks]]` natively, produces fast static HTML, free to self-host on GitHub Pages or Cloudflare Pages.
+**Recommended tool: [Quartz](https://quartz.jzhao.dev/)** — designed specifically for Obsidian-flavored Markdown, handles `wikilinks` natively, produces fast static HTML, free to self-host on GitHub Pages or Cloudflare Pages.
 
 What the static site provides:
 - Browse any wiki page in a browser
@@ -102,7 +102,7 @@ A skill — `/contribute` — sibling to the existing seven ([[#how-it-fits-with
 
 **Entry point:** The contributor forks the repo, opens it in Claude Code (or any agentic CLI), runs `/contribute`.
 
-**Step 1 — Scope check.** Before anything is written, the skill reads [[05_open-questions]] and the first section of [[index.md]] and surfaces the *active research questions* to the contributor. This is the scope filter: if the contributor's idea is outside these questions, the skill says so before any writing happens.
+**Step 1 — Scope check.** Before anything is written, the skill reads [[05_open-questions]] and the first section of [[index]] and surfaces the *active research questions* to the contributor. This is the scope filter: if the contributor's idea is outside these questions, the skill says so before any writing happens.
 
 **Step 2 — Contribution kind.** The skill asks:
 
@@ -121,7 +121,7 @@ What kind of contribution is this?
 |---|---|
 | **New source** | Collects: title, URL or file path, why it's relevant, which wiki pages it might touch. Drops a structured stub in `raw/` with enough metadata for the author to run `/ingest` on it post-merge. |
 | **Daily thought** | Prompts the contributor to write freely. The skill structures the output into the same format as the author's own daily thoughts (themes, claims, questions). Saves to `raw/daily tougths/` as `YYYY-MM-DD_<contributor-handle>.md`. |
-| **Concept note** | Checks [[index.md]] for existing pages on the topic. If the concept exists, opens it for the contributor to read before adding. Produces a well-formed wiki page draft in `wiki/04_concepts/` with correct frontmatter, a clear claim, and at least two wikilinks to existing pages. |
+| **Concept note** | Checks [[index]] for existing pages on the topic. If the concept exists, opens it for the contributor to read before adding. Produces a well-formed wiki page draft in `wiki/04_concepts/` with correct frontmatter, a clear claim, and at least two wikilinks to existing pages. |
 | **Open question** | Drafts a single clean question with a one-line rationale and proposes a place in [[05_open-questions]] under an appropriate section heading. |
 
 **Step 4 — Branch + PR description.** The skill creates a new branch (`contrib/<handle>/<topic>`) and prepares a PR description template:

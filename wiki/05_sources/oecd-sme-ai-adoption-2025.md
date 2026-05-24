@@ -7,7 +7,7 @@ tags:
   - diffusion
   - policy
   - g7
-last-updated: 2026-05-22
+last-updated: 2026-05-23
 ---
 
 # OECD — AI Adoption by Small and Medium-Sized Enterprises (G7 Discussion Paper, 2025)
@@ -160,3 +160,52 @@ The OECD proposes a **policy pathway matrix** mapping the four adopter stages to
 - [[digital-empires-tripartite]] — convergent instruments stress-test Bradford's typology.
 - [[sovereign-ai]] — G7 compute pledges as sovereignty plays.
 - [[fusion-skills]] — empirically anchored by the technical-plus-judgement skill shift.
+
+## Referenced by
+
+*Auto-generated reverse-link index — pages in the wiki that link here. Maintained by `/lint` and reverse-link sweeps.*
+
+**Hypotheses**
+- [[H1_L0-L7-ladder]]
+- [[H2_u-curve-of-value]]
+
+**Search**
+- [[01_source-list]]
+
+**Concepts**
+- [[ai-productivity-firm-level]]
+- [[brussels-effect-and-mirage]]
+- [[capital-labor-divergence]]
+- [[diffusion-vs-innovation]]
+- [[digital-core]]
+- [[digital-empires-tripartite]]
+- [[distribution-moat]]
+- [[divergent-value-stack-optima]]
+- [[enterprise-adoption-ladder]]
+- [[fusion-skills]]
+- [[middle-layer-defensibility]]
+- [[oecd-sme-adopter-taxonomy]]
+- [[scaling-gap]]
+- [[sectoral-ai-diffusion-pattern]]
+- [[sme-ai-adoption-gap]]
+- [[sovereign-ai]]
+- [[taker-shaper-maker]]
+- [[task-based-framework]]
+- [[vertical-ai-orchestration]]
+
+**Sources**
+- [[acemoglu-simple-macroeconomics]]
+- [[bradford-digital-empires]]
+- [[deloitte-ai-dossier-eri]]
+
+**Ideas**
+- [[sme-champion-vertical-ai]]
+- [[sme-explorer-custom-agent]]
+- [[sme-novice-off-the-shelf-llm]]
+- [[sme-optimiser-cross-functional-stack]]
+
+**Data**
+- [[oecd-ai-adoption-trajectory-2020-2024]]
+- [[oecd-g7-productivity-gain-projection]]
+- [[oecd-sectoral-ai-adoption-2024]]
+- [[sme-vs-large-firm-ai-gap]]

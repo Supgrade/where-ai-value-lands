@@ -15,7 +15,7 @@ last-updated: 2026-05-21
 Ready-to-paste boolean strings for the five thematic areas in [[01_source-list]]. Each area has: a concept-block table, two strings (narrow + broad), and database-specific notes for arXiv and EBSCO Business Source Complete.
 
 > [!tip] How to use
-> Run **String B (broad)** first. If results > 300, switch to **String A (narrow)**. If results < 20, expand OR blocks or remove one AND condition. Log every run in [[04_search-log]] (to be created after first pilot).
+> Run **String B (broad)** first. If results > 300, switch to **String A (narrow)**. If results < 20, expand OR blocks or remove one AND condition. Log every run in `04_search-log.md` (to be created after first pilot).
 
 > [!note] Syntax reminder
 > - **arXiv:** field codes `ti:` (title), `abs:` (abstract), `AND / OR / ANDNOT`. Wrap phrases in double quotes. No truncation wildcard — spell out variants.
