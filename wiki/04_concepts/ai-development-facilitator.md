@@ -23,14 +23,33 @@ The customer brings the use case **and the training data**; the startup brings t
 
 ## Salient characteristics
 
-- **Value proposition:** the means for the customer to build AI, not a ready capability.
-- **Primary AI technology:** NLP dominates (Weber et al.: "Perhaps, NLP-based solutions, such as chatbots, can barely be standardized and require strong customization").
-- **Continuous learning:** typically **learning at the customer side** — the customer's deployment improves on the customer's data, often without the startup seeing it.
-- **Delivery mode:** **programmable interfaces** (APIs, SDKs, PaaS) — or *also* a configurable software application (build-your-own-chatbot UIs).
-- **Level of customization:** **tailoring / individualization** or **full customization**.
-- **Customer:** B2B across industries.
-- **Industry scope:** **industry-agnostic**.
-- **Revenue:** subscription, transaction-based.
+- **Core AI value:** **process & task support** — the startup's tool is what enables the customer to deliver AI-powered tasks.
+- **Primary AI technology:** **NLP and machine learning** dominate. Weber et al. note that "NLP-based solutions, such as chatbots, can barely be standardized and require strong customization" on the *customer's* side — but the facilitator's product itself is standardized.
+- **Continuous learning:** **central learning & updates** — the vendor pushes model and API improvements centrally; all customers benefit from one shared learning curve. This is distinct from the customer's own deployment: the *tool* is updated by the vendor, not by individual customer usage.
+- **Data type:** **textual / document data** and **natural language data** — matching the NLP-dominant technology stack.
+- **Data source:** **acquired** (licensed datasets) and **publicly available** (open-web, public APIs) — the facilitator trains and improves its models on broadly sourced data, not on customer data.
+- **Hardware provision:** **No** — pure software / API / cloud.
+- **Delivery mode:** **programmable interface** (APIs, SDKs, PaaS) or **base technology** (a platform others build on). Some instances also expose a configurable software application (build-your-own-chatbot UIs).
+- **Level of customization:** the ADF *product* (the API/SDK/workbench) is a **standardized product / service** — the same interface is sold to every customer. What the customer *builds on top of* it may be highly customized, but Weber et al. classify the startup's offering, not the customer's solution.
+- **Customer:** **B2B** across industries.
+- **Industry scope:** **industry-agnostic** — the facilitator's tools apply wherever the customer's AI use case falls.
+- **Customer charge:** **subscription-based**.
+
+### Full taxonomy profile (all 11 dimensions)
+
+| Dimension | Dominant characteristic(s) for this archetype |
+|---|---|
+| Core AI value | Process & task support |
+| Continuous learning | Central learning & updates |
+| Primary AI technology | Natural language processing · Machine learning |
+| Data type | Textual / document data · Natural language data |
+| Data source | Acquired · Publicly available |
+| Hardware provision | No |
+| Delivery mode | Programmable interface · Base technology |
+| Level of customization | Standardized product / service |
+| Customer | B2B |
+| Industry scope | Industry agnostic |
+| Customer charge | Subscription-based |
 
 ## Examples (2021 sample)
 

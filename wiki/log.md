@@ -337,3 +337,10 @@ Append-only chronological record of wiki operations. Entry format: `## [YYYY-MM-
 - **2021 → 2026 vintage caveat documented:** Foundation-model commoditization has reshaped AI Development Facilitator pattern; a plausible fifth pattern (agentic-workflow providers) may need adding on next refresh.
 - **Source moved** to `raw/ingested/`.
 - **Next:** `/lint` to verify reverse-link integrity; consider promoting the four Weber open questions into [[05_open-questions]] entries.
+
+## [2026-05-24] visualize | weber-ai-startup-taxonomy
+- Output: outputs/weber-ai-startup-taxonomy.html
+- Two synced views of the Weber et al. (2021) 4-category / 11-dimension / 39-characteristic taxonomy:
+  - (01) Morphological box — chips, multi-select per dimension, sticky "your model" recipe bar, hover tooltips.
+  - (02) Radial mind map — all 39 characteristics around the perimeter; selected leaves and the radial path back through their dimension/category/root highlight in accent.
+- 4 archetype quick-loads (ACPS / ADF / ADAP / ADTR) preload canonical patterns.

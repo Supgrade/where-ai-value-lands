@@ -23,15 +23,34 @@ The deliverable is **the technology itself**, not a productized service. The cus
 
 ## Salient characteristics
 
-- **Value proposition:** autonomous robots & bots; novel cognitive insights at the frontier; sometimes process automation in physical environments.
-- **Primary AI technology:** often **robotics** or **computer vision** — but also frontier ML/RL research applied to a specific scientific domain (drug discovery, neurotech).
-- **Data source:** mixed — self-generated, partner-acquired, or domain-proprietary. **Often heavily dependent on industry partnerships** for real-world training data.
+- **Core AI value:** **autonomous robots & bots** — the AI acts on its own in the physical or digital world; the deliverable is action, not an insight.
+- **Continuous learning:** **central learning & updates** and **learning at customer side** — model improvement happens both at the vendor's lab (centralized R&D pushes) and in the customer's operational environment (domain-specific adaptation from real-world deployments).
+- **Primary AI technology:** **robotics** and/or **computer vision** — physical embodiment, sensor-actuator loops, image/video understanding. Frontier ML/RL applied to specific scientific domains (drug discovery, neurotech) also applies.
+- **Data type:** **mixed data** and **visual data** — sensor streams, video frames, telemetry, domain-specific readings.
+- **Data source:** **self-generated** — the startup produces its own data through simulations, proprietary collection, and lab work. Often heavily dependent on industry partnerships for real-world training data.
 - **Hardware provision:** **Yes** in many cases (robotic components, sensors, drones, cameras). This is the only pattern where hardware is a frequent salient characteristic.
-- **Delivery mode:** often the **base technology** itself, sometimes alongside hardware.
-- **Level of customization:** **full customization** — the customer's domain dictates the integration.
+- **Delivery mode:** **base technology** (the foundational AI tech others integrate) and/or **AI-produced output** (the direct output of the research system, e.g., a drug candidate, an annotated drive log).
+- **Level of customization:** **full customization** — the customer's domain dictates the integration; nothing is one-size-fits-all.
+- **Customer:** **B2B** — sold to other businesses (industrial partners, pharma firms, research institutions) with the budget and engineering muscle to integrate frontier AI.
 - **Industry scope:** **industry-focused** (the niche **is** the business model).
-- **Revenue:** often **dependent on external funding** rather than a stable revenue stream:
+- **Customer charge:** **one-time payment** or milestone-based project fees; often dependent on **external funding** rather than a stable recurring revenue stream.
   > "Therefore, those startups are not maintaining a stable revenue stream, but, instead, often rely on external funding."
+
+### Full taxonomy profile (all 11 dimensions)
+
+| Dimension | Dominant characteristic(s) for this archetype |
+|---|---|
+| Core AI value | Autonomous robots & bots |
+| Continuous learning | Central learning & updates · Learning at customer side |
+| Primary AI technology | Robotics · Computer vision |
+| Data type | Mixed data · Visual data |
+| Data source | Self-generated |
+| Hardware provision | Yes |
+| Delivery mode | Base technology · AI-produced output |
+| Level of customization | Full customization |
+| Customer | B2B |
+| Industry scope | Industry focused |
+| Customer charge | One-time payment |
 
 ## Examples (2021 sample)
 

@@ -11,6 +11,8 @@ last-updated: 2026-05-24
 
 A structured classification scheme that partitions a set of objects into mutually exclusive, collectively exhaustive (MECE) categories. In this project, "taxonomy" refers specifically to a **named, discrete set of types** — not a spectrum, not a ranked ladder, not a score.
 
+==the science and practice of naming, defining, and classifying groups of items, organisms, or concepts based on shared characteristics==.
+
 ## Distinction from related terms
 
 | Term | What it is | Example in this project |

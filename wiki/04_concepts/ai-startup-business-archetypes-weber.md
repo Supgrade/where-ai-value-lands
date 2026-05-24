@@ -22,6 +22,43 @@ A four-pattern taxonomy of AI-startup business models, derived empirically from 
 | [[ai-data-analytics-provider]] | Integrates and analyzes **vast data** (internal + external) for decision support; classical analytics with ML inside | 30 / 100 (largest) | Kubit (retention/profitability anomaly detection); Falkonry (sensor → machine-state) |
 | [[ai-deep-tech-researcher]] | Research-led; develops **frontier AI tech for niche problems** (robotics, autonomous driving, drug discovery, neurotech); not yet standardized; often pre-revenue | 19 / 100 | Cerenion (brain-activity interpretation); Syrius Robotics (warehouse robots) |
 
+## The full morphological box — 4 categories · 11 dimensions · 39 characteristics
+
+Every AI startup is a point in this space. The four archetypes are clusters found by Ward-method hierarchical clustering over the dichotomized dimensions (Weber et al. §4). All characteristic names below are verbatim from the paper.
+
+### Category 1 — Value proposition: *what the startup promises the customer*
+
+| Dimension | What it captures | Characteristics |
+|---|---|---|
+| **Core AI value** | The fundamental kind of value the AI delivers | Cognitive insights · Monitoring & anomaly detection · Process & task support · Autonomous robots & bots |
+| **Continuous learning** | Whether the model keeps improving after deployment | Central learning & updates · Learning at customer side · Not provided |
+
+### Category 2 — Value creation: *what the startup mobilises to make the promise real*
+
+| Dimension | What it captures | Characteristics |
+|---|---|---|
+| **Primary AI technology** | The dominant AI discipline behind the product | Machine learning · Natural language processing · Computer vision · Robotics |
+| **Data type** | The modality of data the system ingests | Numeric / sensor data · Textual / document data · Natural language data · Visual data · Mixed data |
+| **Data source** | Where the training and inference data come from | Self-generated · Acquired · Publicly available · Customer provided on demand · Customer transmitted continuously |
+| **Hardware provision** | Does the startup ship hardware alongside the software? | Yes · No |
+
+### Category 3 — Value delivery: *the form factor in which the value reaches the customer*
+
+| Dimension | What it captures | Characteristics |
+|---|---|---|
+| **Delivery mode** | How the customer touches the product | Software application · Programmable interface · Base technology · AI-produced output |
+| **Level of customization** | How much the product is shaped to each customer | Standardized product / service · Tailoring / individualization · Full customization |
+| **Customer** | Who pays | B2B · B2C · Both |
+| **Industry scope** | How wide a target market | Industry focused · Industry agnostic |
+
+### Category 4 — Value capture: *how the startup turns value into revenue*
+
+| Dimension | What it captures | Characteristics |
+|---|---|---|
+| **Customer charge** | The pricing logic | Free of charge · Subscription-based · Transaction-based · One-time payment |
+
+The interactive version of this table (with archetype presets and a radial dendrogram) is at `outputs/weber-ai-startup-taxonomy.html`.
+
 ## How to classify a startup (the salient-characteristic shortcut)
 
 Weber et al. built an 11-dimension / 39-characteristic taxonomy (value proposition, value creation, value delivery, value capture), then clustered. For practical classification, the **salient characteristics** that separate one pattern from the others are usually enough:

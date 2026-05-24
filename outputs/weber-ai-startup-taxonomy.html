@@ -1,0 +1,1140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Startup Business Model — Morphological Box (Weber et al. 2021)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+  :root{
+    --bg:#f6f4ee;
+    --bg-2:#efece2;
+    --ink:#1a1a1a;
+    --ink-2:#444;
+    --muted:#6b6760;
+    --hair:#d5d0c4;
+    --hair-soft:#e6e2d4;
+    --accent:#b54932;
+    --accent-soft:#e9c8be;
+    --accent-ink:#7a2f1f;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:17px;
+    line-height:1.55;
+    font-feature-settings:"liga","kern";
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono', ui-monospace, Menlo, monospace}
+  .wrap{max-width:1280px;margin:0 auto;padding:48px 40px 96px}
+
+  /* Header */
+  header.page{
+    border-bottom:1px solid var(--hair);
+    padding-bottom:28px;
+    margin-bottom:32px;
+  }
+  .kicker{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-weight:600;
+    font-size:36px;
+    line-height:1.15;
+    margin:0 0 14px;
+    letter-spacing:-.01em;
+  }
+  .dek{
+    font-size:17px;
+    color:var(--ink-2);
+    max-width:780px;
+    margin:0;
+    font-style:italic;
+  }
+  .byline{
+    display:flex;
+    gap:24px;
+    margin-top:18px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:.06em;
+  }
+  .byline span{display:inline-flex;align-items:center;gap:6px}
+  .byline em{font-style:normal;color:var(--ink-2)}
+
+  /* Sticky configuration bar */
+  .config-bar{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:var(--bg);
+    border-bottom:1px solid var(--hair);
+    padding:18px 0 14px;
+    margin:0 0 36px;
+  }
+  .config-row{
+    display:flex;
+    align-items:flex-start;
+    gap:16px;
+  }
+  .config-label{
+    flex:0 0 130px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    padding-top:6px;
+  }
+  .config-readout{
+    flex:1;
+    min-height:32px;
+    font-family:'Source Serif 4', serif;
+    font-size:14px;
+    color:var(--ink-2);
+    line-height:1.7;
+  }
+  .config-readout .group{
+    display:inline-block;
+    margin-right:14px;
+    margin-bottom:4px;
+  }
+  .config-readout .group .dimkey{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    color:var(--muted);
+    letter-spacing:.06em;
+    margin-right:4px;
+  }
+  .config-readout .group .val{
+    color:var(--accent-ink);
+    font-weight:600;
+  }
+  .config-readout .empty{
+    color:var(--muted);
+    font-style:italic;
+  }
+  .config-actions{
+    flex:0 0 auto;
+    display:flex;
+    gap:8px;
+    align-items:flex-start;
+  }
+  button.bare{
+    background:none;
+    border:1px solid var(--hair);
+    color:var(--ink-2);
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    padding:7px 11px;
+    cursor:pointer;
+    transition:all .12s ease;
+  }
+  button.bare:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+  }
+
+  /* Archetypes row */
+  .archetypes{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin:0 0 40px;
+    padding-bottom:32px;
+    border-bottom:1px solid var(--hair-soft);
+  }
+  .archetypes .arch-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    padding:8px 12px 8px 0;
+    align-self:center;
+  }
+  button.arch{
+    background:var(--bg);
+    border:1px solid var(--hair);
+    color:var(--ink);
+    font-family:'Source Serif 4', serif;
+    font-size:13px;
+    padding:8px 14px;
+    cursor:pointer;
+    transition:all .12s ease;
+    display:inline-flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  button.arch .n{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    color:var(--muted);
+    letter-spacing:.06em;
+  }
+  button.arch:hover{
+    border-color:var(--accent);
+    background:#fbf6f3;
+  }
+  button.arch.active{
+    border-color:var(--accent);
+    background:var(--accent);
+    color:#fff;
+  }
+  button.arch.active .n{color:rgba(255,255,255,.7)}
+
+  /* Category bands */
+  .category{
+    margin:0 0 56px;
+  }
+  .category:last-of-type{margin-bottom:0}
+  .cat-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin:0 0 22px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--ink);
+  }
+  .cat-num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:.18em;
+  }
+  .cat-name{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:22px;
+    letter-spacing:-.005em;
+  }
+  .cat-blurb{
+    font-family:'Source Serif 4', serif;
+    font-style:italic;
+    color:var(--muted);
+    font-size:13px;
+    margin-left:auto;
+  }
+
+  /* Dimension rows */
+  .dim{
+    display:grid;
+    grid-template-columns:230px 1fr;
+    gap:24px;
+    padding:18px 0;
+    border-bottom:1px dashed var(--hair-soft);
+    align-items:start;
+  }
+  .dim:last-child{border-bottom:none}
+  .dim-name{
+    font-family:'Source Serif 4', serif;
+    font-size:15px;
+    color:var(--ink);
+    font-weight:600;
+    padding-top:4px;
+  }
+  .dim-name .dim-desc{
+    display:block;
+    font-family:'Source Serif 4', serif;
+    font-weight:400;
+    font-style:italic;
+    font-size:12px;
+    color:var(--muted);
+    margin-top:3px;
+    line-height:1.45;
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .chip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:7px 12px;
+    border:1px solid var(--hair);
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Source Serif 4', serif;
+    font-size:13.5px;
+    cursor:pointer;
+    transition:all .12s ease;
+    user-select:none;
+    position:relative;
+  }
+  .chip:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+  }
+  .chip.selected{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#fff;
+  }
+  .chip.selected:hover{
+    background:var(--accent-ink);
+    border-color:var(--accent-ink);
+    color:#fff;
+  }
+  .chip .dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--hair);
+    transition:all .12s ease;
+  }
+  .chip:hover .dot{background:var(--accent)}
+  .chip.selected .dot{background:#fff}
+
+  /* Mind map */
+  .mindmap{
+    margin:96px 0 0;
+    padding-top:48px;
+    border-top:1px solid var(--hair);
+  }
+  .mm-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin:0 0 8px;
+  }
+  .mm-kicker{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .mm-name{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:22px;
+  }
+  .mm-lede{
+    font-family:'Source Serif 4', serif;
+    font-style:italic;
+    color:var(--muted);
+    font-size:14px;
+    margin:0 0 24px;
+    max-width:780px;
+  }
+  .mm-wrap{
+    width:100%;
+    display:flex;
+    justify-content:center;
+  }
+  #map-svg{
+    width:100%;
+    height:auto;
+    max-width:1200px;
+    display:block;
+    user-select:none;
+  }
+  #map-svg .link{
+    fill:none;
+    stroke:var(--hair);
+    stroke-width:1;
+    stroke-linecap:round;
+    transition:stroke .2s, stroke-width .2s, opacity .2s, filter .2s;
+  }
+  #map-svg .link.on{
+    stroke:var(--accent);
+    stroke-width:2.6;
+    filter:drop-shadow(0 0 1.5px rgba(181,73,50,.65)) drop-shadow(0 0 5px rgba(181,73,50,.28));
+  }
+  #map-svg .root-dot{
+    fill:var(--ink);
+  }
+  #map-svg .root-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    fill:var(--muted);
+    text-anchor:middle;
+  }
+  #map-svg .cat-dot{
+    stroke:var(--bg);
+    stroke-width:2;
+  }
+  #map-svg .cat-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  #map-svg .dim-dot{
+    fill:var(--muted);
+  }
+  #map-svg .dim-label{
+    font-family:'Source Serif 4', serif;
+    font-style:italic;
+    font-size:11px;
+    fill:var(--ink-2);
+  }
+  #map-svg .char-circle{
+    fill:var(--bg);
+    stroke:var(--muted);
+    stroke-width:1;
+    cursor:pointer;
+    transition:fill .15s, stroke .15s, r .15s;
+  }
+  #map-svg .char-circle:hover{
+    stroke:var(--accent);
+    stroke-width:1.8;
+  }
+  #map-svg .char-circle.on{
+    fill:var(--accent);
+    stroke:var(--accent);
+  }
+  #map-svg .char-label{
+    font-family:'Source Serif 4', serif;
+    font-size:11px;
+    fill:var(--ink-2);
+    cursor:pointer;
+    transition:fill .15s, font-weight .15s;
+  }
+  #map-svg .char-label:hover{
+    fill:var(--accent);
+  }
+  #map-svg .char-label.on{
+    fill:var(--accent-ink);
+    font-weight:600;
+  }
+  #map-svg .leg{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    fill:var(--muted);
+  }
+  #map-svg .cat-arc{
+    stroke:none;
+    pointer-events:none;
+  }
+
+  /* Footer */
+  footer.page{
+    margin-top:80px;
+    padding-top:24px;
+    border-top:1px solid var(--hair);
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color:var(--muted);
+    letter-spacing:.06em;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+
+  /* Tooltip */
+  #tip{
+    position:fixed;
+    pointer-events:none;
+    background:#1a1a1a;
+    color:#f6f4ee;
+    padding:10px 13px;
+    font-family:'Source Serif 4', serif;
+    font-size:13px;
+    line-height:1.45;
+    max-width:300px;
+    z-index:100;
+    opacity:0;
+    transition:opacity .12s ease;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+  }
+  #tip.show{opacity:1}
+  #tip .tip-head{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#c4baa3;
+    margin-bottom:4px;
+  }
+
+  /* Hint */
+  .hint{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    color:var(--muted);
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+
+  @media (max-width:820px){
+    .wrap{padding:32px 20px 64px}
+    h1{font-size:28px}
+    .dim{grid-template-columns:1fr;gap:10px}
+    .dim-name{padding-top:0}
+    .config-row{flex-direction:column;gap:10px}
+    .config-label{flex:none}
+    .cat-blurb{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page">
+    <div class="kicker">Morphological box · interactive</div>
+    <h1>The AI startup business model, as 39 moves on a board</h1>
+    <p class="dek">Four meta-categories. Eleven dimensions. Thirty-nine characteristics. Pick any combination — most real startups span several within a dimension.</p>
+    <div class="byline">
+      <span><em>Source</em> Weber, Beutter, Weking, Böhm, Krcmar (2021)</span>
+      <span><em>N</em> 100 Crunchbase AI startups</span>
+      <span><em>Method</em> Nickerson taxonomy + Ward clustering</span>
+    </div>
+  </header>
+
+  <div class="config-bar">
+    <div class="config-row">
+      <div class="config-label">Your model</div>
+      <div class="config-readout" id="readout"><span class="empty">Click any characteristic to start composing. Multi-select per dimension is allowed.</span></div>
+      <div class="config-actions">
+        <button class="bare" id="reset">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="archetypes">
+    <span class="arch-label">Load archetype →</span>
+    <button class="arch" data-arch="acps">AI-charged Product / Service <span class="n">26 / 100</span></button>
+    <button class="arch" data-arch="adf">AI Development Facilitator <span class="n">25 / 100</span></button>
+    <button class="arch" data-arch="adap">AI Data Analytics Provider <span class="n">30 / 100</span></button>
+    <button class="arch" data-arch="adtr">AI Deep Tech Researcher <span class="n">19 / 100</span></button>
+  </div>
+
+  <div class="hint">Hover any chip for a definition · click to (de)select · selections accumulate in the bar above</div>
+
+  <div id="board"></div>
+
+  <section class="mindmap">
+    <div class="mm-head">
+      <span class="mm-kicker">02 · whole-mix view</span>
+      <span class="mm-name">The configuration as a constellation</span>
+    </div>
+    <p class="mm-lede">All 39 characteristics laid out around the perimeter. Selected ones light up and pull a path back through their dimension, category, and the root. Each archetype produces a recognisable shape.</p>
+    <div class="mm-wrap">
+      <svg id="map-svg" viewBox="-640 -560 1280 1120" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+  </section>
+
+  <footer class="page">
+    <span>outputs / weber-ai-startup-taxonomy.html</span>
+    <span>BISE 64(1) · 2021 · doi 10.1007/s12599-021-00732-w</span>
+    <span>where-value-lands</span>
+  </footer>
+</div>
+
+<div id="tip" role="tooltip" aria-hidden="true"></div>
+
+<script>
+const TAXONOMY = [
+  {
+    name: "Value proposition",
+    blurb: "what the startup promises the customer",
+    dimensions: [
+      {
+        name: "Core AI value",
+        desc: "The fundamental kind of value the AI delivers.",
+        chars: [
+          {k:"Cognitive insights", d:"Generates insights, predictions, recommendations from data. The deliverable is understanding."},
+          {k:"Monitoring & anomaly detection", d:"Continuously watches a system or process and flags deviations from normal. The deliverable is an alert."},
+          {k:"Process & task support", d:"Augments a human on a knowledge or service task (e.g. drafting, classifying, screening). The deliverable is leverage."},
+          {k:"Autonomous robots & bots", d:"Acts on its own in the physical or digital world. The deliverable is action."}
+        ]
+      },
+      {
+        name: "Continuous learning",
+        desc: "Whether the model keeps improving after deployment.",
+        chars: [
+          {k:"Central learning & updates", d:"Vendor retrains the model centrally and pushes updates. Customers benefit from one shared learning curve."},
+          {k:"Learning at customer side", d:"The model adapts on the customer's own data inside the customer's environment. Each customer ends up with a slightly different model."},
+          {k:"Not provided", d:"Model is static after shipment. No further learning. Common when the model is bundled inside a product."}
+        ]
+      }
+    ]
+  },
+  {
+    name: "Value creation",
+    blurb: "what the startup mobilises to make the promise real",
+    dimensions: [
+      {
+        name: "Primary AI technology",
+        desc: "The dominant AI discipline behind the product.",
+        chars: [
+          {k:"Machine learning", d:"General ML — classification, regression, recommendation, forecasting. The broadest category."},
+          {k:"Natural language processing", d:"Text or speech understanding and generation. LLMs sit here."},
+          {k:"Computer vision", d:"Image and video understanding."},
+          {k:"Robotics", d:"Physical embodiment, sensor-actuator loops, control."}
+        ]
+      },
+      {
+        name: "Data type",
+        desc: "The modality of data the system ingests.",
+        chars: [
+          {k:"Numeric / sensor data", d:"Tabular numbers, time series, IoT signals, telemetry."},
+          {k:"Textual / document data", d:"Documents, code, transcripts, web pages."},
+          {k:"Natural language data", d:"Conversational language — chat, voice, dialogue."},
+          {k:"Visual data", d:"Images, video, frames."},
+          {k:"Mixed data", d:"A combination of two or more of the above."}
+        ]
+      },
+      {
+        name: "Data source",
+        desc: "Where the training and inference data come from.",
+        chars: [
+          {k:"Self-generated", d:"The startup produces its own data (simulations, internal labelling, proprietary collection)."},
+          {k:"Acquired", d:"Bought or licensed from third parties."},
+          {k:"Publicly available", d:"Open-web scrapes, open datasets, public APIs."},
+          {k:"Customer provided on demand", d:"Customer supplies a one-off dataset for setup or per-engagement work."},
+          {k:"Customer transmitted continuously", d:"Live stream from the customer's systems (logs, events, telemetry). Often creates a data-network-effect moat."}
+        ]
+      },
+      {
+        name: "Hardware provision",
+        desc: "Does the startup ship hardware alongside the software?",
+        chars: [
+          {k:"Yes", d:"Hardware is part of the deliverable (robot, sensor, edge device, dedicated machine)."},
+          {k:"No", d:"Pure software / cloud."}
+        ]
+      }
+    ]
+  },
+  {
+    name: "Value delivery",
+    blurb: "the form factor in which the value reaches the customer",
+    dimensions: [
+      {
+        name: "Delivery mode",
+        desc: "How the customer touches the product.",
+        chars: [
+          {k:"Software application", d:"A branded end-user app, workflow tool, or web app. The customer sees a UI."},
+          {k:"Programmable interface", d:"An API, SDK, or library. The customer is a developer who integrates it."},
+          {k:"Base technology", d:"A platform or framework other vendors build their products on top of."},
+          {k:"AI-produced output", d:"The deliverable is the inference itself — a report, a label, a decision, an action — packaged and handed over."}
+        ]
+      },
+      {
+        name: "Level of customization",
+        desc: "How much the product is shaped to each customer.",
+        chars: [
+          {k:"Standardized product / service", d:"One-size-fits-all. Same product for every customer."},
+          {k:"Tailoring / individualization", d:"Configurable within a fixed product surface — settings, plugins, light fine-tuning."},
+          {k:"Full customization", d:"Bespoke build per engagement. Closer to a consultancy or research lab."}
+        ]
+      },
+      {
+        name: "Customer",
+        desc: "Who pays.",
+        chars: [
+          {k:"B2B", d:"Sold to other businesses."},
+          {k:"B2C", d:"Sold directly to consumers."},
+          {k:"Both", d:"Serves both businesses and consumers as distinct channels."}
+        ]
+      },
+      {
+        name: "Industry scope",
+        desc: "How wide a target market.",
+        chars: [
+          {k:"Industry focused", d:"Built for one vertical (e.g. legal, radiology, agriculture). Domain assumptions baked in."},
+          {k:"Industry agnostic", d:"Cross-industry — usable wherever the abstract problem appears."}
+        ]
+      }
+    ]
+  },
+  {
+    name: "Value capture",
+    blurb: "how the startup turns value into revenue",
+    dimensions: [
+      {
+        name: "Customer charge",
+        desc: "The pricing logic.",
+        chars: [
+          {k:"Free of charge", d:"Free to the user. Monetisation lives elsewhere (data, ads, upsell, distribution play)."},
+          {k:"Subscription-based", d:"Recurring fee for ongoing access. The default SaaS shape."},
+          {k:"Transaction-based", d:"Per-call, per-use, per-outcome. Token billing, per-prediction, per-task pricing."},
+          {k:"One-time payment", d:"Single purchase or perpetual licence."}
+        ]
+      }
+    ]
+  }
+];
+
+// Archetype default selections. Best-effort dominant pattern from the cluster descriptions in §4.4 of Weber et al. (2021).
+const ARCHETYPES = {
+  acps: {
+    label: "AI-charged Product / Service Provider",
+    notes: "Embeds readily-trained AI models inside a standardized product or service. Top of the U-curve.",
+    sel: {
+      "Core AI value": ["Process & task support", "Cognitive insights"],
+      "Continuous learning": ["Central learning & updates"],
+      "Primary AI technology": ["Machine learning"],
+      "Data type": ["Mixed data"],
+      "Data source": ["Self-generated"],
+      "Hardware provision": ["No"],
+      "Delivery mode": ["Software application"],
+      "Level of customization": ["Standardized product / service"],
+      "Customer": ["B2B"],
+      "Industry scope": ["Industry focused"],
+      "Customer charge": ["Subscription-based"]
+    }
+  },
+  adf: {
+    label: "AI Development Facilitator",
+    notes: "Tools that help other firms build their AI — APIs, SDKs, no-code platforms. Industry-agnostic. The squeezed middle of the U.",
+    sel: {
+      "Core AI value": ["Process & task support"],
+      "Continuous learning": ["Central learning & updates"],
+      "Primary AI technology": ["Natural language processing", "Machine learning"],
+      "Data type": ["Textual / document data", "Natural language data"],
+      "Data source": ["Acquired", "Publicly available"],
+      "Hardware provision": ["No"],
+      "Delivery mode": ["Programmable interface", "Base technology"],
+      "Level of customization": ["Standardized product / service"],
+      "Customer": ["B2B"],
+      "Industry scope": ["Industry agnostic"],
+      "Customer charge": ["Subscription-based"]
+    }
+  },
+  adap: {
+    label: "AI Data Analytics Provider",
+    notes: "Integrates and analyses customer data for decision support. Classical analytics with ML inside. Shoulder of the U; largest cluster (30/100).",
+    sel: {
+      "Core AI value": ["Cognitive insights", "Monitoring & anomaly detection"],
+      "Continuous learning": ["Central learning & updates"],
+      "Primary AI technology": ["Machine learning"],
+      "Data type": ["Numeric / sensor data", "Mixed data"],
+      "Data source": ["Customer transmitted continuously"],
+      "Hardware provision": ["No"],
+      "Delivery mode": ["Software application"],
+      "Level of customization": ["Tailoring / individualization"],
+      "Customer": ["B2B"],
+      "Industry scope": ["Industry agnostic"],
+      "Customer charge": ["Subscription-based"]
+    }
+  },
+  adtr: {
+    label: "AI Deep Tech Researcher",
+    notes: "Frontier R&D as the product — robotics, autonomous driving, drug discovery, neurotech. Often pre-revenue, externally funded. Bottom of the U when defensible.",
+    sel: {
+      "Core AI value": ["Autonomous robots & bots"],
+      "Continuous learning": ["Central learning & updates", "Learning at customer side"],
+      "Primary AI technology": ["Robotics", "Computer vision"],
+      "Data type": ["Mixed data", "Visual data"],
+      "Data source": ["Self-generated"],
+      "Hardware provision": ["Yes"],
+      "Delivery mode": ["Base technology", "AI-produced output"],
+      "Level of customization": ["Full customization"],
+      "Customer": ["B2B"],
+      "Industry scope": ["Industry focused"],
+      "Customer charge": ["One-time payment"]
+    }
+  }
+};
+
+// Meta-category colors: outer arc fill + matching ink for labels
+const CAT_COLORS = {
+  "Value proposition": { fill: "rgba(184,151,100,0.30)", ink: "#7a5f2e" },
+  "Value creation":    { fill: "rgba(118,148,128,0.30)", ink: "#3d5c48" },
+  "Value delivery":    { fill: "rgba(112,132,162,0.28)", ink: "#3d5270" },
+  "Value capture":     { fill: "rgba(168,112,112,0.30)", ink: "#6e4040" }
+};
+
+// ---- render ----
+const board = document.getElementById('board');
+const state = {}; // {dimensionName: Set(characteristic)}
+
+function dimKey(c, d){ return d.name; }
+
+function render(){
+  board.innerHTML = '';
+  TAXONOMY.forEach((cat, ci) => {
+    const sec = document.createElement('section');
+    sec.className = 'category';
+    sec.innerHTML = `
+      <div class="cat-head">
+        <span class="cat-num">${String(ci+1).padStart(2,'0')}</span>
+        <span class="cat-name" style="color:${(CAT_COLORS[cat.name] || {}).ink || 'inherit'}">${cat.name}</span>
+        <span class="cat-blurb">${cat.blurb}</span>
+      </div>
+    `;
+    cat.dimensions.forEach(dim => {
+      const row = document.createElement('div');
+      row.className = 'dim';
+      const left = document.createElement('div');
+      left.className = 'dim-name';
+      left.innerHTML = `${dim.name}<span class="dim-desc">${dim.desc}</span>`;
+      const right = document.createElement('div');
+      right.className = 'chips';
+      dim.chars.forEach(ch => {
+        const chip = document.createElement('button');
+        chip.className = 'chip';
+        chip.type = 'button';
+        chip.dataset.dim = dim.name;
+        chip.dataset.char = ch.k;
+        chip.innerHTML = `<span class="dot"></span><span class="lbl">${ch.k}</span>`;
+        chip.addEventListener('click', () => toggle(dim.name, ch.k));
+        chip.addEventListener('mouseenter', e => showTip(e, dim.name, ch.k, ch.d));
+        chip.addEventListener('mousemove', moveTip);
+        chip.addEventListener('mouseleave', hideTip);
+        right.appendChild(chip);
+      });
+      row.appendChild(left);
+      row.appendChild(right);
+      sec.appendChild(row);
+    });
+    board.appendChild(sec);
+  });
+  paintSelection();
+}
+
+function toggle(dim, ch){
+  if(!state[dim]) state[dim] = new Set();
+  if(state[dim].has(ch)) state[dim].delete(ch);
+  else state[dim].add(ch);
+  if(state[dim].size === 0) delete state[dim];
+  // any manual change clears the active archetype highlight
+  document.querySelectorAll('button.arch').forEach(b => b.classList.remove('active'));
+  paintSelection();
+}
+
+function paintSelection(){
+  document.querySelectorAll('.chip').forEach(chip => {
+    const d = chip.dataset.dim, c = chip.dataset.char;
+    const on = state[d] && state[d].has(c);
+    chip.classList.toggle('selected', !!on);
+  });
+  paintReadout();
+  paintMindMap();
+}
+
+function paintReadout(){
+  const r = document.getElementById('readout');
+  const keys = Object.keys(state);
+  if(keys.length === 0){
+    r.innerHTML = `<span class="empty">Click any characteristic to start composing. Multi-select per dimension is allowed.</span>`;
+    return;
+  }
+  // Render in TAXONOMY order
+  const groups = [];
+  TAXONOMY.forEach(cat => cat.dimensions.forEach(dim => {
+    if(state[dim.name] && state[dim.name].size){
+      const vals = [...state[dim.name]].join(' · ');
+      groups.push(`<span class="group"><span class="dimkey">${dim.name.toLowerCase()}</span><span class="val">${vals}</span></span>`);
+    }
+  }));
+  r.innerHTML = groups.join('');
+}
+
+function loadArchetype(key){
+  const a = ARCHETYPES[key];
+  if(!a) return;
+  // Wipe state, then load
+  for(const k of Object.keys(state)) delete state[k];
+  for(const [dim, vals] of Object.entries(a.sel)){
+    state[dim] = new Set(vals);
+  }
+  document.querySelectorAll('button.arch').forEach(b => b.classList.toggle('active', b.dataset.arch === key));
+  paintSelection();
+}
+
+// ---- tooltip ----
+const tip = document.getElementById('tip');
+function showTip(e, dim, ch, desc){
+  tip.innerHTML = `<div class="tip-head">${dim}</div><div><strong>${ch}.</strong> ${desc}</div>`;
+  tip.classList.add('show');
+  moveTip(e);
+}
+function moveTip(e){
+  const pad = 14;
+  let x = e.clientX + pad;
+  let y = e.clientY + pad;
+  const rect = tip.getBoundingClientRect();
+  if(x + rect.width + 8 > window.innerWidth) x = e.clientX - rect.width - pad;
+  if(y + rect.height + 8 > window.innerHeight) y = e.clientY - rect.height - pad;
+  tip.style.left = x + 'px';
+  tip.style.top = y + 'px';
+}
+function hideTip(){ tip.classList.remove('show'); }
+
+// ---- wire up ----
+document.getElementById('reset').addEventListener('click', () => {
+  for(const k of Object.keys(state)) delete state[k];
+  document.querySelectorAll('button.arch').forEach(b => b.classList.remove('active'));
+  paintSelection();
+});
+document.querySelectorAll('button.arch').forEach(b => {
+  b.addEventListener('click', () => loadArchetype(b.dataset.arch));
+  b.addEventListener('mouseenter', e => {
+    const a = ARCHETYPES[b.dataset.arch];
+    if(!a) return;
+    tip.innerHTML = `<div class="tip-head">Archetype</div><div><strong>${a.label}.</strong> ${a.notes}</div>`;
+    tip.classList.add('show');
+    moveTip(e);
+  });
+  b.addEventListener('mousemove', moveTip);
+  b.addEventListener('mouseleave', hideTip);
+});
+
+render();
+
+// ---- mind map (radial dendrogram) ----
+const MM = {
+  R: 360,         // leaf radius (charts)
+  catR: 80,       // category dot radius
+  dimR: 220       // dimension dot radius
+};
+
+const DIM_SHORT = {
+  "Core AI value": "Core value",
+  "Continuous learning": "Cont. learning",
+  "Primary AI technology": "Primary tech",
+  "Data type": "Data type",
+  "Data source": "Data source",
+  "Hardware provision": "Hardware",
+  "Delivery mode": "Delivery",
+  "Level of customization": "Customization",
+  "Customer": "Customer",
+  "Industry scope": "Industry",
+  "Customer charge": "Pricing"
+};
+
+function buildMindMap(){
+  const svg = d3.select('#map-svg');
+  svg.selectAll('*').remove();
+
+  // Hierarchy
+  const data = {
+    name:'AI startup BM', kind:'root',
+    children: TAXONOMY.map(cat => ({
+      name:cat.name, kind:'category',
+      children: cat.dimensions.map(dim => ({
+        name:dim.name, kind:'dimension', desc:dim.desc,
+        children: dim.chars.map(ch => ({
+          name:ch.k, kind:'char', desc:ch.d, dim:dim.name, cat:cat.name
+        }))
+      }))
+    }))
+  };
+
+  const root = d3.hierarchy(data);
+  // Use cluster for leaf-balanced angular layout, then override radii by depth.
+  const cluster = d3.cluster().size([360, MM.R]).separation((a,b) => 1);
+  cluster(root);
+
+  // Override depth-radii so categories sit close-in and dimensions in the middle band.
+  root.descendants().forEach(d => {
+    if(d.depth === 0) d.y = 0;
+    else if(d.depth === 1) d.y = MM.catR;
+    else if(d.depth === 2) d.y = MM.dimR;
+    else d.y = MM.R;
+  });
+
+  // Helper: cartesian for any node
+  const xy = d => {
+    const a = (d.x - 90) * Math.PI / 180;
+    return [Math.cos(a) * d.y, Math.sin(a) * d.y];
+  };
+
+  // ---- Category background sectors (behind everything) ----
+  // For each of the 4 meta-categories, draw a faint arc behind its leaf band so the
+  // outer ring shows a visible subdivision: vp / vc / vd / vk.
+  const allLeaves = root.descendants().filter(d => d.depth === 3);
+  const sortedXs = allLeaves.map(l => l.x).slice().sort((a,b) => a-b);
+  const gaps = [];
+  for(let i = 1; i < sortedXs.length; i++) gaps.push(sortedXs[i] - sortedXs[i-1]);
+  gaps.sort((a,b) => a-b);
+  const step = gaps.length ? gaps[Math.floor(gaps.length/2)] : (360 / allLeaves.length);
+
+  const catArcs = root.descendants().filter(d => d.depth === 1).map(c => {
+    const leaves = c.descendants().filter(d => d.depth === 3);
+    const xs = leaves.map(l => l.x);
+    const minX = Math.min(...xs);
+    const maxX = Math.max(...xs);
+    return {
+      name: c.data.name,
+      start: minX - step/2,
+      end:   maxX + step/2,
+      mid:   (minX + maxX) / 2
+    };
+  });
+
+  const arcGen = d3.arc().innerRadius(350).outerRadius(369).padAngle(0.028);
+
+  const arcG = svg.append('g').attr('class','cat-arcs');
+  arcG.selectAll('path')
+    .data(catArcs)
+    .join('path')
+      .attr('class','cat-arc')
+      .attr('fill', d => (CAT_COLORS[d.name] || {}).fill || 'rgba(0,0,0,0.05)')
+      .attr('d', d => arcGen({
+        startAngle: d.start * Math.PI / 180,
+        endAngle:   d.end   * Math.PI / 180
+      }));
+
+  // Links — drawn as cubic-bezier radials by depth band
+  const linkGen = d3.linkRadial().angle(d => d.x * Math.PI / 180).radius(d => d.y);
+  const linksData = root.links();
+
+  const linkG = svg.append('g').attr('class','links');
+  linkG.selectAll('path')
+    .data(linksData)
+    .join('path')
+      .attr('class','link')
+      .attr('data-tdim', d => d.target.data.kind === 'char' ? d.target.data.dim : (d.target.data.kind === 'dimension' ? d.target.data.name : null))
+      .attr('data-tchar', d => d.target.data.kind === 'char' ? d.target.data.name : null)
+      .attr('data-tkind', d => d.target.data.kind)
+      .attr('d', linkGen);
+
+  const nodeG = svg.append('g').attr('class','nodes');
+
+  // Root marker
+  const rootSel = nodeG.append('g').attr('class','root');
+  rootSel.append('circle').attr('class','root-dot').attr('r', 3.5);
+  rootSel.append('text').attr('class','root-label').attr('y', -10).text('AI startup BM');
+
+  // Category nodes
+  const cats = nodeG.append('g').selectAll('g')
+    .data(root.descendants().filter(d => d.depth === 1))
+    .join('g')
+      .attr('transform', d => `rotate(${d.x - 90}) translate(${d.y},0)`);
+  cats.append('circle')
+    .attr('class','cat-dot')
+    .attr('r', 4)
+    .attr('fill', d => (CAT_COLORS[d.data.name] || {}).ink || null);
+  cats.append('text')
+    .attr('class','cat-label')
+    .attr('fill', d => (CAT_COLORS[d.data.name] || {}).ink || null)
+    .attr('dy','0.32em')
+    .attr('x', d => d.x < 180 ? 8 : -8)
+    .attr('text-anchor', d => d.x < 180 ? 'start' : 'end')
+    .attr('transform', d => d.x >= 180 ? 'rotate(180)' : null)
+    .text(d => d.data.name);
+
+  // Dimension nodes
+  const dims = nodeG.append('g').selectAll('g')
+    .data(root.descendants().filter(d => d.depth === 2))
+    .join('g')
+      .attr('transform', d => `rotate(${d.x - 90}) translate(${d.y},0)`);
+  dims.append('circle').attr('class','dim-dot').attr('r', 2.6);
+  dims.append('text')
+    .attr('class','dim-label')
+    .attr('dy','0.32em')
+    .attr('x', d => d.x < 180 ? 6 : -6)
+    .attr('text-anchor', d => d.x < 180 ? 'start' : 'end')
+    .attr('transform', d => d.x >= 180 ? 'rotate(180)' : null)
+    .text(d => DIM_SHORT[d.data.name] || d.data.name);
+
+  // Characteristic leaves
+  const leaves = nodeG.append('g').selectAll('g')
+    .data(root.descendants().filter(d => d.depth === 3))
+    .join('g')
+      .attr('class','leaf')
+      .attr('data-dim', d => d.data.dim)
+      .attr('data-char', d => d.data.name)
+      .attr('transform', d => `rotate(${d.x - 90}) translate(${d.y},0)`);
+
+  leaves.append('circle')
+    .attr('class','char-circle')
+    .attr('r', 4.2)
+    .attr('data-dim', d => d.data.dim)
+    .attr('data-char', d => d.data.name)
+    .on('click', (e, d) => toggle(d.data.dim, d.data.name))
+    .on('mouseenter', (e, d) => showTip(e, d.data.dim, d.data.name, d.data.desc))
+    .on('mousemove', moveTip)
+    .on('mouseleave', hideTip);
+
+  leaves.append('text')
+    .attr('class','char-label')
+    .attr('data-dim', d => d.data.dim)
+    .attr('data-char', d => d.data.name)
+    .attr('dy','0.32em')
+    .attr('x', d => d.x < 180 ? 10 : -10)
+    .attr('text-anchor', d => d.x < 180 ? 'start' : 'end')
+    .attr('transform', d => d.x >= 180 ? 'rotate(180)' : null)
+    .text(d => d.data.name)
+    .on('click', (e, d) => toggle(d.data.dim, d.data.name))
+    .on('mouseenter', (e, d) => showTip(e, d.data.dim, d.data.name, d.data.desc))
+    .on('mousemove', moveTip)
+    .on('mouseleave', hideTip);
+
+  // Compute which dimensions have at least one selected char, for link highlighting.
+  // (For each link, decide whether its target is 'on'.)
+  paintMindMap();
+}
+
+function paintMindMap(){
+  const svg = d3.select('#map-svg');
+  if(svg.empty()) return;
+
+  // Set of selected (dim, char) pairs
+  const selectedChars = new Set();
+  const selectedDims = new Set();
+  const selectedCats = new Set();
+  TAXONOMY.forEach(cat => {
+    cat.dimensions.forEach(dim => {
+      if(state[dim.name] && state[dim.name].size){
+        selectedDims.add(dim.name);
+        selectedCats.add(cat.name);
+        state[dim.name].forEach(c => selectedChars.add(dim.name + '||' + c));
+      }
+    });
+  });
+
+  // Leaves
+  svg.selectAll('.char-circle').classed('on', function(){
+    return selectedChars.has(this.dataset.dim + '||' + this.dataset.char);
+  });
+  svg.selectAll('.char-label').classed('on', function(){
+    return selectedChars.has(this.dataset.dim + '||' + this.dataset.char);
+  });
+
+  // Links — turn on if leading toward a selected node.
+  svg.selectAll('.link').classed('on', function(){
+    const kind = this.dataset.tkind;
+    const dim = this.dataset.tdim;
+    const ch = this.dataset.tchar;
+    if(kind === 'char') return selectedChars.has(dim + '||' + ch);
+    if(kind === 'dimension') return selectedDims.has(dim);
+    if(kind === 'category'){
+      // Link from root to category. Highlight if any descendant selected.
+      // We don't have category name on the link directly; infer from sibling links.
+      // Simpler: walk TAXONOMY and decide by target category name.
+      // We stored data-tdim only for non-root. For category links, neither attr is set;
+      // we instead match by traversing — but the easier check: if any selectedDim is in this category.
+      return false; // handled below
+    }
+    return false;
+  });
+
+  // Handle root->category links separately by matching category name via D3 data binding.
+  svg.selectAll('.link').filter(function(){ return this.dataset.tkind === 'category'; })
+    .classed('on', function(d){ return selectedCats.has(d.target.data.name); });
+}
+
+buildMindMap();
+</script>
+</body>
+</html>

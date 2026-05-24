@@ -23,14 +23,33 @@ The trained model **is** the product. The customer does not bring their own data
 
 ## Salient characteristics (what makes this pattern unique)
 
-- **Value proposition:** cognitive insights, monitoring & anomaly detection, or task automation — but delivered as a *ready-trained* capability, not as an analytics platform.
-- **Continuous learning:** mostly **central learning & updates** (provider side). The customer benefits from improvement without acting.
-- **Data source:** **self-generated or acquired upstream** by the startup. Customer-provided data is rare.
+- **Core AI value:** process & task support and/or cognitive insights — but delivered as a *ready-trained* capability embedded in the product.
+- **Continuous learning:** **central learning & updates** (provider side). The customer benefits from improvement without acting.
+- **Primary AI technology:** **machine learning** is dominant; the model is the product.
+- **Data type:** **mixed data** in most cases — the model ingests whatever combination the target task requires.
+- **Data source:** **self-generated** upstream by the startup. Customer-provided training data is rare; the startup owns its training corpus.
+- **Hardware provision:** **No** — pure software / cloud.
 - **Delivery mode:** **software application** (web/desktop/mobile/SaaS) or sometimes **AI-produced output** as a service (e.g., Cyclica's drug-discovery outputs).
-- **Level of customization:** **standardized** product/service. Configuration is light.
+- **Level of customization:** **standardized product / service**. Configuration is light; the model is pre-trained for a specific task.
 - **Customer:** mostly **B2B**, sometimes B2C.
 - **Industry scope:** typically **industry-focused** (one specific task in one specific industry).
-- **Revenue:** subscription, transaction-based, or one-time payment.
+- **Customer charge:** **subscription-based** is the dominant model; transaction-based or one-time payment also occur.
+
+### Full taxonomy profile (all 11 dimensions)
+
+| Dimension | Dominant characteristic(s) for this archetype |
+|---|---|
+| Core AI value | Process & task support · Cognitive insights |
+| Continuous learning | Central learning & updates |
+| Primary AI technology | Machine learning |
+| Data type | Mixed data |
+| Data source | Self-generated |
+| Hardware provision | No |
+| Delivery mode | Software application |
+| Level of customization | Standardized product / service |
+| Customer | B2B |
+| Industry scope | Industry focused |
+| Customer charge | Subscription-based |
 
 ## Examples (2021 sample)
 

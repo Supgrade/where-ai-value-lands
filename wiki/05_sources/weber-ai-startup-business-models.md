@@ -33,12 +33,12 @@ Organized under the four Massa et al. (2017) / Teece (2010) business-model meta-
 |---|---|---|
 | **Value proposition** | Core AI value | Cognitive insights / Monitoring & anomaly detection / Process & task support / Autonomous robots & bots |
 |  | Continuous learning | Central learning & updates / Learning at customer side / Not provided |
-| **Value creation** | Primary AI technology | Machine learning / NLP / Computer vision / Robotics |
-|  | Data type | Numeric-sensor / Textual-document / Natural language / Visual / Mixed |
+| **Value creation** | Primary AI technology | Machine learning / Natural language processing / Computer vision / Robotics |
+|  | Data type | Numeric / sensor data / Textual / document data / Natural language data / Visual data / Mixed data |
 |  | Data source | Self-generated / Acquired / Publicly available / Customer provided on demand / Customer transmitted continuously |
 |  | Hardware provision | Yes / No |
 | **Value delivery** | Delivery mode | Software application / Programmable interface / Base technology / AI-produced output |
-|  | Level of customization | Standardized product/service / Tailoring-individualization / Full customization |
+|  | Level of customization | Standardized product / service / Tailoring / individualization / Full customization |
 |  | Customer | B2B / B2C / Both |
 |  | Industry scope | Industry focused / Industry agnostic |
 | **Value capture** | Customer charge | Free of charge / Subscription-based / Transaction-based / One-time payment |

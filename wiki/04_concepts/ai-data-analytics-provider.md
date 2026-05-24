@@ -23,14 +23,33 @@ This is closest to the **pre-AI "data user / data facilitator"** business model 
 
 ## Salient characteristics
 
-- **Value proposition:** cognitive insights and monitoring & anomaly detection over the **customer's own data**.
+- **Core AI value:** **cognitive insights** and **monitoring & anomaly detection** over the **customer's own data** — the deliverable is understanding and alerts, not an embedded model.
+- **Continuous learning:** **central learning & updates** — the vendor improves the analytics platform centrally; customers receive updated models and features through the subscription.
 - **Primary AI technology:** **conventional machine learning** (not NLP, not CV, not robotics-heavy).
-- **Data source:** **customer-provided** — either *customer transmitted continuously* (live streams from sensors / logs / events) or *customer provided on demand* (batches uploaded for analysis).
-- **Data type:** often **numeric / sensor data** or **mixed**.
+- **Data type:** **numeric / sensor data** or **mixed** — tabular numbers, time series, IoT signals, log streams.
+- **Data source:** **customer transmitted continuously** — live streams from the customer's systems (logs, events, telemetry). This is the data-network-effect moat: the more a customer sends, the better their model gets. *Customer provided on demand* (batch uploads) also appears in some instances.
+- **Hardware provision:** **No** — pure software / cloud.
 - **Delivery mode:** **software application** (analytics platform / dashboard) — often with a data-integration layer.
-- **Level of customization:** **tailoring / individualization** at the start (data sources have to be wired in) then standardized once configured.
-- **Customer:** **B2B** across industries (the pattern is **industry-agnostic** more often than not, though sector-specific instances exist).
-- **Revenue:** **subscription** dominates.
+- **Level of customization:** **tailoring / individualization** — data sources have to be wired in at deployment; configuration is per-customer but within a fixed product surface.
+- **Customer:** **B2B** across industries.
+- **Industry scope:** **industry-agnostic** more often than not, though sector-specific instances exist.
+- **Customer charge:** **subscription-based**.
+
+### Full taxonomy profile (all 11 dimensions)
+
+| Dimension | Dominant characteristic(s) for this archetype |
+|---|---|
+| Core AI value | Cognitive insights · Monitoring & anomaly detection |
+| Continuous learning | Central learning & updates |
+| Primary AI technology | Machine learning |
+| Data type | Numeric / sensor data · Mixed data |
+| Data source | Customer transmitted continuously |
+| Hardware provision | No |
+| Delivery mode | Software application |
+| Level of customization | Tailoring / individualization |
+| Customer | B2B |
+| Industry scope | Industry agnostic |
+| Customer charge | Subscription-based |
 
 ## Examples (2021 sample)
 
