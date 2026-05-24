@@ -12,9 +12,13 @@ last-updated: 2026-05-24
 > **About the author:** Gabriele — student with entrepreneurial experience in the Veneto (Italy), using this project to learn how to move in this market as an operator, not only as an observer.
 
 # Wiki Index
-<!-- Last edit: 2026-05-24 — added H4 hypothesis (RL-driven specialization as value pocket) + new `tech/` reference subfolder with 7 RL explainer pages (rlhf, rlaif, rl-from-verifiable-rewards, rl-data-preparation, rl-testing-validation, rl-open-vs-closed-source, rl-apis). Patched H1, H2, post-scaling-research-pivot, value-functions-as-algorithmic-emotion, agentic-scaling-law, continual-learning-paradigm, scaling-wall with H4 forward references.
+<!-- Last edit: 2026-05-24 — ingested Weber et al. (2021) *AI Startup Business Models*. Added 6 new concept pages (ai-startup-business-archetypes-weber + 4 archetype pages + wiener-traditional-it-archetypes) + 1 source + 1 data page (Crunchbase 27.9k→97k). Patched H1/H2/H3/H4 with seller-side mirror; patched ecosystem-business-archetypes / middle-layer-defensibility / distribution-moat / ai-skill-shortage-as-diffusion-bottleneck / taker-shaper-maker / vertical-ai-orchestration / rl-apis with cross-links. Project now has the operational classifier for tagging future AI-startup ingests.
+
+Previous: 2026-05-24 — added H4 hypothesis (RL-driven specialization as value pocket) + new `tech/` reference subfolder with 7 RL explainer pages (rlhf, rlaif, rl-from-verifiable-rewards, rl-data-preparation, rl-testing-validation, rl-open-vs-closed-source, rl-apis). Patched H1, H2, post-scaling-research-pivot, value-functions-as-algorithmic-emotion, agentic-scaling-law, continual-learning-paradigm, scaling-wall with H4 forward references.
 
 Previous: 2026-05-24 — ingested Sutskever "Age of Research" interview synthesis. Added 4 new concept pages (post-scaling-research-pivot, continual-learning-paradigm, eval-real-world-gap, value-functions-as-algorithmic-emotion) + 1 source (sutskever-age-of-research). Patched scaling-wall, agentic-scaling-law, karpathy-software-3, world-models-jepa, autonomy-slider with cross-source synthesis. -->
+
+<!-- frontmatter last-updated kept at 2026-05-24 -->
 
 
 Catalog of every page in the wiki, one-line summary each. Read first when answering any question. Updated on every ingest.
@@ -99,6 +103,12 @@ Catalog of every page in the wiki, one-line summary each. Read first when answer
 - [[continual-learning-paradigm]] — sample-efficient on-the-job learning as the proposed successor to static pre-trained models; the algorithmic answer to anterograde amnesia.
 - [[eval-real-world-gap]] — superhuman benchmarks coexisting with brittle real-world performance; "human reward hacking" by researchers optimising for evals.
 - [[value-functions-as-algorithmic-emotion]] — Sutskever's RL proposal: biological emotions as the proof-of-concept for cheap robust intermediate trajectory signals during long-horizon learning.
+- [[ai-startup-business-archetypes-weber]] — Weber et al.'s 2021 four-pattern AI-startup taxonomy + the operational classifier the project uses to tag future AI-startup ingests. **Seller-side mirror of [[H1_L0-L7-ladder]].**
+- [[ai-charged-product-service-provider]] — Weber Pattern 1: ready-trained AI model embedded into a standardized product; top of [[H2_u-curve-of-value]]; Cursor / Windsurf / Perplexity are 2026 instances.
+- [[ai-development-facilitator]] — Weber Pattern 2: tooling to help other firms build AI (SDKs, APIs, no-code workbenches); the squeezed middle of the U; survives only in agent frameworks and [[rl-apis]] in 2026.
+- [[ai-data-analytics-provider]] — Weber Pattern 3 (largest cluster, 30/100): integrate + analyze customer data for decision support; classical analytics with ML inside; shoulder of U.
+- [[ai-deep-tech-researcher]] — Weber Pattern 4: frontier R&D as the deliverable (robotics, autonomous driving, drug discovery, neurotech); bottom of U; structural lineage to [[H4_rl-specialization-value-pocket]].
+- [[wiener-traditional-it-archetypes]] — the pre-AI baseline IT-BM triad (data users / suppliers / facilitators) Weber positions the AI-startup taxonomy against.
 
 ## Sources — `05_sources/`
 - [[bear-case-synthesis]] — internal synthesis of the four-pillar bear case.
@@ -119,6 +129,7 @@ Catalog of every page in the wiki, one-line summary each. Read first when answer
 - [[massenkoff-mccrory-labor-market-impacts-2026]] — Anthropic internal study (March 2026); introduces [[observed-exposure-measure]]; finds no detectable AI unemployment effect through 2025 but tentative entry-level hiring slowdown for 22–25-year-olds; partial contradiction of Acemoglu's incidence prediction; bull-frame internal datapoint.
 - [[choudary-ecosystem-teardown]] — Sangeet Paul Choudary 2022 newsletter teardown; pre-AI canonical statement of the four-archetype ecosystem-business-model taxonomy; structural precursor to [[H2_u-curve-of-value]] and to [[distribution-moat]].
 - [[sutskever-age-of-research]] — Sutskever (2026) declares the Age of Scaling over and the Age of Research begun; primary-architect concession of the empirical scaling wall; proposes continual learning + value functions + a "straight-shot" deployment posture.
+- [[weber-ai-startup-business-models]] — Weber et al. (BISE 2021) — empirical four-pattern AI-startup BM taxonomy (AI-charged P/S Provider / AI Development Facilitator / Data Analytics Provider / Deep Tech Researcher) over 100 Crunchbase startups; 11-dimension × 39-characteristic dimension catalogue; load-bearing for the seller-side reading of [[H1_L0-L7-ladder]] / [[H2_u-curve-of-value]] / [[H3_orthogonal-axes-under-priced]].
 
 ## Ideas — `06_ideas/`
 Concrete use-case patterns: how AI is *actually being used* on the ground. Pattern-level pages (not theoretical frameworks) — what the AI does, who's deploying it, what's been measured, what concepts it connects to.
@@ -174,6 +185,7 @@ Citable units of evidence: statistics, tables, figures, images. Each numeric cla
 - [[wef-7-6t-projection]] — Accenture's $7.6–17.9T by 2038.
 - [[global-ai-spend-632b]] — IDC's $632B by 2028 (29% CAGR).
 - [[ai-leader-productivity-delta]] — leaders' 4.5% / 2.4× / 15% outperformance.
+- [[ai-startup-count-crunchbase-2021-2026]] — Crunchbase "Artificial Intelligence" tag: 27,900 (Sept 2021, [[weber-ai-startup-business-models]]) → ~97,000 (2026, user-reported); ≈3.5× over 4.5y.
 
 ### Distribution-moat empirical anchors
 - [[cursor-50b-valuation]] — $50B valuation, $2B ARR.

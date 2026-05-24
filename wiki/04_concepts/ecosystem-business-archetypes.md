@@ -65,9 +65,23 @@ Choudary's "horizontal business models" thesis is a **structural precursor** to 
 - Is the four-archetype taxonomy stable for AI-era ecosystems, or does agentic infrastructure require a fifth archetype (e.g., **Orchestrator** — the multi-agent coordination layer described in [[vertical-ai-orchestration]])?
 - How do the archetypes interact with [[divergent-value-stack-optima]]? Choudary's vocabulary is US-stack-shaped; China's open-weight commoditisation strategy and the EU's compliance-layer play do not map cleanly onto Aggregator / Integrator / Infrastructure.
 
+## Companion taxonomy — Weber's four AI-startup patterns
+
+Choudary's framework is a **horizontal-ecosystem** taxonomy (where does the firm sit in the unbundled value chain?). Weber et al.'s parallel framework [[ai-startup-business-archetypes-weber]] is a **business-model** taxonomy (what does the firm sell, to whom, how does it create value?). Both are four-archetype taxonomies but they answer different questions. Read together they make up Axis 3 of [[07_analytical-vocabulary]] more completely than either does alone:
+
+| Aspect | Choudary (horizontal ecosystem) | Weber (AI-startup BM) |
+|---|---|---|
+| Lens | Where in the unbundled chain | What kind of AI business |
+| Question | "Position?" | "Sells what, to whom, how?" |
+| Time | Pre-AI structural | AI-era empirical (100 Crunchbase startups) |
+| Archetypes | Aggregator / Integrator / Infrastructure / Capability | AI-charged P/S Provider / AI Development Facilitator / Data Analytics Provider / Deep Tech Researcher |
+
+Cross-mappings are not 1:1 — e.g., a Choudary Capability that happens to use AI could be a Weber AI-charged P/S Provider *or* a Deep Tech Researcher depending on whether the AI is productized.
+
 ## Related
 
 - [[choudary-ecosystem-teardown]] — primary source
+- [[ai-startup-business-archetypes-weber]] — Weber's parallel AI-startup business-model taxonomy
 - [[vertical-to-horizontal-unbundling]] — the structural driver behind ecosystem emergence
 - [[cross-archetype-confusion]] — the strategic warning about benchmarking the wrong archetype
 - [[07_analytical-vocabulary]] — Axis 3 (Business Archetype) — this framework is the cleanest off-the-shelf sub-vocabulary

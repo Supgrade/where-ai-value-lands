@@ -38,6 +38,8 @@ This pre-AI framing matters because it locates the distribution-moat claim insid
 
 A thin wrapper — a UI that proxies prompts to an external API without accumulating proprietary context, memory, workflow optimization, or an independent user base — is not a distribution moat. It is a commodity UI that model providers can replicate in a single feature release. See [[middle-layer-defensibility]] for the full distinction.
 
+The seller-side archetype that *needs* a distribution moat most acutely is the [[ai-charged-product-service-provider]] from [[ai-startup-business-archetypes-weber]] — a standardized product with the model embedded. When the foundation model is commoditizing from above and the product itself is replicable, what's left is who owns the user. Weber et al. raise this as an open question; this concept is the project's working answer.
+
 ## Data
 
 - [[cursor-50b-valuation]] — Truell's automobile-vs-engine moat priced.

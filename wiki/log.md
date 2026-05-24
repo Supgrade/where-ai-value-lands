@@ -302,3 +302,38 @@ Append-only chronological record of wiki operations. Entry format: `## [YYYY-MM-
   - "Neuralink plus plus" alignment equilibrium falls outside the WEF/Deloitte regulatory frame; pushes alignment from policy to transhumanist biology.
 - **Open questions surfaced:** Does the research pivot favour incumbents or small algorithmic teams? Is the "Age of Research" a phase (months) or a paradigm reset (years/decades)? What signal drives next-gen training if natural data is exhausted?
 - **Source moved** to `raw/ingested/`.
+
+## [2026-05-24] ingest | Weber et al. — AI Startup Business Models (BISE 2021)
+- **Source:** Weber, Beutter, Weking, Böhm, Krcmar (2021), *AI Startup Business Models: Key Characteristics and Directions for Entrepreneurship Research*, Business & Information Systems Engineering 64(1), 91–109. doi:10.1007/s12599-021-00732-w. 19-page research paper; promoted to [[weber-ai-startup-business-models]].
+- **Routing:** inline path (19-page PDF read directly; no marker needed; single orchestrator pass).
+- **New pages (8):**
+  - [[weber-ai-startup-business-models]] — source summary.
+  - [[ai-startup-business-archetypes-weber]] — operational classifier (parent overview of the four-pattern taxonomy + decision-tree shortcut). **This is the page the user will tag future AI-startup ingests against.**
+  - [[ai-charged-product-service-provider]] — Pattern 1 (top of U).
+  - [[ai-development-facilitator]] — Pattern 2 (squeezed middle).
+  - [[ai-data-analytics-provider]] — Pattern 3 (shoulder; largest cluster).
+  - [[ai-deep-tech-researcher]] — Pattern 4 (bottom of U; structural lineage to H4).
+  - [[wiener-traditional-it-archetypes]] — the pre-AI baseline triad Weber positions against.
+  - [[ai-startup-count-crunchbase-2021-2026]] — 27.9k → 97k datapoint.
+- **Patches (8):**
+  - [[H1_L0-L7-ladder]] — added "Seller-side mirror" section pointing to Weber's four patterns.
+  - [[H2_u-curve-of-value]] — added "Seller-side instantiation" section mapping all four Weber patterns onto the U; documents the mild counter-evidence to the strong "middle dies" form (the 30-startup Data Analytics Provider cluster).
+  - [[H3_orthogonal-axes-under-priced]] — added "Seller-side empirical reinforcement"; Weber's 11 dimensions are the strongest activation evidence yet for H3.
+  - [[H4_rl-specialization-value-pocket]] — added "Seller-side archetype lineage" paragraph; H4 sits inside the Deep Tech Researcher pattern with a 2026 substitution (does not train own base model).
+  - [[ecosystem-business-archetypes]] — added "Companion taxonomy" section explaining how Choudary (horizontal) and Weber (BM) complement each other inside Axis 3.
+  - [[middle-layer-defensibility]] — added "Seller-side population evidence" sharpening generic-middle-dies / workflow-embedded-middle-survives with Weber's cluster sizes.
+  - [[distribution-moat]] — appended Weber-archetype framing to the "what doesn't qualify" section.
+  - [[ai-skill-shortage-as-diffusion-bottleneck]] — added "Seller-side mirror" pointing at Deep Tech Researcher demand.
+  - [[taker-shaper-maker]] · [[vertical-ai-orchestration]] · [[rl-apis]] — added one-line reverse references.
+- **Hypothesis touches:** H1 modestly reinforced (gains its seller-side sibling). H2 qualitatively reinforced + empirically complicated (large viable middle cluster). H3 modestly activated (strongest evidence so far that orthogonal axes outperform ladder position). H4 lineage clarified (Deep Tech Researcher with 2026 base-model substitution).
+- **Contradictions surfaced:**
+  - The 30-startup [[ai-data-analytics-provider]] cluster is mild counter-evidence to the strong form of "middle dies." Resolution: H2 needs to distinguish *firm count* from *value-capture share*.
+  - Weber et al. expected ethics as a salient dimension; taxonomy contains none. Worth a future-paper note.
+- **Open questions surfaced (from Weber Table 4 / discussion §5):**
+  - When is data not essential to value creation for AI startups?
+  - How can AI startups create competitive advantage via AI model leadership?
+  - What type of AI technology is easier to replicate than others?
+  - At least the first three intersect with active project questions on [[value-capture]] and [[distribution-moat]]; should be folded into [[05_open-questions]] on next pass.
+- **2021 → 2026 vintage caveat documented:** Foundation-model commoditization has reshaped AI Development Facilitator pattern; a plausible fifth pattern (agentic-workflow providers) may need adding on next refresh.
+- **Source moved** to `raw/ingested/`.
+- **Next:** `/lint` to verify reverse-link integrity; consider promoting the four Weber open questions into [[05_open-questions]] entries.

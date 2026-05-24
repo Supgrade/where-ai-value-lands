@@ -88,4 +88,5 @@ The economic prediction: a small number of dominant vertical orchestrators per i
 - [[wef-ai-in-action-2025]] — corroborating case studies (BMW, Siemens, SBB).
 - [[oecd-sme-ai-adoption-2025]] — OECD G7 SME source; Champion case studies show SME-scale vertical AI orchestration in healthcare and biotech.
 - [[sme-explorer-custom-agent]] · [[sme-champion-vertical-ai]] — SME-scale instantiations of the vertical-orchestration pattern.
+- [[ai-data-analytics-provider]] — Weber's 2021 ancestor business-model pattern; vertical-ai-orchestration is the 2026 mutation of this archetype into a multi-agent industrial orchestrator.
 - [[sectoral-ai-diffusion-pattern]] — sectoral lag in traditional verticals is exactly the gap vertical-AI orchestration is positioned to close.

@@ -61,6 +61,7 @@ The vendor's strategic posture in [[taker-shaper-maker]] (Taker rents, Shaper cu
 - [[taker-shaper-maker]]
 - [[continual-learning-paradigm]]
 - [[H4_rl-specialization-value-pocket]]
+- [[ai-development-facilitator]] — Weber's 2021 pattern; RL-fine-tuning APIs are the 2026 surviving sub-pattern after foundation-model commoditization compressed generic facilitators.
 
 ## Referenced by
 

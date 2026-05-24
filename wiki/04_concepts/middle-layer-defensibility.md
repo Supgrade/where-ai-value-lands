@@ -57,6 +57,15 @@ The same structural pattern recurs outside software. [[deloitte-ai-dossier-eri]]
 
 This expands the concept's empirical base beyond developer tools (Cursor, Windsurf, LangGraph) into industrials. The defensibility argument is the same; the moat *substance* differs (operational data and contractual position vs. behavioral developer data and workflow lock-in).
 
+## Seller-side population evidence (via [[weber-ai-startup-business-models]])
+
+Weber et al.'s 2021 empirical taxonomy adds a population-level qualifier. Two of the four AI-startup archetypes sit squarely in the layers this concept disputes:
+
+- **[[ai-development-facilitator]]** (25 / 100 startups) — generic AI-tooling middle layer; the pattern most disrupted by foundation-model commoditization 2021 → 2026. The "thin wrapper" failure mode of this concept lives almost entirely in this archetype.
+- **[[ai-data-analytics-provider]]** (30 / 100 startups, **the largest cluster**) — the *workflow-embedded* middle. The size and viability of this cluster is mild evidence that the strong form of "middle dies" is wrong: the middle is densely populated and sustainably profitable when the workflow + customer-data integration + analytics surface compose into a real switching cost.
+
+The cleaner reading is: **generic middle dies** (Weber's AI Development Facilitator, generic chatbot SDKs, thin orchestrators) — **workflow-embedded middle survives** (Weber's Data Analytics Provider, Cursor, LangGraph). This sharpens the concept's existing thin-wrapper / workflow-embedded distinction with seller-side population evidence.
+
 ## The paradigm-reset risk
 
 LeCun's [[world-models-jepa]] argument adds a long-horizon risk: if autoregressive LLMs hit a capability ceiling and world models become the dominant paradigm, companies whose moats are built on orchestrating *current* LLMs face potential architectural obsolescence. The automobile-vs-engine strategy works as long as the engine generation is stable. A paradigm shift resets the engine — and potentially the automobile with it.

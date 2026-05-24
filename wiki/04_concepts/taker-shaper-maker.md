@@ -79,6 +79,7 @@ Likely useful as a *foil*: introduce the typology as the consensus consultancy f
 - [[enterprise-adoption-ladder]] — buyer-side maturity ladder; orthogonal axis.
 - [[distribution-moat]] — strategic asset the typology ignores.
 - [[middle-layer-defensibility]] — the load-bearing question for Shapers.
+- [[ai-startup-business-archetypes-weber]] — seller-side companion taxonomy; together Taker/Shaper/Maker (buyer-side) + Weber's four patterns (seller-side) + [[ecosystem-business-archetypes]] (ecosystem-position) form the three-lens Axis 3.
 - [[open-weight-asymmetry]] — what happens to the Maker layer in China.
 - [[sovereign-ai]] — EU push toward national-champion Makers.
 - [[oecd-sme-ai-adoption-2025]] — SME-side mapping.

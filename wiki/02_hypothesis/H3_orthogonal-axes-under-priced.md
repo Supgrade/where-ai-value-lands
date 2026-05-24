@@ -31,6 +31,20 @@ The following pages currently reference this hypothesis and motivated its creati
 - [[karpathy-software-3]] — introduces the autonomy slider as a "competing" taxonomy that is more likely orthogonal than competing.
 - [[bear-case-synthesis]] — notes that the "killer app has not emerged" critique threatens any application-layer winner-take-most thesis embedded here.
 
+## Seller-side empirical reinforcement (via [[weber-ai-startup-business-models]])
+
+Weber et al.'s 2021 four-pattern AI-startup taxonomy ([[ai-startup-business-archetypes-weber]]) provides the **strongest piece of evidence so far** that the orthogonal-axes claim is real:
+
+- The taxonomy is built on **11 dimensions × 39 characteristics** that span value proposition, value creation, value delivery, and value capture. These dimensions are *empirically derived* from 100 AI startups, not theoretically imposed.
+- Two startups sitting at the same [[H1_L0-L7-ladder]] position (e.g., both selling at L1–L2 of the buyer stack) can land in **completely different Weber patterns** — one as [[ai-charged-product-service-provider]] (top of U), another as [[ai-development-facilitator]] (middle of U). The difference is explained by axes the ladder does not encode: data source, customization level, hardware provision, continuous-learning posture.
+- Specific Weber dimensions that look most orthogonal-axis-shaped:
+  - **Continuous learning** (central updates vs customer-side vs none) — orthogonal to substrate.
+  - **Hardware provision** (yes / no) — orthogonal to substrate; partially overlaps with [[H1_L0-L7-ladder]]'s L4–L6 but not cleanly.
+  - **Data source** (self-generated / acquired / public / customer-on-demand / customer-continuous) — orthogonal to substrate; closely related to [[distribution-moat]] economics.
+  - **Industry scope** (focused vs agnostic) — orthogonal to substrate; closely related to vertical-vs-horizontal posture and to [[taker-shaper-maker]].
+
+This is mild **activation evidence** for H3 — at least three of the Weber dimensions correlate with value-capture archetype more cleanly than ladder position does. Promotion to live-hypothesis status still requires a *quantitative* demonstration that these axes outperform the ladder in predicting where value lands; the Weber paper does the descriptive half but not the predictive half.
+
 ## What would activate this
 
 H3 would be promoted from stub to live hypothesis if any of the following conditions are met:

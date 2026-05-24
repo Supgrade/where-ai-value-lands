@@ -64,9 +64,14 @@ Confidence varies substantially by layer and is not uniform across the ladder.
 - In interviews, no operator finds the L4 / L5 distinction useful for their own positioning.
 - Counterexamples to the linear ordering pile up to the point the ladder loses explanatory power.
 
+## Seller-side mirror (via [[weber-ai-startup-business-models]])
+
+The ladder is a **buyer / substrate-side** map. Its seller-side mirror is the four-pattern [[ai-startup-business-archetypes-weber]] taxonomy: where the ladder asks *at what layer does this firm operate?*, Weber's taxonomy asks *what kind of business model does this firm run?*. A startup selling at L1–L2 of the buyer's stack can be in any of the four Weber patterns depending on data source, customization level, and continuous-learning posture. The two taxonomies should be read together when positioning a real firm.
+
 ## Related
 - [[H2_u-curve-of-value]] — the economic claim that depends on this map.
 - [[H3_orthogonal-axes-under-priced]] — what the ladder leaves out.
+- [[ai-startup-business-archetypes-weber]] — the seller-side mirror.
 - [[H4_rl-specialization-value-pocket]] — sits at L3–L5 substrate (agent + harness + RL-tuned model) and proposes a Maker posture at vertical scale; tests whether the ladder's middle rungs admit durable third-party value capture via RL specialization.
 - [[scaling-wall]] — the architectural ceiling that may cap the ladder above L3.
 - [[agentic-scaling-law]] — the counter-axis (test-time compute) that may route around the wall.

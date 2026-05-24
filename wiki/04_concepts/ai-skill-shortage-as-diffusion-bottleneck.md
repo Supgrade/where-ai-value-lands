@@ -51,7 +51,12 @@ This is the empirical anchor for [[fusion-skills]] — adoption demands a blend 
 
 Why is Japan such an extreme outlier — 80% reporting a knowledge barrier, 90.8% reporting no change in skill needs, lowest training rate? Either (a) Japan's SMEs are using gen-AI for narrower, more turnkey use cases that genuinely don't require skill changes, or (b) Japanese respondents systematically under-report. The OECD paper does not adjudicate. Worth flagging as a research gap.
 
+## Seller-side mirror
+
+The skill shortage at the buyer side **creates the demand** for what [[ai-deep-tech-researcher]] startups supply (frontier AI capability that the customer cannot build in-house). It is the demand-side reason the Weber pattern exists. See [[ai-startup-business-archetypes-weber]] for the full four-archetype context.
+
 ## See also
 
 - [[theoretical-vs-observed-capability-gap]] — worker-level twin: capability outruns deployment, and the binding constraint is the same skill shortage.
 - [[massenkoff-mccrory-labor-market-impacts-2026]] — Anthropic source where the gap is documented at occupation granularity.
+- [[ai-deep-tech-researcher]] — the seller-side archetype whose demand this shortage drives.

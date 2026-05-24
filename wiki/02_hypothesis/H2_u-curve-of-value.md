@@ -63,6 +63,17 @@ Mapped onto the U-curve:
 
 The thin-wrapper firms that motivate "the middle dies" are not an archetype in Choudary's taxonomy at all — they are **failed Capability attempts**. This sharpens H2: the squeezed middle is the population of firms that **tried to be Capabilities without IP / data advantage and failed**, plus the population of generic Integrators displaced by switchboard incumbents.
 
+## Seller-side instantiation — Weber's four AI-startup archetypes (via [[weber-ai-startup-business-models]])
+
+Weber et al.'s empirical four-pattern taxonomy of AI startups ([[ai-startup-business-archetypes-weber]]) maps cleanly onto the U:
+
+- **[[ai-charged-product-service-provider]]** (26/100 of Weber's sample) → **top of U.** Readily-trained model embedded into a standardized product; value depends on workflow + distribution. Cursor / Windsurf / Perplexity are 2026 instances. **Empirically validated.**
+- **[[ai-development-facilitator]]** (25/100) → **the squeezed middle.** Generic SDKs and chatbot-builders are exactly what gets compressed. Survives only via [[middle-layer-defensibility]] niches (Hugging Face's distribution; agent frameworks).
+- **[[ai-data-analytics-provider]]** (30/100, largest cluster) → **shoulder of U.** Classical analytics with ML inside; sustainable B2B SaaS economics but not where the new AI margin lands. **Mild counter-evidence to the strong form of "middle dies" — the population is large and profitable.** The hypothesis should distinguish *firm count* from *value-capture share at exit*.
+- **[[ai-deep-tech-researcher]]** (19/100) → **bottom of U** when defensible; merges with [[H4_rl-specialization-value-pocket]] in the 2026 RL-fine-tuning sub-pattern.
+
+**Net effect on H2:** the four-archetype mapping **reinforces the qualitative shape** (top + bottom > middle) while **complicating the strong form** — the middle is densely populated and not uniformly dead. The U-curve is best read as a *value-capture* curve, not a *firm-count* curve.
+
 ## Historical analogies (to be tested, not assumed)
 - **Intel vs. PC OEMs in the 90s** — chip and OS captured margin; assemblers in the middle were squeezed.
 - **Stripe vs. acquirers / processors** — developer-experience layer on top + card networks on the bottom; middle compressed.
