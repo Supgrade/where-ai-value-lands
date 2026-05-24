@@ -6,6 +6,11 @@ tags:
 last-updated: 2026-05-24
 ---
 
+> [!abstract] About this research
+> An open secondary-research wiki asking **where economic value lands** across the agentic AI stack — hypotheses, sources, and citable data; an inquiry, not a fixed thesis.
+>
+> **About the author:** Gabriele — student with entrepreneurial experience in the Veneto (Italy), using this project to learn how to move in this market as an operator, not only as an observer.
+
 # Wiki Index
 <!-- Last edit: 2026-05-24 — added H4 hypothesis (RL-driven specialization as value pocket) + new `tech/` reference subfolder with 7 RL explainer pages (rlhf, rlaif, rl-from-verifiable-rewards, rl-data-preparation, rl-testing-validation, rl-open-vs-closed-source, rl-apis). Patched H1, H2, post-scaling-research-pivot, value-functions-as-algorithmic-emotion, agentic-scaling-law, continual-learning-paradigm, scaling-wall with H4 forward references.
 
@@ -194,7 +199,8 @@ Citable units of evidence: statistics, tables, figures, images. Each numeric cla
 - [[g7-sme-large-firm-ai-adoption-ratio]] — Italy 4.7× (widest) to US 1.65× (narrowest).
 
 ## Glossary — `Glossary/`
-- [[inference]] — glossary stub.
+- [[inference]] — the computational act of running a trained model to produce outputs; why inference cost, Jevons dynamics, and test-time compute are central to the project's stack economics.
+- [[taxonomy]] — a MECE discrete classification (vs. ladder, axis, or curve); lists all six taxonomies used in this project and the capitalization rule for named types.
 
 ## Thoughts — `wiki/thoughts/`
 - [[archetypes-vocabulary-personal-frame]] — reflection on 2026-05-22: business archetype taxonomy, analytical vocabulary, personal research frame.

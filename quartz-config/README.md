@@ -7,7 +7,8 @@ Quartz itself is **not** tracked in this repository. It is cloned fresh on every
 ## What's in this folder
 
 - `quartz.config.ts` — the canonical Quartz configuration for this project. Copied into the Quartz install during build.
-- `quartz.layout.ts` — *(optional)* layout overrides; only used if present.
+- `quartz.layout.ts` — layout overrides (graph exclusions, footer link, breadcrumbs hidden on home).
+- `components/scripts/graph.inline.ts` — patched graph script; honours `excludeSlugs` in `Component.Graph()` config.
 
 ## How the build works
 
@@ -27,7 +28,7 @@ The GitHub Action in `.github/workflows/deploy.yml` runs on every push to `main`
 
 1. Checks out this repo.
 2. Clones Quartz v4 into `./quartz/`.
-3. Copies `quartz-config/quartz.config.ts` over `quartz/quartz.config.ts`.
+3. Copies `quartz-config/quartz.config.ts` (and optional `quartz.layout.ts`, graph script patch) into the Quartz install.
 4. Installs Quartz's dependencies (`npm ci`).
 5. Builds the site: `npx quartz build -d ../wiki -o public` (content directory = `wiki/`, output = `quartz/public/`).
 6. Uploads `quartz/public` as a GitHub Pages artifact and deploys it.
@@ -38,6 +39,8 @@ The GitHub Action in `.github/workflows/deploy.yml` runs on every push to `main`
 # One-time install (from the repo root):
 git clone --depth 1 --branch v4 https://github.com/jackyzha0/quartz.git quartz
 cp quartz-config/quartz.config.ts quartz/quartz.config.ts
+cp quartz-config/quartz.layout.ts quartz/quartz.layout.ts
+cp quartz-config/components/scripts/graph.inline.ts quartz/quartz/components/scripts/graph.inline.ts
 cd quartz && npm install
 
 # Run the local preview server:
@@ -54,6 +57,8 @@ To pick up a new Quartz upstream version locally, delete the `quartz/` folder an
 rm -rf quartz
 git clone --depth 1 --branch v4 https://github.com/jackyzha0/quartz.git quartz
 cp quartz-config/quartz.config.ts quartz/quartz.config.ts
+cp quartz-config/quartz.layout.ts quartz/quartz.layout.ts
+cp quartz-config/components/scripts/graph.inline.ts quartz/quartz/components/scripts/graph.inline.ts
 cd quartz && npm install
 ```
 

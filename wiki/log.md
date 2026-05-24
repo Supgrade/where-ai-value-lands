@@ -2,6 +2,19 @@
 
 Append-only chronological record of wiki operations. Entry format: `## [YYYY-MM-DD] {ingest|ask|lint|discover|edit} | Title`.
 
+## [2026-05-24] edit | Site welcome callout + graph excludes index/log
+
+- `wiki/index.md` — added `> [!abstract]` callout (research one-liner + author: student/operator, Veneto).
+- `quartz-config/quartz.layout.ts` — new; `excludeSlugs: ["index", "log"]` on local + global graph; breadcrumbs hidden on home; footer → repo.
+- `quartz-config/components/scripts/graph.inline.ts` — patched upstream graph script to honour `excludeSlugs`.
+- `.github/workflows/deploy.yml` — copies layout + graph script on build.
+
+## [2026-05-24] edit | Glossary — inference and taxonomy entries
+
+- Populated `wiki/Glossary/inference.md` (previously an empty stub): definition, four inference variants (cloud, on-premise, test-time, batch), role in bottom-of-U economics and Jevons dynamics, links to [[ai-factory-huang]], [[jevons-paradox-ai]], [[agentic-scaling-law]], [[scaling-wall]], [[sovereign-ai]], [[rl-apis]], [[H2_u-curve-of-value]], [[H1_L0-L7-ladder]].
+- Created `wiki/Glossary/taxonomy.md`: MECE-type definition, distinction table (taxonomy vs. ladder vs. axis vs. framework vs. curve), inventory of all six project taxonomies, capitalization rule for named types. Links to [[07_analytical-vocabulary]], [[ecosystem-business-archetypes]], [[oecd-sme-adopter-taxonomy]], [[taker-shaper-maker]], [[digital-empires-tripartite]], [[g7-sme-ai-policy-pluralism]].
+- Updated `wiki/index.md` Glossary section with descriptive one-liners for both entries.
+
 ## [2026-05-24] edit | New hypothesis H4 + tech/ reference subfolder (RL-driven specialization)
 
 - **Trigger:** author-proposed working hypothesis — pre-training has saturated, RL (especially [[rl-from-verifiable-rewards]]) is the still-scaling axis, and the entrepreneurial opportunity is domain-specific RL fine-tuning of base models sold as a *proprietary operational asset* to a single industrial customer or narrow vertical. Worked example: industrial-implant intervention-proposal model trained on a company's own (state, proposal, outcome) history. Technical premise grounded; business case explicitly under-validated.

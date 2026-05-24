@@ -40,6 +40,9 @@ jobs:
           if [ -f quartz-config/quartz.layout.ts ]; then
             cp quartz-config/quartz.layout.ts quartz/quartz.layout.ts
           fi
+          if [ -f quartz-config/components/scripts/graph.inline.ts ]; then
+            cp quartz-config/components/scripts/graph.inline.ts quartz/quartz/components/scripts/graph.inline.ts
+          fi
 
       - name: Install Quartz dependencies
         working-directory: quartz
