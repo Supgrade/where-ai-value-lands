@@ -21,6 +21,7 @@ Three entry points, in order of depth:
 1. **The static site** (browser, view-only) — `https://supgrade.github.io/where-ai-value-lands/` once deployed. Quartz-rendered wiki with working wikilinks, search, and a graph view. No clone required.
 2. **The wiki itself** — open `wiki/index.md`. Every page in the wiki is listed there with a one-line summary, organized by category. Follow `[[wikilinks]]` from there.
 3. **Query with your own LLM** — clone the repo, point Claude Code, Cursor, ChatGPT, or any agentic CLI at the root. The file [`CLAUDE.md`](CLAUDE.md) is read first by any LLM that opens the project; it sets the conventions and stance.
+4. Visualize the most complex concept at https://supgrade.github.io/where-ai-value-lands/outputs/
 
 Sample queries that work out of the box:
 
