@@ -156,6 +156,11 @@ The hypothesis should be retired — not merely revised — if any of the follow
 - [[rl-testing-validation]] — the validation pipeline.
 - [[rl-open-vs-closed-source]] — the strategic question on which the vendor economics tilt.
 - [[rl-apis]] — the commercial surface the vendor competes against.
+- [[ml-monitoring]] — the operational complement to RL specialization; the C1–C5 / 17-practice surface is a bill of materials for what the H4 vendor's deliverable has to include past the model itself.
+- [[ml-production-environment-characteristics]] — every C-characteristic is sharper for a narrow-domain industrial deployment; C1 (training-data narrowness), C4 (the customer's process *is* the changing thing the model adapts to), and C5 (harness is part of the moat) are especially binding.
+- [[ml-monitoring-quality-cycle]] — Practice 16 (iterative continual learning from production) is what closes the H4 moat-deepening loop; Practices 8–11 are what catch silent rot.
+- [[ml-drift-types]] — drift on the customer's specific process is the binding operational risk; the vendor's defensibility depends on detecting drift before the customer's process engineers do.
+- [[protschky-ml-monitoring-2025]] — empirical source for the monitoring stack the H4 vendor has to actually build.
 
 ## Referenced by
 

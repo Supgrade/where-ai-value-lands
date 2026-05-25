@@ -6,7 +6,7 @@ tags:
   - business-models
   - taxonomy
   - entrepreneurship
-last-updated: 2026-05-24
+last-updated: 2026-05-25
 ---
 
 # Weber et al. — AI Startup Business Models: Key Characteristics and Directions for Entrepreneurship Research
@@ -106,11 +106,21 @@ The paper is **pre-ChatGPT** (received March 2021, sample taken October 2020). T
 2. **AI-startup population growth.** Crunchbase tag has grown ~3.5×; see [[ai-startup-count-crunchbase-2021-2026]].
 3. **A fifth pattern is plausibly emerging:** *agentic-workflow providers* — multi-step foundation-model orchestrators for business workflows. The 2021 taxonomy folds them into AI-charged P/S Provider, but the value-creation logic (action orchestration over [[context-control]] + [[autonomy-slider]]) is different enough that future-paper sections may want to treat it separately. The vertical-domain instance is [[vertical-ai-orchestration]] from [[deloitte-ai-dossier-eri]].
 
+The full inventory of dimensions this 2021 taxonomy is missing for a 2026 sample — model sourcing, autonomy level, orchestration depth, distribution architecture, data flywheel, ethics-as-product — is consolidated in [[weber-taxonomy-2026-gaps]], together with the source-hunting plan for closing each gap.
+
+## Independent adoption — Gültekin et al. (2025)
+
+The first independent peer-reviewed empirical study in the wiki to **adopt this taxonomy as classifier** is [[gultekin-pinarbasi-commercialisation-ai-2025]] — interviews with 10 Turkish AI startups (Istanbul / Antalya technoparks, Nov 2022). They use Weber's four-pattern classification without modification. Distribution in their sample: 1 [[ai-development-facilitator]], the rest [[ai-charged-product-service-provider]] or [[ai-data-analytics-provider]]; zero [[ai-deep-tech-researcher]] (consistent with the country's startup mix). The study independently re-confirms Weber et al.'s own surprised non-finding on ethics — the dimension is present as concern, absent as product surface — across a different geography. See [[weber-taxonomy-2026-gaps]] for the dimension-by-dimension reading of what this independent sample evidences and what it leaves untouched.
+
 ## See also
 - [[ai-startup-business-archetypes-weber]] — the four-pattern overview, plus the operational classifier the project uses to tag future AI-startup ingests.
+- [[business-model-portfolio]] — the prerequisite scoping rule (BM, not firm, is the unit of analysis when applying this taxonomy to multi-BM firms).
+- [[westerveld-business-model-portfolio-2023]] — the source for the BMP prerequisite frame.
+- [[weber-taxonomy-2026-gaps]] — diagnostic page enumerating the dimensions this 2021 taxonomy lacks for a 2026 sample; working-draft input to the GTM sibling taxonomy.
 - [[ai-charged-product-service-provider]], [[ai-development-facilitator]], [[ai-data-analytics-provider]], [[ai-deep-tech-researcher]] — one page per archetype.
 - [[wiener-traditional-it-archetypes]] — the pre-AI baseline.
 - [[ecosystem-business-archetypes]] — Choudary's complementary four-archetype taxonomy.
 - [[taker-shaper-maker]] — WEF's three-archetype buyer-side typology.
 - [[H1_L0-L7-ladder]], [[H2_u-curve-of-value]], [[H3_orthogonal-axes-under-priced]], [[H4_rl-specialization-value-pocket]].
 - [[ai-startup-count-crunchbase-2021-2026]] — the 27.9k → 97k vintage datapoint.
+- [[gultekin-pinarbasi-commercialisation-ai-2025]] — first independent empirical study in the wiki to adopt this taxonomy as classifier (Türkiye, n=10, Nov 2022).

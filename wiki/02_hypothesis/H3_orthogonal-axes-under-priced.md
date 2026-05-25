@@ -6,7 +6,7 @@ tags:
   - hypothesis
   - axes
   - scaffolding
-last-updated: 2026-05-23
+last-updated: 2026-05-25
 ---
 
 # H3 — Orthogonal Axes Under-Priced
@@ -44,6 +44,12 @@ Weber et al.'s 2021 four-pattern AI-startup taxonomy ([[ai-startup-business-arch
   - **Industry scope** (focused vs agnostic) — orthogonal to substrate; closely related to vertical-vs-horizontal posture and to [[taker-shaper-maker]].
 
 This is mild **activation evidence** for H3 — at least three of the Weber dimensions correlate with value-capture archetype more cleanly than ladder position does. Promotion to live-hypothesis status still requires a *quantitative* demonstration that these axes outperform the ladder in predicting where value lands; the Weber paper does the descriptive half but not the predictive half.
+
+[[weber-taxonomy-2026-gaps]] extends this argument by naming six **additional** orthogonal-axis-shaped dimensions Weber's 2021 box does not encode (model sourcing, autonomy level, orchestration depth, distribution architecture, data flywheel, ethics-as-product). Each of those dimensions is a candidate orthogonal axis in the H3 sense — empirically motivated by 2026 wiki evidence, awaiting source-side validation against a post-ChatGPT taxonomy update.
+
+### Structural reinforcement from the BMP frame (added 2026-05-25)
+
+The [[business-model-portfolio]] frame (source: [[westerveld-business-model-portfolio-2023]]) is the *structural* reason orthogonal axes are load-bearing: a single firm running multiple BMs *necessarily* occupies multiple positions on every analytical axis simultaneously. If the firm were the unit of analysis, the orthogonal axes would partially collapse into "this firm is mixed." With the BMP frame applied, each BM is a clean point on each axis — and the H3 claim sharpens: *the most defensible plays sit at specific axis intersections, evaluated per business model, not per firm.* This does not yet activate H3 (it remains a scaffolding hypothesis), but it removes a structural objection to its empirical testability.
 
 ## What would activate this
 

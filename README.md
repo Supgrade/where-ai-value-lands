@@ -68,16 +68,16 @@ See [`CLAUDE.md`](CLAUDE.md) for the full conventions: slug format, wikilinks, t
 
 Eight skills run the wiki. They live in `.claude/skills/<name>/SKILL.md`.
 
-| Skill | What it does |
-|---|---|
-| [`ingest`](.claude/skills/ingest/SKILL.md) | Fold a new source from `raw/` into the wiki. Creates and updates pages, maintains wikilinks both directions, appends to the log. |
-| [`ask`](.claude/skills/ask/SKILL.md) | Answer a question against the wiki. Optionally crystallize the answer back as a new page. |
-| [`reflect`](.claude/skills/reflect/SKILL.md) | Engage with a daily-thought note as a dialogue. Selectively promote durable material into the wiki. |
-| [`visualize`](.claude/skills/visualize/SKILL.md) | Generate a self-contained HTML lecture page for one concept, with an interactive graph of its connections. |
-| [`lint`](.claude/skills/lint/SKILL.md) | Health check. Flags broken links, orphans, missing reverse links, stale confidence claims. |
-| [`discover`](.claude/skills/discover/SKILL.md) | Propose a ranked shortlist of candidate sources from wiki gaps and recent online discourse. |
-| [`edit`](.claude/skills/edit/SKILL.md) | Structured renames, splits, merges, deletions. Preserves link integrity. |
-| [`contribute`](.claude/skills/contribute/SKILL.md) | Walk a fork-author through producing a clean PR back to the wiki. Contributor-side counterpart to `/ingest` and `/reflect`. |
+| Skill                                                                     | What it does                                                                                                                     |
+| ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [`ingest`](.claude/skills/inge[[.claude/skills/ingest/SKILL]]st/SKILL.md) | Fold a new source from `raw/` into the wiki. Creates and updates pages, maintains wikilinks both directions, appends to the log. |
+| [`ask`](.claude/skills/ask/SKILL.md)                                      | Answer a question against the wiki. Optionally crystallize the answer back as a new page.                                        |
+| [`reflect`](.claude/skills/reflect/SKILL.md)                              | Engage with a daily-thought note as a dialogue. Selectively promote durable material into the wiki.                              |
+| [`visualize`](.claude/skills/visualize/SKILL.md)                          | Generate a self-contained HTML lecture page for one concept, with an interactive graph of its connections.                       |
+| [`lint`](.claude/skills/lint/SKILL.md)                                    | Health check. Flags broken links, orphans, missing reverse links, stale confidence claims.                                       |
+| [`discover`](.claude/skills/discover/SKILL.md)                            | Propose a ranked shortlist of candidate sources from wiki gaps and recent online discourse.                                      |
+| [`edit`](.claude/skills/edit/SKILL.md)                                    | Structured renames, splits, merges, deletions. Preserves link integrity.                                                         |
+| [`contribute`](.claude/skills/contribute/SKILL.md)                        | Walk a fork-author through producing a clean PR back to the wiki. Contributor-side counterpart to `/ingest` and `/reflect`.      |
 
 The first seven are author-side. The eighth, `/contribute`, is the contributor-side wrapper — it produces output that `/ingest` or `/reflect` can run against after merge.
 

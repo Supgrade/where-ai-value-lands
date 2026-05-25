@@ -80,3 +80,6 @@ These mechanisms map onto the OECD adopter taxonomy: SMEs stall transitioning fr
 - [[massenkoff-mccrory-labor-market-impacts-2026]] — occupation-level sibling gap.
 - [[theoretical-vs-observed-capability-gap]] — worker-level diffusion-lag twin.
 - [[observed-exposure-measure]] — the measurement instrument exposing the worker-level gap.
+- [[ml-monitoring]] — a third reading of the gap, complementary to bull-managerial and bear-capability readings: pilots scale poorly *also* because the monitoring infrastructure that catches silent production degradation is systematically under-budgeted. [[protschky-ml-monitoring-2025]]'s 17-practice surface is the operational bill of materials most pilots don't pay for.
+- [[ml-monitoring-quality-cycle]] — the surface most pilots under-implement.
+- [[protschky-ml-monitoring-2025]] — empirical anchor for the operational-root-cause reading.

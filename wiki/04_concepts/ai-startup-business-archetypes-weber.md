@@ -6,7 +6,7 @@ tags:
   - taxonomy
   - business-models
   - classification
-last-updated: 2026-05-24
+last-updated: 2026-05-25
 ---
 
 # AI Startup Business Archetypes (Weber et al. 2021)
@@ -59,6 +59,11 @@ Every AI startup is a point in this space. The four archetypes are clusters foun
 
 The interactive version of this table (with archetype presets and a radial dendrogram) is at `outputs/weber-ai-startup-taxonomy.html`.
 
+## Unit of analysis — one BM, not one firm
+
+> [!important] Prerequisite (added 2026-05-25)
+> The classifier applies to **a single business model**, not to the whole startup. A firm running multiple BMs — a [[business-model-portfolio]] — is classified by applying the four-pattern taxonomy *separately* to each BM. Forcing a multi-BM startup into one pattern destroys signal. Source for the BMP frame: [[westerveld-business-model-portfolio-2023]]. Operational consequence in this wiki: tag source pages with `weber-pattern:` **per BM** when the firm runs more than one.
+
 ## How to classify a startup (the salient-characteristic shortcut)
 
 Weber et al. built an 11-dimension / 39-characteristic taxonomy (value proposition, value creation, value delivery, value capture), then clustered. For practical classification, the **salient characteristics** that separate one pattern from the others are usually enough:
@@ -102,12 +107,18 @@ The paper is December 2021 — pre-ChatGPT. Three things have shifted:
 2. **Crunchbase AI-startup count.** Sept 2021: 27,900 → 2026: ~97,000 (≈3.5×). See [[ai-startup-count-crunchbase-2021-2026]].
 3. **A fifth pattern is plausibly emerging in 2026:** *agentic-workflow providers* — startups that orchestrate multiple foundation-model calls into multi-step business workflows (Cursor's task agents, LangGraph apps, the [[vertical-ai-orchestration]] pattern from ER&I). The 2021 taxonomy folds these into "AI-charged Product/Service Provider", but the value-creation logic (action orchestration over [[context-control]]) is different enough that it may deserve its own pattern.
 
+A consolidated diagnosis of the dimensions Weber's 11-dimension box is missing for 2026 — model sourcing, autonomy level, orchestration depth, distribution architecture, data flywheel, ethics-as-product — plus the agentic-workflow fifth archetype, lives in [[weber-taxonomy-2026-gaps]]. That page is the working-draft input to the eventual GTM sibling taxonomy.
+
 ## Why this matters for the project
 
 The user's stated goal at ingest was to enable **future-startup classification using this taxonomy** as new startups appear in the wiki. The four-pattern table above + the salient-characteristic decision tree are the operational classifier. Use it whenever a new AI-startup source is ingested, and tag the resulting source/concept page with the Weber pattern in its frontmatter (`weber-pattern: ai-charged-product-service-provider` etc.).
 
 ## See also
 - [[weber-ai-startup-business-models]] — the source.
+- [[business-model-portfolio]] — the unit-of-analysis prerequisite: each BM is classified separately when a firm runs multiple BMs.
+- [[westerveld-business-model-portfolio-2023]] — the source for the BMP frame.
+- [[weber-taxonomy-2026-gaps]] — diagnostic page on what this taxonomy fails to encode about 2026 startups; six missing dimensions + the fifth-archetype sketch; working-draft input to the GTM sibling taxonomy.
+- [[gultekin-pinarbasi-commercialisation-ai-2025]] — first independent empirical study in the wiki to use this classifier (Turkish AI startups, n=10, Nov 2022); 9/10 firms fall into Pattern 1 or 3.
 - [[ecosystem-business-archetypes]] — Choudary's parallel four-archetype taxonomy (horizontal-ecosystem lens, not AI-tech lens). The two read together cover Axis 3 of [[07_analytical-vocabulary]].
 - [[taker-shaper-maker]] — WEF's three-archetype buyer-side typology.
 - [[wiener-traditional-it-archetypes]] — the *pre-AI* IT-business-model triad (data users / suppliers / facilitators) the Weber paper positions itself against.

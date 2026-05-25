@@ -54,6 +54,10 @@ Connect to [[eval-real-world-gap]] for the upstream framing of why eval is the b
 - [[rl-data-preparation]]
 - [[eval-real-world-gap]]
 - [[H4_rl-specialization-value-pocket]]
+- [[ml-monitoring]] — the *production-time* counterpart to this page's pre-deployment validation stack. Validation hands off at the deployment boundary; monitoring takes over and runs forever afterwards.
+- [[ml-monitoring-quality-cycle]] — Practices 8–11 (data-quality checks, drift detection, cause-effect, adaptation) are the runtime continuation of the validation surface; Practice 13 (verify the adaptation) closes the loop.
+- [[ml-drift-types]] — drift detection in production is the operational instance of "distribution-shift checks" listed above; concept / data / virtual / adversarial drift are the four flavours.
+- [[protschky-ml-monitoring-2025]] — the canonical 2025 source on the runtime stack.
 
 ## Referenced by
 

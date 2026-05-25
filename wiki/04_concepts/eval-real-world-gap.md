@@ -58,3 +58,7 @@ This is the "two students" analogy Sutskever uses: a 10,000-hour competitive-pro
 - [[middle-layer-defensibility]]
 - [[H1_L0-L7-ladder]]
 - [[H2_u-curve-of-value]]
+- [[business-model-portfolio]] — Sutskever's "human reward hacking" is the AI-research instance of Westerveld's Dogmatic paradox.
+- [[protschky-ml-monitoring-2025]] — operational decomposition of the gap: C2 (Metrics proxy) names the eval-real-world divergence as a structural property of every deployed ML application; Practices 8–11 (data-quality checks, drift detection, cause-effect, adaptation) are the production-time mitigations.
+- [[ml-monitoring]] — the discipline whose entire premise is that the representation layer ≠ the real-world layer.
+- [[ml-production-environment-characteristics]] — C1–C5 vocabulary; C2 is the operational instance of this concept.

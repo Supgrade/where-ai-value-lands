@@ -83,3 +83,4 @@ Karpathy's lecture is the strongest **bull-side paradigm document** ingested so 
 - [[sutskever-age-of-research]] — same diagnosis (jagged intelligence / anterograde amnesia → continual-learning gap), opposite deployment posture (straight-shot vs Iron Man partial autonomy).
 - [[continual-learning-paradigm]] — the algorithmic target Sutskever names; Karpathy describes the symptom (anterograde amnesia) that this paradigm is meant to solve.
 - [[eval-real-world-gap]] — Karpathy's jagged-intelligence + Steinberger's agentic-trap, formalised by Sutskever as a structural consequence of researcher-side reward hacking.
+- [[business-model-portfolio]] — Huang's "extreme co-design" maps onto Westerveld's Complementing intent; Steinberger's GUI-vs-agent-API thesis is the canonical AI-era Cannibalization paradox.

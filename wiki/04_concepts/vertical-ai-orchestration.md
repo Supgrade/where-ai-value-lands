@@ -90,3 +90,6 @@ The economic prediction: a small number of dominant vertical orchestrators per i
 - [[sme-explorer-custom-agent]] · [[sme-champion-vertical-ai]] — SME-scale instantiations of the vertical-orchestration pattern.
 - [[ai-data-analytics-provider]] — Weber's 2021 ancestor business-model pattern; vertical-ai-orchestration is the 2026 mutation of this archetype into a multi-agent industrial orchestrator.
 - [[sectoral-ai-diffusion-pattern]] — sectoral lag in traditional verticals is exactly the gap vertical-AI orchestration is positioned to close.
+- [[ml-monitoring]] — the operational layer that makes vertical orchestrators sticky over time; every drift event, alert, and adaptation logged is moat-deepening operational history the next vendor cannot reconstruct.
+- [[ml-production-environment-characteristics]] — internalising C1–C5 is the pre-requisite for a vertical orchestrator to survive contact with industrial production.
+- [[protschky-ml-monitoring-2025]] — operational source for what the orchestrator's runtime stack has to actually contain.
