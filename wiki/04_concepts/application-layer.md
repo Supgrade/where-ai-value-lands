@@ -37,3 +37,4 @@ The argument that distribution + workflow ownership captures durable margin is, 
 - [[democratization-of-programming]] — the broader shift this layer rides on.
 - [[value-capture]] — wedge between value created and value captured inside this layer.
 - [[ai-young-worker-hiring-slowdown]] — labor externality routed through this layer.
+- [[foundation-model-layer]] — the layer immediately below this one; the model-API tier this layer wraps and disciplines via backend swappability.

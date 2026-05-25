@@ -8,7 +8,7 @@ tags:
   - fine-tuning
   - value-capture
   - business-model
-last-updated: 2026-05-24
+last-updated: 2026-05-25
 ---
 
 # H4 — RL-Driven Specialization as a New Value Pocket
@@ -165,3 +165,39 @@ The hypothesis should be retired — not merely revised — if any of the follow
 ## Referenced by
 
 *Auto-generated reverse-link index — pages in the wiki that link here. Maintained by `/lint` and reverse-link sweeps.*
+
+**Paper planning**
+- [[05_open-questions]]
+
+**Hypotheses**
+- [[H1_L0-L7-ladder]]
+- [[H2_u-curve-of-value]]
+
+**Concepts**
+- [[agentic-scaling-law]]
+- [[ai-deep-tech-researcher]]
+- [[ai-development-facilitator]]
+- [[ai-startup-business-archetypes-weber]]
+- [[continual-learning-paradigm]]
+- [[ml-drift-types]]
+- [[ml-production-environment-characteristics]]
+- [[post-scaling-research-pivot]]
+- [[scaling-wall]]
+- [[value-functions-as-algorithmic-emotion]]
+- [[weber-taxonomy-2026-gaps]]
+
+**Sources**
+- [[protschky-ml-monitoring-2025]]
+- [[weber-ai-startup-business-models]]
+- [[westerveld-business-model-portfolio-2023]]
+
+**Tech**
+- [[tech/README]]
+- [[ml-monitoring]]
+- [[rl-apis]]
+- [[rl-data-preparation]]
+- [[rl-from-verifiable-rewards]]
+- [[rl-open-vs-closed-source]]
+- [[rl-testing-validation]]
+- [[rlaif]]
+- [[rlhf]]

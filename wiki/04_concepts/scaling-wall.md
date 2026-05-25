@@ -63,3 +63,4 @@ Notable that the source acknowledging this is a bull-frame consultancy document,
 - [[continual-learning-paradigm]] — algorithmic alternative claimed to solve the symptoms the wall surfaces.
 - [[eval-real-world-gap]] — the empirical manifestation of compositionality failure at the deployment surface.
 - [[H4_rl-specialization-value-pocket]] — the entrepreneurial wager that bets on the wall being real *for pre-training* and on RL specialization being the axis that still scales; also the strongest bear pressure point against H4 if the wall generalises to RL on top of base-model substrate.
+- [[foundation-model-layer]] — the layer the wall partially defends; capex barriers to frontier training keep the frontier-lab club intact inside an otherwise commoditising tier.

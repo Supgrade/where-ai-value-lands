@@ -52,3 +52,4 @@ Per Kai-Fu Lee: for almost all countries outside the US and China, the realistic
 - [[circular-ai-economy]] — the other major threat to closed-weight US hyperscaler revenue.
 - [[scaling-wall]] — the architectural caveat.
 - [[geopolitics-global-ai-divide]] — the source synthesis.
+- [[foundation-model-layer]] — the API tier this asymmetry erodes pricing power on; the most direct mechanism by which open weights commoditise the layer.

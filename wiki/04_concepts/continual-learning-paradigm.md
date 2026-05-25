@@ -65,6 +65,7 @@ If continual learning becomes feasible, the **moat at the model layer changes sh
 - [[rl-from-verifiable-rewards]] — the most tractable training-signal source for an on-the-job learner with a domain-specific verifier.
 - [[rl-data-preparation]] — the in-deployment trajectory collection pipeline a continual learner depends on.
 - [[rl-open-vs-closed-source]] — owning vs renting the weights is the precondition for continual updates inside one customer.
+- [[gultekin-pinarbasi-commercialisation-ai-2025]] — §5.2 names the customer-feedback loop as the dominant commercialisation-process pattern in the Turkish sample; an empirical instance of the continual-learning loop in pre-ChatGPT AI-startup practice.
 - [[ml-monitoring]] — the operational infrastructure that closes the continual-learning loop in production; without it, the loop does not close and the model rots.
 - [[ml-monitoring-quality-cycle]] — Practice 16 ("iteratively and continually learn from the production environment") is the operational practice instantiation of this paradigm.
 - [[ml-drift-types]] — drift detection is what tells a continual learner *when* to update.

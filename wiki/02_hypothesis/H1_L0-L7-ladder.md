@@ -92,6 +92,7 @@ The ladder is a **buyer / substrate-side** map. Its seller-side mirror is the fo
 - [[sme-policy-pathway-novice-to-champion]] — the policy-pathway framing that links the adopter quadrants to [[taker-shaper-maker]] positioning.
 - [[sme-ai-adoption-gap]] — empirical evidence that most SMEs sit at L0–L2 regardless of taxonomy quadrant.
 - [[ai-productivity-firm-level]] — the productivity premium that the ladder's strategic claim implicitly depends on.
+- [[foundation-model-layer]] — the frontier-model API tier sitting between application-layer software and raw infrastructure; one of the three layers H2's U-curve actually names.
 
 ## Referenced by
 

@@ -102,3 +102,4 @@ This is the pattern most disrupted by foundation-model commoditization since the
 - [[ml-monitoring]] — a second candidate surviving sub-pattern in the squeezed middle: monitoring-specific tooling that operationalises the C1–C5 / 17-practice surface. [[protschky-ml-monitoring-2025]] reviewed 15 monitoring tools (T01–T15) and found none implement the full surface — i.e., the band is *empirically under-served*, which is the structural conditions for a value-pocket exception to the "middle dies" thesis.
 - [[ml-monitoring-quality-cycle]] — the 17-practice surface a monitoring tool would need to cover to differentiate from generic MLOps.
 - [[protschky-ml-monitoring-2025]] — empirical anchor for the MLOps-vs-monitoring distinction and the under-served-tooling claim.
+- [[gultekin-pinarbasi-commercialisation-ai-2025]] — only 1 of the 10 Turkish AI-startups falls in this pattern; the sparseness is itself evidence consistent with the "squeezed middle" reading.

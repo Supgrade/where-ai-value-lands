@@ -6,7 +6,7 @@ tags:
   - economics
   - distribution
   - strategy
-last-updated: 2026-05-25
+last-updated: 2026-05-26
 ---
 
 # Distribution Moat
@@ -63,3 +63,5 @@ The seller-side archetype that *needs* a distribution moat most acutely is the [
 - [[ecosystem-business-archetypes]] — Choudary's four-archetype taxonomy; distribution moats live in the Aggregator archetype.
 - [[vertical-to-horizontal-unbundling]] — the structural mechanism that makes Aggregator-archetype distribution moats possible.
 - [[weber-taxonomy-2026-gaps]] — diagnostic page identifying *distribution architecture* as the single largest dimension missing from the [[weber-ai-startup-business-models]] 2021 taxonomy; this concept page is the project's central reference for what a Weber-parallel GTM morphological box would have to encode (Strand B).
+- [[exclusive-industry-data-partnerships]] — data-access variant of the distribution moat: contractually-exclusive corpora as a structural moat for AI-charged providers in regulated verticals.
+- [[gultekin-pinarbasi-commercialisation-ai-2025]] — Turkish AI-startup sample where one self-serve firm reached >100k customers while nine B2B firms each stayed under 50: a small-N but directional empirical anchor for the distribution-moat thesis.

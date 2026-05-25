@@ -95,3 +95,4 @@ This is the pattern where Weber et al.'s "data being used in a new way" argument
 - [[wiener-traditional-it-archetypes]] — the pre-AI predecessor archetype this pattern most resembles.
 - [[vertical-ai-orchestration]] — the 2026 mutation in industrial verticals.
 - [[ai-productivity-firm-level]] — the underlying economic mechanism.
+- [[gultekin-pinarbasi-commercialisation-ai-2025]] — 4 of the 10 Turkish AI-startups in the sample fall in this pattern (predictive data analytics), independently confirming its empirical salience.

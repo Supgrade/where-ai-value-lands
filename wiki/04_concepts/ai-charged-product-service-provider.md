@@ -100,3 +100,4 @@ The data work is **upstream of the product**. The customer never sees it.
 - [[weber-ai-startup-business-models]] — the source.
 - [[ai-development-facilitator]], [[ai-data-analytics-provider]], [[ai-deep-tech-researcher]] — the three other Weber patterns.
 - [[H2_u-curve-of-value]], [[distribution-moat]], [[middle-layer-defensibility]], [[where-value-lands-2026]].
+- [[gultekin-pinarbasi-commercialisation-ai-2025]] — independent empirical confirmation: 9 of 10 Turkish AI-startup interviewees are classified as Pattern 1 or Pattern 3; the single self-serve LP1 ( > 100k customers) vs nine B2B firms ( < 50 each) split directionally supports the [[distribution-moat]] claim for this archetype.

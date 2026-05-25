@@ -6,7 +6,7 @@ tags:
   - hypothesis
   - economics
   - margin
-last-updated: 2026-05-23
+last-updated: 2026-05-26
 ---
 
 # H2 — The U-Curve of Value
@@ -97,6 +97,15 @@ Weber et al.'s empirical four-pattern taxonomy of AI startups ([[ai-startup-busi
     
     If SMEs settle at the [[oecd-sme-adopter-taxonomy]] Novice / Optimiser corner — wide-but-shallow off-the-shelf use — the application-side surplus pools at a small number of digitally mature large firms and AI-intensive sectors, not at the broad SME base. The U may be **asymmetric in the SME dimension**: top captured by a small Champion-adjacent population, large middle of Optimisers paying recurring SaaS rent upward. The US has the thinnest divide and likely the fattest application-layer tail; the EU bloc, despite richer policy, has the widest divides. This doesn't refute the U, but it makes the application-layer-as-broad-base claim contingent on policy, not architectural.
 
+## Confidence
+
+Confidence varies sharply across the four sub-claims of the U. Treat them separately.
+
+- **Top of U (high)** — empirically validated by the application-layer revenue and retention pattern documented in [[where-value-lands-2026]] and reinforced by the vertical-domain instantiation in [[deloitte-ai-dossier-eri]]. Cursor, Windsurf, GitHub Copilot, and the [[vertical-ai-orchestration]] class show durable workflow + distribution lock-in. See [[application-layer]].
+- **Middle claim (medium)** — qualitatively reinforced (Karpathy, Steinberger, [[middle-layer-defensibility]]) but the firm-count vs value-share distinction is unresolved. Many middle-layer firms exist (the trough is shallow by count) but aggregate value capture is unclear; some monitoring / orchestration / evals sub-pockets may survive.
+- **Bottom of U (under pressure)** — challenged by [[circular-ai-economy]] dynamics: if hyperscaler "AI revenue" is largely recycled VC capital, the bottom is hollow and the U collapses toward an L. [[task-based-framework]]'s <0.71% 10-year TFP cap compounds the concern. Frontier-lab defensibility ([[scaling-wall]], [[open-weight-asymmetry]]) is the counter-pull.
+- **Universal shape (contested)** — [[divergent-value-stack-optima]], drawing on [[geopolitics-global-ai-divide]], argues the U is plausibly a US-stack artifact: China's open-weight asymmetry deliberately flattens the bottom, Europe centres value at the compliance / sovereign-infra layer. Treat the U as a default shape that can flatten or invert per bloc and per vertical.
+
 ## Labor-side mirror (via [[massenkoff-mccrory-labor-market-impacts-2026]])
 
 The value-stack U has a **labor-exposure twin** on a different axis. Anthropic's 2026 internal study finds AI exposure concentrated on the **upper half of the wage distribution** (computer programmers 74.5%, customer service reps 70.1%, financial analysts 57.2%, market research analysts 64.8%) while **30% of workers — manual physical labor (cooks, mechanics, lifeguards, bartenders) — have zero exposure**. Exposed workers are **older, more female, more white/Asian, more educated** (4× the graduate-degree share), and earn **47% more per hour** than unexposed ones (see [[exposed-worker-demographics]]).
@@ -164,6 +173,7 @@ For *Where Value Lands*, this updates the central claim: **value lands on capita
 - [[choudary-ecosystem-teardown]] — 2022 pre-AI structural precursor; supplies four-archetype vocabulary for the U.
 - [[ecosystem-business-archetypes]] — Choudary's four-archetype taxonomy mapped onto top/middle/bottom of the U.
 - [[vertical-to-horizontal-unbundling]] — the structural mechanism behind the recurring U-shape pattern across industries.
+- [[foundation-model-layer]] — the raw frontier-model API tier; the layer that sits inside the trough of the U for most players, with a partial micro-peak at the frontier-lab club.
 
 ## Referenced by
 
@@ -232,6 +242,7 @@ For *Where Value Lands*, this updates the central claim: **value lands on capita
 - [[deloitte-ai-dossier-eri]]
 - [[geopolitics-global-ai-divide]]
 - [[goldman-sachs-too-much-spend]]
+- [[gultekin-pinarbasi-commercialisation-ai-2025]] — structural evidence for the U-shape from a 2022 Turkish AI-startup sample.
 - [[karpathy-software-3]]
 - [[massenkoff-mccrory-labor-market-impacts-2026]]
 - [[oecd-sme-ai-adoption-2025]]

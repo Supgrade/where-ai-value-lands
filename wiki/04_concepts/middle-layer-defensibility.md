@@ -99,3 +99,5 @@ LeCun's [[world-models-jepa]] argument adds a long-horizon risk: if autoregressi
 - [[ecosystem-business-archetypes]] — Choudary's Aggregator / Integrator / Infrastructure / Capability framework.
 - [[cross-archetype-confusion]] — strategic failure mode the archetype disambiguation is designed to expose.
 - [[most-exposed-occupations]] — the user base of L4–L6 application-layer platforms; empirical confirmation that the workflow-embedded layer serves the highest-exposure occupations.
+- [[foundation-model-layer]] — the upstream tier this layer adds value above; what gets squeezed when frontier-model APIs absorb middle-layer features.
+- [[gultekin-pinarbasi-commercialisation-ai-2025]] — the source's Related section explicitly names this page; the Turkish sample provides early structural evidence for the squeezed-middle thesis.
