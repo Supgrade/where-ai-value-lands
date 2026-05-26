@@ -93,3 +93,4 @@ The economic prediction: a small number of dominant vertical orchestrators per i
 - [[ml-monitoring]] — the operational layer that makes vertical orchestrators sticky over time; every drift event, alert, and adaptation logged is moat-deepening operational history the next vendor cannot reconstruct.
 - [[ml-production-environment-characteristics]] — internalising C1–C5 is the pre-requisite for a vertical orchestrator to survive contact with industrial production.
 - [[protschky-ml-monitoring-2025]] — operational source for what the orchestrator's runtime stack has to actually contain.
+- [[H5_ai-as-operational-not-product]] — the "Cursor for local SEO" bear-case archetype: small-vertical orchestration could be a third track between H5's Track A and Track B.

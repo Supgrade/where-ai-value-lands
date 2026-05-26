@@ -83,6 +83,7 @@ The 17 practices are a **detailed bill of materials** for what it actually takes
 - [[scaling-gap]] — under-budgeted monitoring as a root cause of pilot failure.
 - [[ai-development-facilitator]] — where a monitoring tool that implements this surface could survive.
 - [[foundational-enablers]] — the enterprise-side framing within which these practices are an implicit enabler.
+- [[ai-first-company-loop]] — the *firm-level* sibling of this cycle. Protschky scaffolds production discipline for *one ML application*; the five-layer loop scaffolds production discipline for *the entire company*. The two nest: a firm running the loop contains N Protschky-monitored ML applications, and the loop's Layer 5 (learning) has each application-level cycle as part of its input. Reading the YC framing on top of Protschky gives it empirical floor; reading Protschky inside the YC framing gives it firm-level operating-model scope.
 
 ## Referenced by
 

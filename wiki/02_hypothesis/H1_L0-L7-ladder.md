@@ -108,6 +108,8 @@ The ladder is a **buyer / substrate-side** map. Its seller-side mirror is the fo
 **Hypotheses**
 - [[H2_u-curve-of-value]]
 - [[H3_orthogonal-axes-under-priced]]
+- [[H4_rl-specialization-value-pocket]]
+- [[H5_ai-as-operational-not-product]]
 
 **Concepts**
 - [[agentic-scaling-law]]

@@ -69,3 +69,4 @@ This concept is the single most direct threat to the U-curve. The U assumes valu
 - [[H1_L0-L7-ladder]]
 - [[wef-ai-in-action-2025]] — bull counterpart that does not engage with the circularity question; assumes the $632B spend trajectory will produce durable enterprise demand.
 - [[ai-capex-cycle]] — the time-axis framing of the same financial structure; boom-then-bust mechanism.
+- [[H5_ai-as-operational-not-product]] — strategic inference for the operator-builder: the circular-economy burn at the AI-as-product layer is exactly what Track B is built to step around.

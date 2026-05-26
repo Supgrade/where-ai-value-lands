@@ -1,0 +1,1556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Personal Liability Exposure — Where Value Lands</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+:root{
+  --bg:#fafaf7;
+  --bg-dark:#0e0e10;
+  --ink:#0e0e10;
+  --ink-2:#2a2a2a;
+  --muted:#6b6b6b;
+  --muted-dark:#9a978f;
+  --hair:#1a1a1a;
+  --hair-soft:#d8d6cf;
+  --hair-dark:#3a3a3a;
+  --accent:#FF4A1C;
+  --accent-deep:#C7341A;
+  --green:#2D4A2B;
+  --olive:#6B7A2A;
+  --sans:'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+  --hand:'Kalam', cursive;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ── Title strip ── */
+.title-strip{
+  border-bottom:1px solid var(--hair);
+  padding:14px 32px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  gap:24px;
+  font-family:var(--hand);
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink);
+}
+
+/* ── Back nav ── */
+.back-nav{display:inline-flex;align-items:center;gap:0;margin-bottom:22px;border:1px solid #d8d6cf;}
+.back-nav a{color:#6b6b6b;text-decoration:none;font-family:'Inter Tight','Inter',-apple-system,sans-serif;font-size:11px;letter-spacing:-0.01em;padding:6px 12px;transition:color 150ms cubic-bezier(0.4,0,0.2,1);}
+.back-nav a:hover{color:var(--accent);}
+.back-nav__home{font-family:'Kalam',cursive;font-size:13px;color:#2a2a2a;}
+.back-nav__sep{display:block;width:1px;height:26px;background:#d8d6cf;flex-shrink:0;}
+
+/* ── Hero ── */
+.hero{
+  padding:56px 56px 80px;
+  border-bottom:1px solid var(--hair);
+  position:relative;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.55fr 1fr;
+  gap:56px;
+  max-width:1440px;
+  margin:0 auto;
+}
+.hero-text{position:relative;}
+.kicker{
+  font-family:var(--hand);
+  font-weight:400;
+  font-size:18px;
+  color:var(--ink-2);
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.kicker::before{
+  content:"";
+  display:inline-block;
+  width:22px;
+  height:1px;
+  background:var(--accent);
+}
+h1{
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:clamp(36px,4.4vw,60px);
+  line-height:1.02;
+  letter-spacing:-.035em;
+  margin:0 0 24px;
+  max-width:18ch;
+}
+h1 .accent{color:var(--accent);}
+.dek{
+  font-size:17px;
+  line-height:1.5;
+  color:var(--ink-2);
+  max-width:54ch;
+  margin:0 0 32px;
+  font-weight:400;
+}
+.byline{
+  display:flex;
+  gap:32px;
+  flex-wrap:wrap;
+  font-family:var(--hand);
+  font-weight:400;
+  font-size:15px;
+  color:var(--ink);
+  padding-top:18px;
+  border-top:1px solid var(--hair);
+}
+.byline span .lbl{color:var(--accent);margin-right:8px;font-weight:300;}
+
+/* Hero sequence — ghost stack */
+.seq-display{
+  position:relative;
+  min-height:420px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:center;
+  gap:6px;
+  padding-right:4px;
+}
+.seq-display .seq-word,
+.seq-display .seq-ghost{
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:88px;
+  letter-spacing:-.045em;
+  line-height:1;
+  text-align:right;
+}
+.seq-display .seq-word{color:var(--ink);}
+.seq-display .seq-word::after{content:".";color:var(--accent);}
+.seq-display .seq-ghost{
+  color:transparent;
+  -webkit-text-stroke:1px var(--hair-soft);
+  user-select:none;
+  pointer-events:none;
+}
+.seq-display .seq-ghost.g2{opacity:.55;}
+.seq-display .seq-ghost.g3{opacity:.32;}
+.seq-display .seq-ghost.g4{opacity:.18;}
+
+/* ── Sections common ── */
+.section{
+  padding:72px 56px 96px;
+  border-bottom:1px solid var(--hair);
+}
+.section-inner{max-width:1440px;margin:0 auto;}
+.section-head{
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:48px;
+  margin-bottom:48px;
+  align-items:end;
+}
+.section-head-left{position:relative;min-height:200px;}
+.seq-marker{
+  position:absolute;
+  bottom:0;
+  left:0;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:4px;
+}
+.seq-marker .tag{
+  font-family:var(--hand);
+  font-weight:400;
+  font-size:16px;
+  color:var(--muted);
+}
+.seq-marker .seq-word{
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:140px;
+  letter-spacing:-.045em;
+  line-height:.9;
+  color:var(--ink);
+}
+.seq-marker .seq-word::after{content:".";color:var(--accent);}
+
+.section-head-right h2{
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:36px;
+  line-height:1.05;
+  letter-spacing:-.03em;
+  margin:0 0 16px;
+  max-width:24ch;
+}
+.section-head-right .lede{
+  font-family:var(--sans);
+  font-style:italic;
+  font-size:17px;
+  line-height:1.55;
+  color:var(--ink-2);
+  max-width:58ch;
+  margin:0;
+}
+
+/* Dark panel variant */
+.section.dark{
+  background:var(--bg-dark);
+  color:var(--bg);
+  border-bottom:1px solid var(--hair-dark);
+}
+.section.dark .seq-marker .seq-word{color:#f0ece4;}
+.section.dark .seq-marker .tag{color:var(--muted-dark);}
+.section.dark .section-head-right h2{color:#f0ece4;}
+.section.dark .section-head-right .lede{color:var(--muted-dark);}
+
+/* ── Diagram wrap ── */
+.diagram-wrap{width:100%;margin-top:24px;}
+.diagram-wrap svg{width:100%;height:auto;display:block;}
+
+/* ── See section: interactive slider widget ── */
+.see-widget{
+  margin-top:32px;
+  border:1px solid var(--hair);
+  background:var(--bg);
+}
+.see-controls{
+  padding:32px 40px 24px;
+  border-bottom:1px solid var(--hair);
+}
+.see-controls .ctl-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  margin-bottom:24px;
+  gap:24px;
+  flex-wrap:wrap;
+}
+.see-controls .ctl-label{
+  font-family:var(--hand);
+  font-weight:700;
+  font-size:20px;
+  color:var(--ink);
+}
+.see-controls .ctl-label .small{
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:13px;
+  color:var(--muted);
+  margin-left:14px;
+  letter-spacing:-.01em;
+}
+.btn-sim{
+  font-family:var(--hand);
+  font-weight:600;
+  font-size:16px;
+  color:var(--ink);
+  background:transparent;
+  border:1px solid var(--hair);
+  padding:8px 18px;
+  cursor:pointer;
+  transition:background 150ms cubic-bezier(0.4,0,0.2,1), color 150ms cubic-bezier(0.4,0,0.2,1);
+}
+.btn-sim:hover{background:var(--ink);color:var(--bg);}
+.btn-sim.playing{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+/* Slider — clickable ticks + visible handle */
+.see-slider{
+  position:relative;
+  margin:18px 0 8px;
+  padding:0 12px;
+}
+.see-track-line{
+  position:absolute;
+  left:12px;
+  right:12px;
+  top:14px;
+  height:1px;
+  background:var(--hair);
+}
+.see-ticks{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  align-items:start;
+}
+.see-tick{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  cursor:pointer;
+  padding-top:0;
+  user-select:none;
+}
+.see-tick .knob{
+  width:14px;
+  height:14px;
+  border:1.5px solid var(--ink);
+  background:var(--bg);
+  margin-bottom:14px;
+  z-index:2;
+  transition:background 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.see-tick.active .knob{
+  background:var(--accent);
+  border-color:var(--accent);
+  transform:scale(1.4);
+}
+.see-tick .label{
+  font-family:var(--hand);
+  font-weight:400;
+  font-size:14px;
+  color:var(--muted);
+  text-align:center;
+  line-height:1.25;
+  max-width:14ch;
+  transition:color 200ms cubic-bezier(0.4,0,0.2,1);
+}
+.see-tick.active .label{
+  color:var(--ink);
+  font-weight:700;
+}
+.see-tick:hover .knob{background:var(--ink);}
+.see-tick.active:hover .knob{background:var(--accent-deep);}
+
+.see-axis{
+  margin-top:8px;
+  display:flex;
+  justify-content:space-between;
+  font-family:var(--hand);
+  font-size:13px;
+  color:var(--muted);
+  padding:0 4px;
+}
+
+/* Cols */
+.see-cols{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+.see-col{
+  padding:24px 32px 28px;
+  min-height:340px;
+}
+.see-col-block{
+  background:#fafaf7;
+  border-right:1px solid var(--hair);
+}
+.see-col-run{
+  background:#0e0e10;
+  color:#f0ece4;
+}
+.see-col-head{
+  font-family:var(--hand);
+  font-weight:700;
+  font-size:18px;
+  margin-bottom:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding-bottom:10px;
+}
+.see-col-block .see-col-head{
+  color:var(--accent);
+  border-bottom:1px solid var(--accent);
+}
+.see-col-run .see-col-head{
+  color:#A8C09A;
+  border-bottom:1px solid #2D4A2B;
+}
+.see-col-head .cnt{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:28px;
+  letter-spacing:-.03em;
+  color:inherit;
+}
+.see-list{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.see-row{
+  display:grid;
+  grid-template-columns:24px 1fr auto;
+  gap:14px;
+  align-items:center;
+  padding:11px 0;
+  border-top:1px dashed var(--hair-soft);
+  transition:opacity 250ms cubic-bezier(0.4,0,0.2,1);
+}
+.see-row:first-child{border-top:none;}
+.see-col-run .see-row{border-top-color:var(--hair-dark);}
+.see-row .sym{
+  width:18px;
+  height:18px;
+  display:inline-block;
+  position:relative;
+}
+.see-row .sym.dot{
+  border-radius:0;
+  background:transparent;
+  border:1.5px solid var(--accent);
+}
+.see-row .sym.dot::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  background:var(--accent);
+}
+.see-row .sym.lock{
+  border:1.5px solid var(--accent);
+  background:var(--accent);
+  position:relative;
+}
+.see-row .sym.lock::before{
+  content:"";
+  position:absolute;
+  width:8px;
+  height:6px;
+  border:1.5px solid #fff;
+  border-bottom:none;
+  border-radius:6px 6px 0 0;
+  left:50%;
+  transform:translateX(-50%);
+  top:-1px;
+}
+.see-row .sym.lock::after{
+  content:"";
+  position:absolute;
+  width:10px;
+  height:8px;
+  background:#fff;
+  left:50%;
+  transform:translateX(-50%);
+  top:6px;
+}
+.see-row .sym.check{
+  border:1.5px solid #A8C09A;
+}
+.see-row .sym.check::after{
+  content:"";
+  position:absolute;
+  width:10px;
+  height:5px;
+  border-left:1.5px solid #A8C09A;
+  border-bottom:1.5px solid #A8C09A;
+  transform:rotate(-45deg);
+  top:4px;
+  left:3px;
+}
+.see-row .name{
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:14.5px;
+  letter-spacing:-.01em;
+}
+.see-col-block .see-row .name{color:var(--ink);}
+.see-col-run .see-row .name{color:#f0ece4;}
+.see-row .tag{
+  font-family:var(--hand);
+  font-size:13px;
+  color:var(--muted);
+}
+.see-col-run .see-row .tag{color:var(--muted-dark);}
+.see-row .tag.lock-tag{color:var(--accent);font-weight:700;}
+
+.see-empty{
+  font-family:var(--hand);
+  font-size:16px;
+  color:var(--muted);
+  padding:24px 0;
+  font-style:italic;
+}
+.see-col-run .see-empty{color:var(--muted-dark);}
+
+.see-footer{
+  border-top:1px solid var(--hair);
+  padding:16px 40px;
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+  font-family:var(--hand);
+  font-size:15px;
+  color:var(--muted);
+}
+.see-footer b{
+  color:var(--ink);
+  font-weight:700;
+}
+
+/* ── Orange band ── */
+.orange-band{
+  background:var(--accent);
+  color:#fff;
+  padding:88px 56px;
+  border-bottom:1px solid var(--hair);
+}
+.orange-band-inner{
+  max-width:1440px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:64px;
+  align-items:end;
+}
+.orange-band h3{
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:46px;
+  line-height:1.05;
+  letter-spacing:-.025em;
+  margin:0;
+  max-width:18ch;
+}
+.orange-band .quote-tail{
+  font-family:var(--hand);
+  font-weight:400;
+  font-size:19px;
+  color:rgba(255,255,255,.94);
+  line-height:1.55;
+  padding-top:24px;
+  border-top:1px solid rgba(255,255,255,.4);
+}
+
+/* ── Ship section ── */
+.ship-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  margin-top:24px;
+  border-top:1px solid var(--hair);
+  border-left:1px solid var(--hair);
+}
+.ship-card{
+  border-right:1px solid var(--hair);
+  border-bottom:1px solid var(--hair);
+  padding:28px 32px 36px;
+  background:var(--bg);
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.ship-card .ship-tag{
+  font-family:var(--hand);
+  font-weight:600;
+  font-size:17px;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.ship-card .ship-tag .num{
+  display:inline-block;
+  width:26px;
+  height:26px;
+  border:1px solid var(--accent);
+  text-align:center;
+  line-height:24px;
+  font-size:14px;
+  color:var(--accent);
+  font-family:var(--sans);
+  font-weight:500;
+}
+.ship-card .ship-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:22px;
+  line-height:1.2;
+  letter-spacing:-.02em;
+  color:var(--ink);
+  margin:0;
+}
+.ship-card .ship-where{
+  font-family:var(--hand);
+  font-size:15px;
+  color:var(--muted);
+  margin-top:-8px;
+}
+.ship-card .ship-where b{color:var(--ink);font-weight:700;}
+.ship-card .ship-body{
+  font-family:var(--sans);
+  font-size:14.5px;
+  line-height:1.55;
+  color:var(--ink-2);
+  margin:0;
+}
+.ship-card .ship-snippet{
+  background:var(--bg-dark);
+  color:#e8e3d8;
+  font-family:var(--sans);
+  font-size:13px;
+  line-height:1.6;
+  letter-spacing:-.005em;
+  padding:18px 20px;
+  border:1px solid var(--hair-dark);
+  white-space:pre-wrap;
+  word-break:break-word;
+  margin:4px 0 0;
+  font-weight:300;
+}
+.ship-card .ship-snippet .key{color:#FF8A5C;font-weight:500;}
+.ship-card .ship-snippet .str{color:#A8C09A;}
+.ship-card .ship-snippet .com{color:#8a857a;font-style:italic;}
+.ship-card .ship-foot{
+  font-family:var(--hand);
+  font-size:14px;
+  color:var(--muted);
+  border-top:1px dashed var(--hair-soft);
+  padding-top:12px;
+  margin-top:auto;
+}
+
+/* ── Connections graph ── */
+#graph-wrap{
+  width:100%;
+  margin-top:24px;
+  position:relative;
+  background:#0e0e10;
+  border:1px solid var(--hair-dark);
+}
+#graph-wrap svg{width:100%;height:560px;display:block;}
+.gtooltip{
+  position:absolute;
+  background:rgba(14,14,16,0.94);
+  border:1px solid var(--hair-dark);
+  padding:10px 14px;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 150ms cubic-bezier(0.4,0,0.2,1);
+  max-width:280px;
+  color:#f0ece4;
+}
+.gtooltip .gt-head{font-family:var(--hand);font-size:15px;color:var(--accent);margin-bottom:4px;}
+.gtooltip .gt-body{font-family:var(--sans);font-size:12.5px;line-height:1.4;color:#d8d6cf;}
+.legend-strip{
+  display:flex;gap:32px;flex-wrap:wrap;
+  font-family:var(--hand);font-size:16px;color:var(--muted-dark);
+  margin-top:20px;align-items:center;padding-top:18px;border-top:1px solid var(--hair-dark);
+}
+.legend-strip span{display:flex;align-items:center;gap:8px;}
+
+/* ── Tensions ── */
+.tensions{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:24px;border-top:1px solid var(--hair);border-left:1px solid var(--hair);}
+.tension{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:28px 32px 32px;}
+.tension .t-head{font-family:var(--hand);font-weight:700;font-size:18px;color:var(--ink);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.tension .t-head::after{content:".";color:var(--accent);font-family:var(--sans);font-weight:500;}
+.tension p{font-family:var(--sans);font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:0;}
+
+/* ── Sources ── */
+.sources{margin-top:24px;}
+.source-row{padding:22px 0;border-top:1px solid var(--hair-soft);display:grid;grid-template-columns:240px 1fr;gap:32px;align-items:start;}
+.source-row:last-child{border-bottom:1px solid var(--hair-soft);}
+.source-row .src-name{font-family:var(--sans);font-weight:600;font-size:16px;letter-spacing:-.01em;color:var(--ink);}
+.source-row .src-meta{font-family:var(--hand);font-size:14px;color:var(--muted);margin-top:4px;}
+.source-row .src-claim{font-family:var(--sans);font-size:14.5px;line-height:1.55;color:var(--ink-2);}
+
+/* ── Footer strip ── */
+footer{padding:18px 32px;font-family:var(--hand);font-size:14px;color:var(--muted);display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px;}
+
+/* ── Reveal ── */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity 600ms cubic-bezier(0.4,0,0.2,1),transform 600ms cubic-bezier(0.4,0,0.2,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media (max-width:980px){
+  .hero-grid,.section-head,.orange-band-inner,.ship-grid,.tensions,.source-row,.title-strip,footer,.see-cols{grid-template-columns:1fr;}
+  .see-col-block{border-right:none;border-bottom:1px solid var(--hair);}
+  .seq-display{align-items:flex-start;min-height:auto;margin-top:24px;}
+  .seq-display .seq-word,.seq-display .seq-ghost{font-size:56px;text-align:left;}
+  .seq-marker .seq-word{font-size:88px;}
+  .orange-band h3{font-size:30px;}
+  .see-tick .label{font-size:11.5px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ TITLE STRIP ═══════════ -->
+<div class="title-strip">
+  <span>2026 · 05 · 26</span>
+  <span>personal-liability-exposure</span>
+  <span>Layer 4 · decomposed</span>
+  <span>Where Value Lands</span>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="back-nav">
+        <a class="back-nav__home" href="https://supgrade.github.io/where-ai-value-lands/">← where value lands</a>
+        <span class="back-nav__sep" aria-hidden="true"></span>
+        <a class="back-nav__gh" href="https://github.com/Supgrade/where-ai-value-lands" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <p class="kicker">why fully autonomous AI isn't here yet — even when the layers are</p>
+      <h1>The model can do it. Layer&nbsp;4 is <span class="accent">why you don't let it.</span></h1>
+      <p class="dek">The AI-first company loop has five layers. Four are technically achievable for a solopreneur today. Layer 4 — the gate that decides which agent action runs and which waits for you — is where the operator's name, reputation, and relationships sit on the table. Most loops have no Layer 4 at all. The few that do have one with a single setting: tight.</p>
+      <div class="byline">
+        <span><span class="lbl">concept</span>personal-liability-exposure</span>
+        <span><span class="lbl">layer</span>04 — quality gates</span>
+        <span><span class="lbl">scope</span>solopreneur · operator-builder</span>
+      </div>
+    </div>
+    <div class="seq-display" aria-hidden="true">
+      <div class="seq-ghost g4">Trace</div>
+      <div class="seq-ghost g3">Ship</div>
+      <div class="seq-ghost g2">Build</div>
+      <div class="seq-ghost g2">See</div>
+      <div class="seq-word">Frame</div>
+    </div>
+  </div>
+
+  <!-- Hero diagram: the 5-layer loop, Layer 4 highlighted -->
+  <div class="diagram-wrap reveal" style="margin-top:64px;">
+    <svg viewBox="0 0 1280 540" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid-h" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a1a" stroke-width="0.5" opacity="0.06"/>
+        </pattern>
+        <marker id="arr-h" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L7,3 z" fill="#1a1a1a"/>
+        </marker>
+        <marker id="arr-orange-h" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L7,3 z" fill="#FF4A1C"/>
+        </marker>
+      </defs>
+      <rect width="1280" height="540" fill="#fafaf7"/>
+      <rect width="1280" height="540" fill="url(#grid-h)"/>
+
+      <!-- Section label -->
+      <text x="40" y="50" font-family="'Kalam',cursive" font-size="15" fill="#6b6b6b">the ai-first company loop · five layers</text>
+
+      <!-- 5 layer boxes, centers at x = 170, 400, 630, 860, 1110 -->
+      <!-- Boxes: y 220-340 (height 120), width 180 -->
+
+      <!-- LAYER 1: Sensor data -->
+      <g transform="translate(80,220)">
+        <rect width="180" height="120" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="14" y="26" font-family="'Kalam',cursive" font-size="14" fill="#6b6b6b">01</text>
+        <text x="14" y="58" font-family="'Inter Tight',sans-serif" font-weight="600" font-size="20" letter-spacing="-0.02em" fill="#0e0e10">Sensor</text>
+        <text x="14" y="80" font-family="'Inter Tight',sans-serif" font-weight="600" font-size="20" letter-spacing="-0.02em" fill="#0e0e10">data</text>
+        <text x="14" y="104" font-family="'Kalam',cursive" font-size="13" fill="#6b6b6b">what the firm sees</text>
+      </g>
+
+      <!-- LAYER 2: Policy -->
+      <g transform="translate(310,220)">
+        <rect width="180" height="120" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="14" y="26" font-family="'Kalam',cursive" font-size="14" fill="#6b6b6b">02</text>
+        <text x="14" y="58" font-family="'Inter Tight',sans-serif" font-weight="600" font-size="20" letter-spacing="-0.02em" fill="#0e0e10">Policy</text>
+        <text x="14" y="104" font-family="'Kalam',cursive" font-size="13" fill="#6b6b6b">what to do given the data</text>
+      </g>
+
+      <!-- LAYER 3: Tool -->
+      <g transform="translate(540,220)">
+        <rect width="180" height="120" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="14" y="26" font-family="'Kalam',cursive" font-size="14" fill="#6b6b6b">03</text>
+        <text x="14" y="58" font-family="'Inter Tight',sans-serif" font-weight="600" font-size="20" letter-spacing="-0.02em" fill="#0e0e10">Tool</text>
+        <text x="14" y="104" font-family="'Kalam',cursive" font-size="13" fill="#6b6b6b">what the agent wields</text>
+      </g>
+
+      <!-- LAYER 4: Quality gates — HIGHLIGHTED -->
+      <g transform="translate(770,196)">
+        <!-- Outer accent box -->
+        <rect width="180" height="168" fill="#FF4A1C" stroke="#FF4A1C" stroke-width="1"/>
+        <text x="14" y="28" font-family="'Kalam',cursive" font-size="14" fill="rgba(255,255,255,0.75)">04</text>
+        <text x="14" y="60" font-family="'Inter Tight',sans-serif" font-weight="600" font-size="22" letter-spacing="-0.02em" fill="#fff">Quality</text>
+        <text x="14" y="84" font-family="'Inter Tight',sans-serif" font-weight="600" font-size="22" letter-spacing="-0.02em" fill="#fff">gates</text>
+        <text x="14" y="112" font-family="'Kalam',cursive" font-size="13" fill="rgba(255,255,255,0.92)">hooks · ratchet · GUI</text>
+        <!-- mini gate icon at bottom -->
+        <g transform="translate(14,128)">
+          <line x1="0" y1="6" x2="150" y2="6" stroke="#fff" stroke-width="1" opacity="0.6"/>
+          <line x1="0" y1="6" x2="60" y2="6" stroke="#fff" stroke-width="2.5"/>
+          <rect x="60" y="0" width="14" height="12" fill="#fff"/>
+          <text x="0" y="28" font-family="'Kalam',cursive" font-size="13" fill="#fff" font-weight="700">binding constraint.</text>
+        </g>
+      </g>
+
+      <!-- LAYER 5: Learning -->
+      <g transform="translate(1000,220)">
+        <rect width="180" height="120" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="14" y="26" font-family="'Kalam',cursive" font-size="14" fill="#6b6b6b">05</text>
+        <text x="14" y="58" font-family="'Inter Tight',sans-serif" font-weight="600" font-size="20" letter-spacing="-0.02em" fill="#0e0e10">Learning</text>
+        <text x="14" y="104" font-family="'Kalam',cursive" font-size="13" fill="#6b6b6b">closes back to all four</text>
+      </g>
+
+      <!-- Forward arrows between boxes -->
+      <line x1="260" y1="280" x2="306" y2="280" stroke="#1a1a1a" stroke-width="1" marker-end="url(#arr-h)"/>
+      <line x1="490" y1="280" x2="536" y2="280" stroke="#1a1a1a" stroke-width="1" marker-end="url(#arr-h)"/>
+      <line x1="720" y1="280" x2="766" y2="280" stroke="#FF4A1C" stroke-width="1.4" marker-end="url(#arr-orange-h)"/>
+      <line x1="950" y1="280" x2="996" y2="280" stroke="#FF4A1C" stroke-width="1.4" marker-end="url(#arr-orange-h)"/>
+
+      <!-- Learning feedback loop — curving back over the top to all 4 prior layers -->
+      <!-- Origin: top of L5 box ~ (1090, 220) -->
+      <!-- Curve up to y=130 then back to land on tops of L1..L4 -->
+      <path d="M 1090 220 C 1090 130, 1090 100, 950 100 L 170 100 C 100 100, 100 200, 170 220"
+            fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arr-h)"/>
+      <!-- Small tick marks landing on each prior box -->
+      <line x1="400" y1="100" x2="400" y2="220" stroke="#1a1a1a" stroke-width="0.7" stroke-dasharray="2 3"/>
+      <line x1="630" y1="100" x2="630" y2="220" stroke="#1a1a1a" stroke-width="0.7" stroke-dasharray="2 3"/>
+      <line x1="860" y1="100" x2="860" y2="196" stroke="#FF4A1C" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="640" y="92" font-family="'Kalam',cursive" font-size="13" fill="#6b6b6b">learning closes back into all four layers — including the gates themselves.</text>
+
+      <!-- Bottom annotation under Layer 4 -->
+      <g transform="translate(770,394)">
+        <line x1="0" y1="0" x2="180" y2="0" stroke="#1a1a1a" stroke-width="0.7" stroke-dasharray="2 3"/>
+        <line x1="90" y1="0" x2="90" y2="22" stroke="#1a1a1a" stroke-width="0.7" stroke-dasharray="2 3"/>
+        <text x="90" y="42" text-anchor="middle" font-family="'Kalam',cursive" font-size="14" fill="#0e0e10" font-weight="700">layers 1·2·3·5 are within reach.</text>
+        <text x="90" y="62" text-anchor="middle" font-family="'Kalam',cursive" font-size="14" fill="#0e0e10" font-weight="700">layer 4 is where you live.</text>
+        <text x="90" y="88" text-anchor="middle" font-family="'Inter Tight',sans-serif" font-size="13" fill="#6b6b6b">every action passing through carries your name</text>
+      </g>
+
+      <!-- Right-side bracket — "the loop" -->
+      <g transform="translate(40,140)">
+        <text x="0" y="14" font-family="'Kalam',cursive" font-size="13" fill="#6b6b6b">↳ a self-improving</text>
+        <text x="0" y="30" font-family="'Kalam',cursive" font-size="13" fill="#6b6b6b">company loop · 5 layers</text>
+      </g>
+
+      <!-- bottom-right small caption -->
+      <text x="1240" y="510" text-anchor="end" font-family="'Kalam',cursive" font-size="13" fill="#6b6b6b">borrowed from YC Root Access · author amendment in layer 5</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════ SEE. ═══════════ -->
+<section class="section reveal">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-head-left">
+        <div class="seq-marker">
+          <span class="tag">02 / 05</span>
+          <span class="seq-word">See</span>
+        </div>
+      </div>
+      <div class="section-head-right">
+        <h2>Layer 4 in action — drag the slider. Watch the workflow change.</h2>
+        <p class="lede">Eight typical action classes a small operator faces in a day. Move the autonomy slider; watch which ones run autonomously and which still want your sign-off. Two of them — the irreversibles — never auto-loosen, no matter where the slider sits.</p>
+      </div>
+    </div>
+
+    <div class="see-widget" id="see-widget">
+
+      <!-- Controls: slider + auto-ratchet button -->
+      <div class="see-controls">
+        <div class="ctl-head">
+          <div class="ctl-label">autonomy <span class="small">— per-class gate setting</span></div>
+          <button class="btn-sim" id="btn-sim">▶ simulate 90 days (auto-ratchet)</button>
+        </div>
+        <div class="see-slider">
+          <div class="see-track-line"></div>
+          <div class="see-ticks">
+            <div class="see-tick active" data-pos="0">
+              <div class="knob"></div>
+              <div class="label">ask every step</div>
+            </div>
+            <div class="see-tick" data-pos="1">
+              <div class="knob"></div>
+              <div class="label">ask before external</div>
+            </div>
+            <div class="see-tick" data-pos="2">
+              <div class="knob"></div>
+              <div class="label">ask on flagged risk</div>
+            </div>
+            <div class="see-tick" data-pos="3">
+              <div class="knob"></div>
+              <div class="label">ask on exception</div>
+            </div>
+            <div class="see-tick" data-pos="4">
+              <div class="knob"></div>
+              <div class="label">run on rails</div>
+            </div>
+          </div>
+        </div>
+        <div class="see-axis">
+          <span>← tight · day 1 of a new action class</span>
+          <span>loose · earned trust over 90 days →</span>
+        </div>
+      </div>
+
+      <!-- Columns: blocked vs running -->
+      <div class="see-cols">
+        <div class="see-col see-col-block">
+          <div class="see-col-head">
+            <span>your queue · waiting on you</span>
+            <span class="cnt" id="cnt-blocked">8</span>
+          </div>
+          <div class="see-list" id="list-blocked"></div>
+        </div>
+        <div class="see-col see-col-run">
+          <div class="see-col-head">
+            <span>running autonomously</span>
+            <span class="cnt" id="cnt-running">0</span>
+          </div>
+          <div class="see-list" id="list-running"></div>
+        </div>
+      </div>
+
+      <div class="see-footer">
+        <span>↳ orange items lock at the gate regardless of slider — irreversible by policy.</span>
+        <span><b>current setting:</b> <span id="state-label">ask every step</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BUILD. — per-class ratchet snapshot ═══════════ -->
+<section class="section reveal" style="background:#fafaf7;">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-head-left">
+        <div class="seq-marker">
+          <span class="tag">03 / 05</span>
+          <span class="seq-word">Build</span>
+        </div>
+      </div>
+      <div class="section-head-right">
+        <h2>In practice it isn't one slider — it's <i>N</i> sliders, one per action class.</h2>
+        <p class="lede">A snapshot after the loop has been running for ~90 days. Some classes have ratcheted nearly all the way right; others sit one notch in; the irreversibles are pinned tight by policy. Every successful approved execution loosens the class by one notch. Every rollback resets it to zero.</p>
+      </div>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 1280 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid-b" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a1a" stroke-width="0.5" opacity="0.06"/>
+          </pattern>
+        </defs>
+        <rect width="1280" height="600" fill="#fafaf7"/>
+        <rect width="1280" height="600" fill="url(#grid-b)"/>
+
+        <!-- Column headers — slider notches -->
+        <g font-family="'Kalam',cursive" font-size="13" fill="#6b6b6b" text-anchor="middle">
+          <text x="430" y="60">ask every step</text>
+          <text x="580" y="60">ask before external</text>
+          <text x="730" y="60">ask on flagged risk</text>
+          <text x="880" y="60">ask on exception</text>
+          <text x="1030" y="60">run on rails</text>
+        </g>
+        <line x1="400" y1="80" x2="1060" y2="80" stroke="#1a1a1a" stroke-width="0.5" stroke-dasharray="2 3"/>
+
+        <text x="281" y="98" text-anchor="middle" font-family="'Kalam',cursive" font-size="13" fill="#6b6b6b">hook</text>
+        <text x="125" y="98" text-anchor="middle" font-family="'Kalam',cursive" font-size="13" fill="#6b6b6b">action class</text>
+
+        <g font-family="'Inter Tight',sans-serif" font-size="13" font-weight="500" fill="#0e0e10">
+          <!-- ROW 1: deal-commit -->
+          <text x="240" y="125" text-anchor="end">deal-commit &gt; €X</text>
+          <text x="240" y="141" text-anchor="end" font-family="'Kalam',cursive" font-size="12" fill="#C7341A" font-weight="700">irreversible · locked</text>
+          <rect x="270" y="110" width="22" height="22" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+          <path d="M 273 121 L 281 128 L 290 113" fill="none" stroke="#FF4A1C" stroke-width="1.5"/>
+          <line x1="400" y1="121" x2="1060" y2="121" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="113" x2="430" y2="129" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="580" y1="113" x2="580" y2="129" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="730" y1="113" x2="730" y2="129" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="880" y1="113" x2="880" y2="129" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="1030" y1="113" x2="1030" y2="129" stroke="#1a1a1a" stroke-width="1"/>
+          <circle cx="430" cy="121" r="7" fill="#0e0e10"/>
+          <text x="1075" y="124" font-family="'Kalam',cursive" font-size="13" fill="#C7341A">no auto-loosen.</text>
+
+          <!-- ROW 2: pay-invoice -->
+          <text x="240" y="180" text-anchor="end">pay-invoice</text>
+          <text x="240" y="196" text-anchor="end" font-family="'Kalam',cursive" font-size="12" fill="#C7341A" font-weight="700">irreversible · locked</text>
+          <rect x="270" y="165" width="22" height="22" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+          <path d="M 273 176 L 281 183 L 290 168" fill="none" stroke="#FF4A1C" stroke-width="1.5"/>
+          <line x1="400" y1="176" x2="1060" y2="176" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="168" x2="430" y2="184" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="580" y1="168" x2="580" y2="184" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="730" y1="168" x2="730" y2="184" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="880" y1="168" x2="880" y2="184" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="1030" y1="168" x2="1030" y2="184" stroke="#1a1a1a" stroke-width="1"/>
+          <circle cx="430" cy="176" r="7" fill="#0e0e10"/>
+          <text x="1075" y="179" font-family="'Kalam',cursive" font-size="13" fill="#C7341A">no auto-loosen.</text>
+
+          <!-- ROW 3: send-external-pitch -->
+          <text x="240" y="235" text-anchor="end">send-external-pitch</text>
+          <text x="240" y="251" text-anchor="end" font-family="'Kalam',cursive" font-size="12" fill="#6b6b6b">approved 6× · ratchet armed</text>
+          <rect x="270" y="220" width="22" height="22" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+          <path d="M 273 231 L 281 238 L 290 223" fill="none" stroke="#FF4A1C" stroke-width="1.5"/>
+          <line x1="400" y1="231" x2="1060" y2="231" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="223" x2="430" y2="239" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="580" y1="223" x2="580" y2="239" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="730" y1="223" x2="730" y2="239" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="880" y1="223" x2="880" y2="239" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="1030" y1="223" x2="1030" y2="239" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="231" x2="580" y2="231" stroke="#FF4A1C" stroke-width="2"/>
+          <circle cx="580" cy="231" r="7" fill="#FF4A1C"/>
+
+          <!-- ROW 4: publish-content -->
+          <text x="240" y="290" text-anchor="end">publish-content</text>
+          <text x="240" y="306" text-anchor="end" font-family="'Kalam',cursive" font-size="12" fill="#6b6b6b">brand-voice post-hook on</text>
+          <rect x="270" y="275" width="22" height="22" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+          <path d="M 273 286 L 281 293 L 290 278" fill="none" stroke="#FF4A1C" stroke-width="1.5"/>
+          <line x1="400" y1="286" x2="1060" y2="286" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="278" x2="430" y2="294" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="580" y1="278" x2="580" y2="294" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="730" y1="278" x2="730" y2="294" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="880" y1="278" x2="880" y2="294" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="1030" y1="278" x2="1030" y2="294" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="286" x2="730" y2="286" stroke="#FF4A1C" stroke-width="2"/>
+          <circle cx="730" cy="286" r="7" fill="#FF4A1C"/>
+
+          <!-- ROW 5: write-to-customer-record -->
+          <text x="240" y="345" text-anchor="end">write-to-customer-record</text>
+          <text x="240" y="361" text-anchor="end" font-family="'Kalam',cursive" font-size="12" fill="#6b6b6b">schema-hook · audit-entry hook</text>
+          <rect x="270" y="330" width="22" height="22" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+          <path d="M 273 341 L 281 348 L 290 333" fill="none" stroke="#FF4A1C" stroke-width="1.5"/>
+          <line x1="400" y1="341" x2="1060" y2="341" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="333" x2="430" y2="349" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="580" y1="333" x2="580" y2="349" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="730" y1="333" x2="730" y2="349" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="880" y1="333" x2="880" y2="349" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="1030" y1="333" x2="1030" y2="349" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="341" x2="880" y2="341" stroke="#FF4A1C" stroke-width="2"/>
+          <circle cx="880" cy="341" r="7" fill="#FF4A1C"/>
+
+          <!-- ROW 6: format-document -->
+          <text x="240" y="400" text-anchor="end">format-document</text>
+          <text x="240" y="416" text-anchor="end" font-family="'Kalam',cursive" font-size="12" fill="#6b6b6b">recoverable · ratchet running</text>
+          <rect x="270" y="385" width="22" height="22" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+          <path d="M 273 396 L 281 403 L 290 388" fill="none" stroke="#FF4A1C" stroke-width="1.5"/>
+          <line x1="400" y1="396" x2="1060" y2="396" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="388" x2="430" y2="404" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="580" y1="388" x2="580" y2="404" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="730" y1="388" x2="730" y2="404" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="880" y1="388" x2="880" y2="404" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="1030" y1="388" x2="1030" y2="404" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="396" x2="1030" y2="396" stroke="#FF4A1C" stroke-width="2"/>
+          <circle cx="1030" cy="396" r="7" fill="#FF4A1C"/>
+
+          <!-- ROW 7: draft-internal-email -->
+          <text x="240" y="455" text-anchor="end">draft-internal-email</text>
+          <text x="240" y="471" text-anchor="end" font-family="'Kalam',cursive" font-size="12" fill="#6b6b6b">low-stakes · audit-only</text>
+          <rect x="270" y="440" width="22" height="22" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+          <path d="M 273 451 L 281 458 L 290 443" fill="none" stroke="#FF4A1C" stroke-width="1.5"/>
+          <line x1="400" y1="451" x2="1060" y2="451" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="443" x2="430" y2="459" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="580" y1="443" x2="580" y2="459" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="730" y1="443" x2="730" y2="459" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="880" y1="443" x2="880" y2="459" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="1030" y1="443" x2="1030" y2="459" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="451" x2="1030" y2="451" stroke="#FF4A1C" stroke-width="2"/>
+          <circle cx="1030" cy="451" r="7" fill="#FF4A1C"/>
+
+          <!-- ROW 8: book-meeting-room -->
+          <text x="240" y="510" text-anchor="end">book-meeting-room</text>
+          <text x="240" y="526" text-anchor="end" font-family="'Kalam',cursive" font-size="12" fill="#6b6b6b">trivially recoverable</text>
+          <rect x="270" y="495" width="22" height="22" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+          <path d="M 273 506 L 281 513 L 290 498" fill="none" stroke="#FF4A1C" stroke-width="1.5"/>
+          <line x1="400" y1="506" x2="1060" y2="506" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="498" x2="430" y2="514" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="580" y1="498" x2="580" y2="514" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="730" y1="498" x2="730" y2="514" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="880" y1="498" x2="880" y2="514" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="1030" y1="498" x2="1030" y2="514" stroke="#1a1a1a" stroke-width="1"/>
+          <line x1="430" y1="506" x2="1030" y2="506" stroke="#FF4A1C" stroke-width="2"/>
+          <circle cx="1030" cy="506" r="7" fill="#FF4A1C"/>
+        </g>
+
+        <!-- Bottom annotation -->
+        <text x="730" y="568" text-anchor="middle" font-family="'Kalam',cursive" font-size="14" fill="#6b6b6b">orange trail = the ratchet · how far the class has earned trust · every rollback resets to zero</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ORANGE BAND ═══════════ -->
+<section class="orange-band reveal">
+  <div class="orange-band-inner">
+    <h3>The blocker is not the model. It's that every action carries your name.</h3>
+    <p class="quote-tail">Solopreneurs and operator-builders sit on a single reputational surface. Layer 4 — done as hooks + per-action-class ratchet + a verification GUI — is what lets the loop self-improve instead of paying the operator's attention back as supervision.</p>
+  </div>
+</section>
+
+<!-- ═══════════ SHIP. ═══════════ -->
+<section class="section reveal">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-head-left">
+        <div class="seq-marker">
+          <span class="tag">04 / 05</span>
+          <span class="seq-word">Ship</span>
+        </div>
+      </div>
+      <div class="section-head-right">
+        <h2>Give this to your agent. Two paths, both work today.</h2>
+        <p class="lede">There is no off-the-shelf "trust-graduating gate" — you build it. Two concrete on-ramps for an operator-builder running Claude Code: a hook in <b>.claude/settings.json</b> that intercepts actions before they fire, or a sibling skill that maintains the trust ledger every other skill reads from.</p>
+      </div>
+    </div>
+
+    <div class="ship-grid">
+
+      <div class="ship-card">
+        <div class="ship-tag"><span class="num">1</span> drop into CLAUDE.md</div>
+        <h3 class="ship-title">Teach the agent the ratchet, in plain English.</h3>
+        <p class="ship-where">place: project root · <b>CLAUDE.md</b></p>
+        <p class="ship-body">The agent has to know the ratchet exists and where the trust ledger lives. One paragraph in CLAUDE.md gives every skill in the project the same shared discipline — no per-skill prompt drift.</p>
+<pre class="ship-snippet"><span class="com"># Autonomy ledger</span>
+
+You maintain <span class="str">.autonomy.yaml</span> at the project root. Each
+action class has a trust level 0–10 and an
+<span class="key">irreversible</span> flag.
+
+Before any action of a tracked class:
+  1. read <span class="str">.autonomy.yaml</span>
+  2. if <span class="key">irreversible: true</span> → surface diff,
+     wait for explicit approval, never auto-loosen
+  3. else if trust &lt; threshold → surface diff,
+     wait for approval
+  4. else → run, then log the action
+
+After every approved success, increment trust
+by 1. After any rollback, reset to 0 and add
+a note explaining why.
+
+The threshold drops by 1 every 5 approvals.
+It never drops below 1 on action classes
+marked <span class="key">external: true</span>.</pre>
+        <p class="ship-foot">↳ this is the policy. the hook below is the enforcement.</p>
+      </div>
+
+      <div class="ship-card">
+        <div class="ship-tag"><span class="num">2</span> add a PreToolUse hook</div>
+        <h3 class="ship-title">Enforce it deterministically — at the tool boundary.</h3>
+        <p class="ship-where">place: <b>.claude/settings.json</b></p>
+        <p class="ship-body">A PreToolUse hook intercepts every tool call before the model can run it. Classify the pending action, look up the trust level, exit non-zero if the action needs approval. The model cannot route around an exit code.</p>
+<pre class="ship-snippet"><span class="key">"hooks"</span>: {
+  <span class="key">"PreToolUse"</span>: [
+    {
+      <span class="key">"matcher"</span>: <span class="str">"Bash|WebFetch|mcp__.*"</span>,
+      <span class="key">"hooks"</span>: [
+        {
+          <span class="key">"type"</span>: <span class="str">"command"</span>,
+          <span class="key">"command"</span>: <span class="str">"./.claude/gate.sh"</span>
+        }
+      ]
+    }
+  ],
+  <span class="key">"PostToolUse"</span>: [
+    {
+      <span class="key">"matcher"</span>: <span class="str">"Bash|mcp__.*"</span>,
+      <span class="key">"hooks"</span>: [
+        { <span class="key">"type"</span>: <span class="str">"command"</span>,
+          <span class="key">"command"</span>: <span class="str">"./.claude/ratchet.sh"</span> }
+      ]
+    }
+  ]
+}</pre>
+        <p class="ship-foot">↳ gate.sh reads .autonomy.yaml, blocks on under-threshold actions. ratchet.sh increments trust on success.</p>
+      </div>
+
+      <div class="ship-card">
+        <div class="ship-tag"><span class="num">3</span> ship a /ratchet skill</div>
+        <h3 class="ship-title">Make the ledger a first-class operating surface.</h3>
+        <p class="ship-where">place: <b>.claude/skills/ratchet/SKILL.md</b></p>
+        <p class="ship-body">A slider buried in YAML is a slider that won't be tuned. Wrap the ledger in a slash command so you can see, at a glance, where each action class sits — and dial one back to "ask every step" the moment something goes sideways.</p>
+<pre class="ship-snippet"><span class="com">---
+name: ratchet
+description: inspect and tune the
+  per-action-class autonomy ledger.
+  use to view current trust levels,
+  re-tighten after an incident, or
+  mark a class as irreversible.
+---</span>
+
+Read <span class="str">.autonomy.yaml</span>. Print one row per class:
+class · trust · threshold · irreversible · last
+incident. Highlight any class within 1 of its
+threshold in <span class="key">orange</span>.
+
+On <span class="key">/ratchet tighten &lt;class&gt;</span> → reset trust to 0.
+On <span class="key">/ratchet lock &lt;class&gt;</span> → set irreversible.
+On <span class="key">/ratchet review</span> → show classes that
+auto-loosened in the last 7 days, with diffs.</pre>
+        <p class="ship-foot">↳ this is the GUI. without it you won't look — and an untuned slider is a maximum-tight slider.</p>
+      </div>
+
+      <div class="ship-card" style="background:#0e0e10;color:#f0ece4;">
+        <div class="ship-tag" style="color:#FF8A5C;"><span class="num" style="color:#FF8A5C;border-color:#FF8A5C;">×</span> what not to do</div>
+        <h3 class="ship-title" style="color:#f0ece4;">Loose by default. Tight forever. Verification as JSON.</h3>
+        <p class="ship-where" style="color:#9a978f;">three failure modes you'll watch other founders hit</p>
+        <p class="ship-body" style="color:#d8d6cf;">A new action class deployed at "run on rails" gives one good morning and one career-defining mistake. A class pinned forever to "ask every step" means you supervised, you did not delegate — the surplus paid back as time. A verification surface that surfaces raw model output as JSON keeps review-cost high enough that the ratchet never trips.</p>
+        <p class="ship-foot" style="color:#9a978f;border-color:#3a3a3a;">↳ the discipline: start tight · loosen with evidence · keep one class of actions permanently locked · build the GUI you'd want to use.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TRACE. ═══════════ -->
+<section class="section dark reveal">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-head-left">
+        <div class="seq-marker">
+          <span class="tag">05 / 05</span>
+          <span class="seq-word">Trace</span>
+        </div>
+      </div>
+      <div class="section-head-right">
+        <h2>The neighbourhood — what this concept presses on, and what presses on it.</h2>
+        <p class="lede">Personal liability is the binding variable in Layer 4 of the <i>ai-first-company-loop</i>. It applies the <i>autonomy-slider</i> per action class with an auto-ratchet. It is the architectural condition for <i>H5</i>'s operator-builder track and a candidate transferable asset for <i>H6</i>'s industrial rollup.</p>
+      </div>
+    </div>
+
+    <div id="graph-wrap">
+      <svg id="graph-svg"></svg>
+      <div class="gtooltip" id="gtt"><div class="gt-head"></div><div class="gt-body"></div></div>
+    </div>
+    <div class="legend-strip">
+      <span><svg width="14" height="14"><circle cx="7" cy="7" r="6" fill="#FF4A1C"/></svg> this concept</span>
+      <span><svg width="14" height="14"><circle cx="7" cy="7" r="6" fill="none" stroke="#f0ece4" stroke-width="1.2"/></svg> concept</span>
+      <span><svg width="14" height="14"><rect x="1" y="1" width="12" height="12" fill="none" stroke="#f0ece4" stroke-width="1.2"/></svg> hypothesis</span>
+      <span><svg width="14" height="14"><circle cx="7" cy="7" r="6" fill="none" stroke="#9a978f" stroke-width="1.2" stroke-dasharray="2 2"/></svg> source / borrowed framework</span>
+      <span>—— wikilink   - - - citation</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TENSIONS ═══════════ -->
+<section class="section reveal">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-head-left">
+        <div class="seq-marker">
+          <span class="tag">— caveats</span>
+          <span class="seq-word">Hold</span>
+        </div>
+      </div>
+      <div class="section-head-right">
+        <h2>Honest tensions — where this argument bends, and where it breaks.</h2>
+        <p class="lede">The page is a working hypothesis under an open inquiry, not a sales pitch for an architecture.</p>
+      </div>
+    </div>
+
+    <div class="tensions">
+      <div class="tension">
+        <div class="t-head">no turnkey ratchet exists</div>
+        <p>As of 2026 the auto-ratchet has to be hand-built per harness — there is no off-the-shelf "trust-graduating gate" component. The page's prescription is directional. Expect this to become a surviving middle-layer primitive over the next 24 months; until then, the operator pays the build cost.</p>
+      </div>
+      <div class="tension">
+        <div class="t-head">hooks can become bureaucracy</div>
+        <p>A loop with too many pre-action hooks degrades into the SaaS-approval-workflow pattern the loop was built to escape. Attach hooks where personal-liability exposure is non-trivial; remove them when post-action audit suffices. The discipline is subtractive.</p>
+      </div>
+      <div class="tension">
+        <div class="t-head">straight-shot beats iron man?</div>
+        <p>Sutskever's "straight-shot" posture treats partial autonomy as the slow market-iterative path he is willing to abandon when capability is sufficient. If he is right, the architecture in this page is transitional, not durable. The wiki treats this as unresolved.</p>
+      </div>
+      <div class="tension">
+        <div class="t-head">verification surface is undervalued capital</div>
+        <p>Most operator-builders treat the GUI layer as cosmetic. It isn't — it is the difference between a slider that ratchets and one that doesn't, and therefore between captured and uncaptured surplus. A slider buried in a YAML file is a slider that won't be tuned.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SOURCES ═══════════ -->
+<section class="section reveal">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-head-left">
+        <div class="seq-marker">
+          <span class="tag">— provenance</span>
+          <span class="seq-word">Cite</span>
+        </div>
+      </div>
+      <div class="section-head-right">
+        <h2>Where the pieces come from.</h2>
+        <p class="lede">No external paper invented this composition. The primitives are wiki-internal; the decomposition is the author's.</p>
+      </div>
+    </div>
+
+    <div class="sources">
+      <div class="source-row">
+        <div>
+          <div class="src-name">ai-first-company-loop</div>
+          <div class="src-meta">YC Root Access · borrowed framework · 2026-05-26</div>
+        </div>
+        <div class="src-claim">Five-layer firm-level operating model — sensor data, policy, tool, quality gates, learning. This page decomposes Layer 4 specifically.</div>
+      </div>
+
+      <div class="source-row">
+        <div>
+          <div class="src-name">autonomy-slider</div>
+          <div class="src-meta">Karpathy — Software 3.0 · wiki concept</div>
+        </div>
+        <div class="src-claim">The "Iron Man suit" — partial autonomy as default; verification GUIs as the place defensibility actually sits. Applied here per action class with a ratchet.</div>
+      </div>
+
+      <div class="source-row">
+        <div>
+          <div class="src-name">eval-real-world-gap</div>
+          <div class="src-meta">Sutskever — Age of Research · wiki concept</div>
+        </div>
+        <div class="src-claim">The empirical reason the ratchet must start tight: today's models fail in jagged, locally-logical-but-globally-incoherent ways the operator cannot predict in advance.</div>
+      </div>
+
+      <div class="source-row">
+        <div>
+          <div class="src-name">H5 · ai-as-operational-not-product</div>
+          <div class="src-meta">Project hypothesis · operator-builder track</div>
+        </div>
+        <div class="src-claim">The prescriptive operator-builder track in H5 is only achievable if Layer 4 is built as hooks + auto-ratchet + verification GUI. This page is its architectural condition.</div>
+      </div>
+
+      <div class="source-row">
+        <div>
+          <div class="src-name">deloitte-ai-dossier-eri</div>
+          <div class="src-meta">vertical-industrial corroboration</div>
+        </div>
+        <div class="src-claim">Restates the same imperative in physical-infrastructure terms — escalation paths and manual-review triggers when "someone must be on the hook" — applied to industrial pipelines rather than founder reputation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER STRIP ═══════════ -->
+<footer>
+  <span>outputs / personal-liability-exposure.html</span>
+  <span>2026 · 05 · 26</span>
+  <span>regeneratable · do not edit by hand</span>
+  <span>where value lands · open inquiry</span>
+</footer>
+
+<script>
+/* ── Reveal observer ── */
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ═══════════ SEE. — interactive Layer 4 demo ═══════════ */
+const actions = [
+  { id:'pay-invoice',     name:'pay-invoice',           tag:'irreversible',            min:99, irreversible:true },
+  { id:'deal-commit',     name:'deal-commit > €X',      tag:'irreversible',            min:99, irreversible:true },
+  { id:'write-customer',  name:'write-to-customer-record', tag:'data · risk-flagged',  min:4,  irreversible:false },
+  { id:'publish-post',    name:'publish-content',       tag:'external · brand-voice',  min:3,  irreversible:false },
+  { id:'send-pitch',      name:'send-external-pitch',   tag:'external · tone-check',   min:2,  irreversible:false },
+  { id:'format-doc',      name:'format-document',       tag:'recoverable',             min:1,  irreversible:false },
+  { id:'book-meeting',    name:'book-meeting-room',     tag:'trivially recoverable',   min:1,  irreversible:false },
+  { id:'draft-internal',  name:'draft-internal-email',  tag:'low-stakes',              min:1,  irreversible:false },
+];
+
+const posLabels = [
+  'ask every step',
+  'ask before external',
+  'ask on flagged risk',
+  'ask on exception',
+  'run on rails',
+];
+
+let currentPos = 0;
+let simRunning = false;
+let simTimer = null;
+
+const ticks = document.querySelectorAll('.see-tick');
+const listBlocked = document.getElementById('list-blocked');
+const listRunning = document.getElementById('list-running');
+const cntBlocked = document.getElementById('cnt-blocked');
+const cntRunning = document.getElementById('cnt-running');
+const stateLabel = document.getElementById('state-label');
+const btnSim = document.getElementById('btn-sim');
+
+function render(pos){
+  currentPos = pos;
+  ticks.forEach(t => t.classList.toggle('active', +t.dataset.pos === pos));
+  stateLabel.textContent = posLabels[pos];
+
+  const blocked = [];
+  const running = [];
+  actions.forEach(a => {
+    if (a.irreversible) {
+      blocked.push(a);
+    } else if (pos >= a.min) {
+      running.push(a);
+    } else {
+      blocked.push(a);
+    }
+  });
+
+  listBlocked.innerHTML = blocked.length === 0
+    ? '<div class="see-empty">— queue empty —</div>'
+    : blocked.map(a => `
+      <div class="see-row">
+        <span class="sym ${a.irreversible ? 'lock' : 'dot'}"></span>
+        <span class="name">${a.name}</span>
+        <span class="tag ${a.irreversible ? 'lock-tag' : ''}">${a.tag}</span>
+      </div>`).join('');
+
+  listRunning.innerHTML = running.length === 0
+    ? '<div class="see-empty">— nothing autonomous yet —</div>'
+    : running.map(a => `
+      <div class="see-row">
+        <span class="sym check"></span>
+        <span class="name">${a.name}</span>
+        <span class="tag">${a.tag}</span>
+      </div>`).join('');
+
+  cntBlocked.textContent = blocked.length;
+  cntRunning.textContent = running.length;
+}
+
+ticks.forEach(t => {
+  t.addEventListener('click', () => {
+    if (simRunning) stopSim();
+    render(+t.dataset.pos);
+  });
+});
+
+function stopSim(){
+  simRunning = false;
+  if (simTimer) { clearInterval(simTimer); simTimer = null; }
+  btnSim.classList.remove('playing');
+  btnSim.textContent = '▶ simulate 90 days (auto-ratchet)';
+}
+
+btnSim.addEventListener('click', () => {
+  if (simRunning) { stopSim(); return; }
+  simRunning = true;
+  btnSim.classList.add('playing');
+  btnSim.textContent = '■ stop';
+  let p = 0;
+  render(p);
+  simTimer = setInterval(() => {
+    p += 1;
+    if (p > 4) { stopSim(); return; }
+    render(p);
+  }, 1400);
+});
+
+render(0);
+
+/* ═══════════ TRACE. — connections graph ═══════════ */
+const W = document.getElementById('graph-wrap').clientWidth;
+const H = 560;
+
+const nodes = [
+  {id:'personal-liability-exposure', kind:'self',      label:'personal-liability-exposure', desc:'Layer 4 decomposed: hooks + per-action-class ratchet + verification GUI.', fx:W/2, fy:H/2},
+  {id:'ai-first-company-loop',       kind:'concept',   label:'ai-first-company-loop',       desc:'Five-layer operating model. This page is Layer 4.'},
+  {id:'autonomy-slider',             kind:'concept',   label:'autonomy-slider',             desc:'Karpathy. Iron Man suit. Applied per-action-class here.'},
+  {id:'eval-real-world-gap',         kind:'concept',   label:'eval-real-world-gap',         desc:'Why the ratchet must start tight.'},
+  {id:'continual-learning-paradigm', kind:'concept',   label:'continual-learning-paradigm', desc:'Anterograde amnesia. Why the slider cannot start loose.'},
+  {id:'fusion-skills',               kind:'concept',   label:'fusion-skills',               desc:'Verification capacity ≠ judgment — what the GUI must support.'},
+  {id:'software-as-temporary-artefacts', kind:'concept', label:'software-as-temporary-artefacts', desc:'The surplus Layer 4 done right lets the operator capture.'},
+  {id:'middle-layer-defensibility',  kind:'concept',   label:'middle-layer-defensibility',  desc:'Verification-GUI products as surviving middle. Extended here.'},
+  {id:'vertical-ai-orchestration',   kind:'concept',   label:'vertical-ai-orchestration',   desc:'Vertical orchestrators encode Layer 4 hooks per domain.'},
+  {id:'H5_ai-as-operational-not-product', kind:'hyp',  label:'H5',                          desc:'Operator-builder hypothesis. P2 founding hypothesis.'},
+  {id:'H6_industrial-ai-rollup-captive-suppliers', kind:'hyp', label:'H6',                  desc:'Rollup variant. Calibrated gate library = transferable asset.'},
+  {id:'karpathy-software-3',         kind:'source',    label:'karpathy-software-3',         desc:'Iron Man suit framing. The verification surface as moat.'},
+  {id:'sutskever-age-of-research',   kind:'source',    label:'sutskever-age-of-research',   desc:'Straight-shot posture. Opposite deployment stance — unresolved tension.'},
+  {id:'deloitte-ai-dossier-eri',     kind:'source',    label:'deloitte-ai-dossier-eri',     desc:'Vertical-industrial restatement: escalation paths, manual-review triggers.'},
+];
+
+const links = [
+  {source:'personal-liability-exposure', target:'ai-first-company-loop',       type:'wikilink'},
+  {source:'personal-liability-exposure', target:'autonomy-slider',             type:'wikilink'},
+  {source:'personal-liability-exposure', target:'eval-real-world-gap',         type:'wikilink'},
+  {source:'personal-liability-exposure', target:'continual-learning-paradigm', type:'wikilink'},
+  {source:'personal-liability-exposure', target:'fusion-skills',               type:'wikilink'},
+  {source:'personal-liability-exposure', target:'software-as-temporary-artefacts', type:'wikilink'},
+  {source:'personal-liability-exposure', target:'middle-layer-defensibility',  type:'wikilink'},
+  {source:'personal-liability-exposure', target:'vertical-ai-orchestration',   type:'wikilink'},
+  {source:'personal-liability-exposure', target:'H5_ai-as-operational-not-product', type:'wikilink'},
+  {source:'personal-liability-exposure', target:'H6_industrial-ai-rollup-captive-suppliers', type:'wikilink'},
+  {source:'personal-liability-exposure', target:'karpathy-software-3',         type:'citation'},
+  {source:'personal-liability-exposure', target:'sutskever-age-of-research',   type:'citation'},
+  {source:'personal-liability-exposure', target:'deloitte-ai-dossier-eri',     type:'citation'},
+  {source:'autonomy-slider',             target:'karpathy-software-3',         type:'citation'},
+  {source:'autonomy-slider',             target:'eval-real-world-gap',         type:'wikilink'},
+  {source:'autonomy-slider',             target:'fusion-skills',               type:'wikilink'},
+  {source:'ai-first-company-loop',       target:'autonomy-slider',             type:'wikilink'},
+  {source:'ai-first-company-loop',       target:'middle-layer-defensibility',  type:'wikilink'},
+  {source:'H5_ai-as-operational-not-product', target:'ai-first-company-loop',  type:'wikilink'},
+  {source:'H6_industrial-ai-rollup-captive-suppliers', target:'ai-first-company-loop', type:'wikilink'},
+  {source:'H6_industrial-ai-rollup-captive-suppliers', target:'H5_ai-as-operational-not-product', type:'wikilink'},
+];
+
+const svg = d3.select('#graph-svg').attr('viewBox', `0 0 ${W} ${H}`).attr('preserveAspectRatio','xMidYMid meet');
+
+const sim = d3.forceSimulation(nodes)
+  .force('link', d3.forceLink(links).id(d=>d.id).distance(d=>d.type==='citation'?170:130).strength(0.35))
+  .force('charge', d3.forceManyBody().strength(-380))
+  .force('center', d3.forceCenter(W/2, H/2))
+  .force('collide', d3.forceCollide().radius(60))
+  .force('x', d3.forceX().x(d => {
+      if (d.kind==='hyp') return W*0.18;
+      if (d.kind==='source') return W*0.85;
+      return W/2;
+  }).strength(0.12))
+  .force('y', d3.forceY().y(d => {
+      if (d.kind==='hyp') return H*0.32;
+      if (d.kind==='source') return H*0.7;
+      return H/2;
+  }).strength(0.10))
+  .alpha(1).alphaDecay(0.05);
+
+const link = svg.append('g').selectAll('line').data(links).join('line')
+  .attr('stroke', '#9a978f')
+  .attr('stroke-opacity', d => d.type==='citation' ? 0.45 : 0.55)
+  .attr('stroke-width', 1)
+  .attr('stroke-dasharray', d => d.type==='citation' ? '3 4' : null);
+
+const node = svg.append('g').selectAll('g').data(nodes).join('g').attr('cursor', 'pointer');
+
+node.each(function(d){
+  const g = d3.select(this);
+  if (d.kind === 'self') {
+    g.append('circle').attr('r', 14).attr('fill', '#FF4A1C').attr('stroke','#FF4A1C').attr('stroke-width',1);
+  } else if (d.kind === 'hyp') {
+    g.append('rect').attr('x',-9).attr('y',-9).attr('width',18).attr('height',18)
+      .attr('fill','none').attr('stroke','#f0ece4').attr('stroke-width',1.2);
+  } else if (d.kind === 'source') {
+    g.append('circle').attr('r', 8).attr('fill','none').attr('stroke','#9a978f').attr('stroke-width',1.2).attr('stroke-dasharray','2 2');
+  } else {
+    g.append('circle').attr('r', 9).attr('fill','none').attr('stroke','#f0ece4').attr('stroke-width',1.2);
+  }
+});
+
+const labels = svg.append('g').selectAll('text').data(nodes).join('text')
+  .attr('font-family', "'Kalam',cursive")
+  .attr('font-size', d => d.kind==='self' ? 16 : 14)
+  .attr('fill', d => d.kind==='self' ? '#FF4A1C' : '#d8d6cf')
+  .attr('text-anchor', 'middle')
+  .attr('dy', d => d.kind==='hyp' ? -16 : -14)
+  .text(d => d.label);
+
+const tt = d3.select('#gtt');
+node.on('mousemove', function(ev, d){
+  const wrap = document.getElementById('graph-wrap').getBoundingClientRect();
+  tt.style('left', (ev.clientX - wrap.left + 14) + 'px')
+    .style('top',  (ev.clientY - wrap.top + 14) + 'px')
+    .style('opacity', 1);
+  tt.select('.gt-head').text(d.label);
+  tt.select('.gt-body').text(d.desc || '');
+})
+.on('mouseleave', () => tt.style('opacity', 0));
+
+sim.on('tick', () => {
+  link.attr('x1', d=>d.source.x).attr('y1', d=>d.source.y)
+      .attr('x2', d=>d.target.x).attr('y2', d=>d.target.y);
+  node.attr('transform', d => `translate(${d.x},${d.y})`);
+  labels.attr('x', d=>d.x).attr('y', d=>d.y);
+});
+
+setTimeout(() => sim.alphaTarget(0).stop(), 2200);
+</script>
+</body>
+</html>

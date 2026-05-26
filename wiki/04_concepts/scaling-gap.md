@@ -83,3 +83,4 @@ These mechanisms map onto the OECD adopter taxonomy: SMEs stall transitioning fr
 - [[ml-monitoring]] — a third reading of the gap, complementary to bull-managerial and bear-capability readings: pilots scale poorly *also* because the monitoring infrastructure that catches silent production degradation is systematically under-budgeted. [[protschky-ml-monitoring-2025]]'s 17-practice surface is the operational bill of materials most pilots don't pay for.
 - [[ml-monitoring-quality-cycle]] — the surface most pilots under-implement.
 - [[protschky-ml-monitoring-2025]] — empirical anchor for the operational-root-cause reading.
+- [[H5_ai-as-operational-not-product]] — interpretation-flexible support: the 26%/84% who scale capture the differential, which is exactly the operator-track surplus H5 is built on (with the caveat that the gap may be structural rather than executional).

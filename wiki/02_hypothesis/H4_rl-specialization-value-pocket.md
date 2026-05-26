@@ -172,6 +172,7 @@ The hypothesis should be retired — not merely revised — if any of the follow
 **Hypotheses**
 - [[H1_L0-L7-ladder]]
 - [[H2_u-curve-of-value]]
+- [[H5_ai-as-operational-not-product]]
 
 **Concepts**
 - [[agentic-scaling-law]]

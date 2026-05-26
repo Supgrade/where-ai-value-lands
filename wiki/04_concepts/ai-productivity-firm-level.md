@@ -81,3 +81,5 @@ In SME surveys (OECD 2025), generative AI shows up as the most-used AI type, and
 - [[massenkoff-mccrory-labor-market-impacts-2026]] — worker-level companion to firm-level productivity evidence.
 - [[theoretical-vs-observed-capability-gap]] — diffusion lag that may explain why firm-level premia have not yet shown up at macro scale.
 - [[ai-young-worker-hiring-slowdown]] — labor-substitution channel through which firm-level productivity gains translate into intra-firm composition shifts.
+- [[H6_industrial-ai-rollup-captive-suppliers]] — load-bearing application of this page. H6 treats the AI-as-multiplier-of-complementary-capital finding as the *reason* organic SME AI adoption stalls and as the *opening* for a rollup that installs the complementary capital deliberately at acquisition time. The McElheran J-curve is H6's load-bearing temporal risk.
+- [[ai-first-company-loop]] — names the complementary digital capital across five layers (sensor data / policy / tool / quality gates / learning); makes the "complementary capital is what gates AI productivity" claim architecturally concrete.

@@ -56,6 +56,7 @@ A clean reading: most of the foundation-model layer is in the trough; the fronti
 
 - [[H1_L0-L7-ladder]]
 - [[H2_u-curve-of-value]]
+- [[H5_ai-as-operational-not-product]]
 - [[open-weight-asymmetry]]
 - [[application-layer]]
 - [[middle-layer-defensibility]]

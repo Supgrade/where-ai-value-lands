@@ -4,7 +4,7 @@ status: draft
 tags:
   - planning
   - decisions
-last-updated: 2026-05-21
+last-updated: 2026-05-26
 ---
 
 # Open Questions
@@ -63,6 +63,33 @@ Decisions promoted from [[07_analytical-vocabulary]]:
 - [ ] **Boutique vendor vs frontier-lab tuning API.** Does a startup that does domain RL fine-tuning as a service survive the moment frontier labs ship verticalised fine-tuning at scale? Closest precedent: vertical AI orchestrators in industrials ([[vertical-ai-orchestration]], [[deloitte-ai-dossier-eri]]) — but the model layer was rarely the moat there.
 - [ ] **Customer data exclusivity.** Will industrial / SME customers — especially the Italian family-business archetype — agree to let proprietary process know-how flow into a vendor's training data? If not, the cross-customer amortisation that the vendor's unit economics need is contractually forbidden.
 - [ ] **Where on the ladder does H4 sit.** Tentatively L3–L5 substrate (agent + harness + RL-tuned model on rented or owned compute), Phase 3+ buyer maturity ([[enterprise-adoption-ladder]]), [[taker-shaper-maker]] Maker posture at vertical scale, [[oecd-sme-adopter-taxonomy]] Champion-adjacent customer. Confirm or revise as evidence accumulates.
+
+## Operator-side hypothesis and P2 paper-portfolio (added 2026-05-26 via [[H5_ai-as-operational-not-product]] and [[09_paper-portfolio]])
+
+The operator-side reframe of 2026-05-26 has spawned a sibling paper (P2 — *What to Start Now*) and a new working hypothesis (H5). See [[09_paper-portfolio]] for the portfolio decision. Open questions:
+
+- **[P2] What is the operator-builder's capital threshold for Track B?** H5 claims two tracks (VC-megafund race-in vs operator). The boundary needs a load-bearing variable: capital threshold ($X Series A), revenue threshold ($Y ARR), or distribution-prior threshold (audience of size Z). The three correlate but are not identical.
+- **[P2] Does the "Cursor for local SEO" archetype exist in 2026?** Bear case for H5: small-vertical AI-orchestration products at sub-Series-B scale could constitute a viable third track between A and B. Empirical search across 3–4 verticals (local SEO, dental marketing, restaurant ops, real-estate listings) needed before H5 hardens.
+- **[P2] What is the right Weber-classifier home for the operator-builder?** None of the four 2021 Weber patterns fits — operator-builders are *not AI startups* in Weber's seller-side sense. This becomes the next gap dimension on [[weber-taxonomy-2026-gaps]].
+- **[P2] How does H5 interact with [[H4_rl-specialization-value-pocket]]?** H4 (seller-side) and H5 (operator-side) — are H4 vendors *suppliers* to H5 operator-builders, or are they competitors for the same surplus? Decide which framing the paper uses.
+- **[P2] Italian-market or G7?** [[sme-ai-adoption-gap]] / [[g7-sme-ai-policy-pluralism]] suggest the operator-track is structurally harder in Italy than in the US or UK. Is H5 a global hypothesis or specifically guidance for the author's home market?
+- **[P2] Where does P2 live commercially?** P1 is free PDF + GitHub-Pages wiki. P2 might want a different distribution surface (Substack, cohort-based course, Italian-language landing page). Decide before P1 ships so the P2 surface can be staged.
+- **[P2] Italian-language P2 vs English-only?** The operator-builder reader the author has most empathy for is Italian. Is the natural primary language for P2 Italian (with English secondary), or the same English-primary stance as P1?
+
+## Industrial-AI rollup of captive suppliers (added 2026-05-26 via [[H6_industrial-ai-rollup-captive-suppliers]])
+
+H6 is the rollup variant of H5 — a holding company acquiring captive-supplier SMEs in a single industrial customer's supply chain and installing the [[ai-first-company-loop]] in each, replacing the management layer while preserving production. The thesis is speculative; the four sub-questions below are the ones the author flagged in the 2026-05-26 daily-thought reflection.
+
+- **[P2] Why are manufacturers not AI-first — newness or structural barrier?** The wiki's read ([[ai-productivity-firm-level]], [[ai-skill-shortage-as-diffusion-bottleneck]], [[sme-connectivity-divide]], [[sme-ai-finance-gap]], [[oecd-sme-enabler-quartet]]) is **structural**, not newness — AI is a multiplier of pre-existing complementary capital, and most SMEs do not have the complementary capital to multiply. Confirm with primary Italian-district data (ISTAT, Cerved) and decide whether the paper presents this as a settled finding or as a live debate.
+- **[P2] Will it be a natural transformation with time, or will the gap widen?** [[sme-ai-adoption-gap]] (40% large / 11.9% small OECD-wide 2024) is *widening* between 2020 and 2024, not closing. [[sme-broadband-firm-size-gap]] has been flat at ~25–28 pp for five years. McElheran's J-curve says even adopters take years to capture the surplus. The empirical bet behind H6 is *not* a bet on time alone — it is a bet that targeted acquisition + deliberate rebuild beats organic diffusion.
+- **[P2] Can acquisition accelerate it, and at what unit economics?** This is the question the wiki has *almost no material on*. The H6 thesis depends on (a) the management layer being a 8–20% addressable cost share, (b) the dominant-customer relationship surviving ownership change, (c) the loop-build cost amortising across 5+ acquired suppliers in similar positions, (d) Italian regulatory and labour-relations exposure not making the management-layer reorganisation prohibitive at scale. Each is an empirical sub-question.
+- **[P2] Are AI-first manufacturers actually more competitive?** [[ai-productivity-firm-level]] reports labor-productivity premia of >4% (sometimes >15%) for AI users within cohort across G7 — but most of the premium is *not* AI-caused: it reflects pre-existing competitiveness. The AI-attributable share for SMEs specifically is smaller. The H6 bet is that a *deliberate* rebuild (not organic adoption) captures the surplus organic adoption cannot, by installing the complementary capital across all five layers of the [[ai-first-company-loop]] simultaneously.
+- **[P2] Is H6 structurally distinct from H5, or H5 with leverage?** H5 is one operator-builder running an AI-native firm; H6 is N operator-builder firms acquired and rolled up. Mechanically H6 is a multi-firm H5; strategically the questions are different (M&A pipeline, post-acquisition integration, loop portability, relational risk at ownership change). Decide whether the paper treats them as separate hypotheses or as a single hypothesis with single-firm and rollup variants.
+
+## AI-first-company operating model and software-as-temporary-artefacts (added 2026-05-26 via [[ai-first-company-loop]] and [[software-as-temporary-artefacts]])
+
+- **[P1+P2] Does "software as temporary artefacts" tighten H2 into an L?** The mechanism predicts that the buyer-side market for finished middle-layer workflow products shrinks as AI-first firms route tool needs through in-house synthesis. The surviving middle is *primitives for synthesis* (LangGraph, RL APIs, eval tooling, frameworks). If empirically true at scale, [[H2_u-curve-of-value]]'s middle is sharper than the existing wiki frames it — not just squeezed, partly abolished. Decide whether the paper presents this as a sharpening of H2 or as a separate sub-hypothesis.
+- **[P2] Is gate design (Layer 4 of the [[ai-first-company-loop]]) a defensibility surface for operator-builder firms?** The page argues yes — gate-calibration data is accumulated, transferable, and durably valuable; firms that learn to gate well make fewer reputation-damaging mistakes than firms that don't. Empirical work needed: can we point to any firm in 2026 whose operational edge is plausibly gate-design quality rather than model or distribution quality?
 
 ## Business archetype taxonomy (added 2026-05-22)
 The taxonomy emerged from the daily thought of 2026-05-22. Decisions needed:

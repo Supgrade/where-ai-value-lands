@@ -34,3 +34,4 @@ The wedge is the central diagnostic of the [[bear-case-synthesis]] and the [[cir
 - [[deloitte-ai-dossier-eri]] — vertical instantiation; capture at the orchestration layer.
 - [[lee-01ai-pivot]] — strategic re-pricing of capture (B2C → B2B) in the Chinese stack.
 - [[bear-case-synthesis]] — the cluster that pressures every layer's capture claim.
+- [[H5_ai-as-operational-not-product]] — operator-side capture: for builders outside the VC-megafund track, the structural opportunity is to *be* the buyer who captures the surplus on their own P&L rather than the seller competing to extract it.

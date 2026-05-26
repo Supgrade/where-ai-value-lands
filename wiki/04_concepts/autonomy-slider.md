@@ -81,3 +81,4 @@ A product can be **high on the ladder, low on the slider** (own your own GPUs bu
 - [[theoretical-vs-observed-capability-gap]] — slider position is one of the binding constraints that keeps observed exposure below theoretical capability.
 - [[sutskever-age-of-research]] — opposite deployment posture: straight-shot superintelligence rather than incremental Iron Man partial autonomy.
 - [[eval-real-world-gap]] — the empirical reliability gap that anchors the slider on the left.
+- [[personal-liability-exposure]] — operator-builder application of the slider: per-action-class settings with an auto-ratchet from "ask every time" toward "routine" as the action class earns trust; the slider as a first-class operating surface, not a hidden config.

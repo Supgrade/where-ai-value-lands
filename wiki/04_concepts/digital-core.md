@@ -75,3 +75,4 @@ The digital core is the **canonical short summary** of the consultancy / WEF vie
 - [[oecd-sme-adopter-taxonomy]] — SME adopter quadrants are correlated with digital-core maturity.
 - [[ai-productivity-firm-level]] — AI productivity premium shrinks once digital-core capabilities are controlled — empirical anchor for the "AI multiplies digital capital" claim.
 - [[business-model-portfolio]] — seller-side mirror: in a BMP, functional architecture (the digital core) is the connective tissue across distinct business models.
+- [[H5_ai-as-operational-not-product]] — architectural precondition for the operator-builder: AI-native operations require the digital-core substrate H5 takes as load-bearing.

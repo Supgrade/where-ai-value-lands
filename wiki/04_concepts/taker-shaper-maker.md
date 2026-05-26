@@ -87,3 +87,4 @@ Likely useful as a *foil*: introduce the typology as the consensus consultancy f
 - [[sme-policy-pathway-novice-to-champion]] — staged policy instruments along the same axis.
 - [[sme-ai-adoption-gap]] — empirical context for the Taker-population size.
 - [[ai-productivity-firm-level]] — evidence for the Shaper premium.
+- [[H5_ai-as-operational-not-product]] — applies the Taker/Shaper/Maker decomposition at firm level: the operator-builder is a Taker of AI capability, a Shaper of harness, and a Maker of a non-AI deliverable.

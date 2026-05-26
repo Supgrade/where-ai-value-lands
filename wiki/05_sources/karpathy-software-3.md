@@ -84,3 +84,4 @@ Karpathy's lecture is the strongest **bull-side paradigm document** ingested so 
 - [[continual-learning-paradigm]] — the algorithmic target Sutskever names; Karpathy describes the symptom (anterograde amnesia) that this paradigm is meant to solve.
 - [[eval-real-world-gap]] — Karpathy's jagged-intelligence + Steinberger's agentic-trap, formalised by Sutskever as a structural consequence of researcher-side reward hacking.
 - [[business-model-portfolio]] — Huang's "extreme co-design" maps onto Westerveld's Complementing intent; Steinberger's GUI-vs-agent-API thesis is the canonical AI-era Cannibalization paradox.
+- [[H5_ai-as-operational-not-product]] — operator-side reading: if all software becomes AI-native, the AI feature stops being a differentiator and the operator-builder's edge moves to AI-native internal operations rather than AI-as-product.

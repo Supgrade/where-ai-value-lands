@@ -174,6 +174,9 @@ For *Where Value Lands*, this updates the central claim: **value lands on capita
 - [[ecosystem-business-archetypes]] — Choudary's four-archetype taxonomy mapped onto top/middle/bottom of the U.
 - [[vertical-to-horizontal-unbundling]] — the structural mechanism behind the recurring U-shape pattern across industries.
 - [[foundation-model-layer]] — the raw frontier-model API tier; the layer that sits inside the trough of the U for most players, with a partial micro-peak at the frontier-lab club.
+- [[software-as-temporary-artefacts]] — sharpens the middle-collapse claim: AI-first firms running an [[ai-first-company-loop]] synthesise their middle on demand rather than buying it; the squeezed middle is squeezed *from a third direction* (buyer-side in-house substitution), not just from above and below. The surviving middle is *primitives for synthesis* (LangGraph, RL APIs, eval tooling), not finished workflow products.
+- [[ai-first-company-loop]] — the operating model whose tool layer drives the in-house substitution; refines what "the middle" actually contains by separating primitives (survive) from finished workflows (collapse).
+- [[H6_industrial-ai-rollup-captive-suppliers]] — operator-side rollup hypothesis whose mechanism reinforces the U: each acquired firm synthesises its own middle, removing demand from middle-layer SaaS at the rollup's firm count.
 
 ## Referenced by
 
@@ -191,6 +194,8 @@ For *Where Value Lands*, this updates the central claim: **value lands on capita
 **Hypotheses**
 - [[H1_L0-L7-ladder]]
 - [[H3_orthogonal-axes-under-priced]]
+- [[H4_rl-specialization-value-pocket]]
+- [[H5_ai-as-operational-not-product]]
 
 **Search**
 - [[01_source-list]]

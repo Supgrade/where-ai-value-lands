@@ -59,3 +59,18 @@ H3 would be promoted from stub to live hypothesis if any of the following condit
 - A dominant analytical frame in the literature explicitly organizes value-capture predictions around cross-cutting axes rather than a single stack dimension.
 - The paper's practical half (per [[03_structure]] Section 6) requires finer-grained positioning claims that the ladder and U cannot supply without the additional axes.
 - Interview or case evidence surfaces a durable winner whose position is best described by axis-intersection coordinates rather than by ladder level or U position.
+
+## Referenced by
+
+*Auto-generated reverse-link index — pages in the wiki that link here. Maintained by `/lint` and reverse-link sweeps.*
+
+**Hypotheses**
+- [[H1_L0-L7-ladder]]
+- [[H2_u-curve-of-value]]
+- [[H4_rl-specialization-value-pocket]]
+- [[H5_ai-as-operational-not-product]] — names the operator-side vs seller-side axis as one of the missing H3 dimensions.
+
+**Concepts**
+- [[weber-taxonomy-2026-gaps]]
+- [[business-model-portfolio]]
+- [[ai-startup-business-archetypes-weber]]

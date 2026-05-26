@@ -87,3 +87,4 @@ Useful as the **labor-side restatement of the autonomy-slider question**. The pa
 - [[observed-exposure-measure]] — augmentative use is half-weighted, which structurally discounts the fusion-skills outcome the frame promotes.
 - [[ai-young-worker-hiring-slowdown]] — labor-side anchor for whether new entrants can develop fusion skills if entry-level slots disappear.
 - [[exposed-worker-demographics]] — the cohort whose fusion-skills capacity determines the labor-side incidence.
+- [[H5_ai-as-operational-not-product]] — applies fusion-skills at firm-level rather than just role-level: the operator-builder's edge is fusion-skills across the whole organisation.

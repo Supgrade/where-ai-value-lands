@@ -101,3 +101,4 @@ The data work is **upstream of the product**. The customer never sees it.
 - [[ai-development-facilitator]], [[ai-data-analytics-provider]], [[ai-deep-tech-researcher]] — the three other Weber patterns.
 - [[H2_u-curve-of-value]], [[distribution-moat]], [[middle-layer-defensibility]], [[where-value-lands-2026]].
 - [[gultekin-pinarbasi-commercialisation-ai-2025]] — independent empirical confirmation: 9 of 10 Turkish AI-startup interviewees are classified as Pattern 1 or Pattern 3; the single self-serve LP1 ( > 100k customers) vs nine B2B firms ( < 50 each) split directionally supports the [[distribution-moat]] claim for this archetype.
+- [[H5_ai-as-operational-not-product]] — Pattern 1 is the Track A archetype H5's operator-builder explicitly does *not* adopt; Pattern 1 is only viable on the VC-megafund race-in track.
