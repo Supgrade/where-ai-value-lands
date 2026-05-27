@@ -25,7 +25,9 @@ The defensibility logic is structural rather than algorithmic. Generic foundatio
 - [[distribution-moat]] — parent concept; this is one of its specific instantiations on the data-access axis.
 - [[ai-charged-product-service-provider]] — the seller-side archetype that most acutely needs this moat in regulated verticals.
 - [[middle-layer-defensibility]] — the broader question of which middle-stack positions survive commoditisation.
+- [[specialist-subagent-for-orchestrators]] — Option C of that business idea (data aggregator → shared specialist model) is the *reified-as-a-company* version of this concept: a consortium-tier exclusive data partnership where the deliverable is a specialist subagent rather than a dashboard or report.
 
 ## Referenced by
 
 - [[ai-charged-product-service-provider]]
+- [[specialist-subagent-for-orchestrators]]

@@ -161,6 +161,7 @@ The hypothesis should be retired — not merely revised — if any of the follow
 - [[ml-monitoring-quality-cycle]] — Practice 16 (iterative continual learning from production) is what closes the H4 moat-deepening loop; Practices 8–11 are what catch silent rot.
 - [[ml-drift-types]] — drift on the customer's specific process is the binding operational risk; the vendor's defensibility depends on detecting drift before the customer's process engineers do.
 - [[protschky-ml-monitoring-2025]] — empirical source for the monitoring stack the H4 vendor has to actually build.
+- [[specialist-subagent-for-orchestrators]] — buyer-side composition framing of this hypothesis: the H4 artifact sold as a callable MCP node inside someone else's agent orchestrator; reframes "sold to a single industrial customer" into "rented by N agent builders for one node in their graph."
 
 ## Referenced by
 

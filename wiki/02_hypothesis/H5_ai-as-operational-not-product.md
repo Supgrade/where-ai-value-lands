@@ -120,6 +120,7 @@ The hypothesis should be retired — not merely revised — if any of the follow
 - [[ai-startup-business-archetypes-weber]] — the seller-side classifier H5 sits outside.
 - [[ai-startup-count-crunchbase-2021-2026]] — the 27.9k → 97k startup count is mostly Track A entrants; the hypothesis predicts Track A extinction rate is high.
 - [[business-model-portfolio]] — the operator-builder may run multiple BMs (a non-AI product BM plus an AI-internal-tooling BM); BMP framing helps decompose.
+- [[specialist-subagent-for-orchestrators]] — speculative business idea that straddles the Track A / Track B boundary: if pursued as a hosted API it is Track A and inherits its capital constraints; if pursued as a single-customer partnership first (the H4-canonical motion), the artifact-as-product play becomes a Track B operational input that *later* graduates into a Track A artifact. The choice of GTM is a choice of track.
 
 ## Referenced by
 

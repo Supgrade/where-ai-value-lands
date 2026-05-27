@@ -62,6 +62,7 @@ The vendor's strategic posture in [[taker-shaper-maker]] (Taker rents, Shaper cu
 - [[continual-learning-paradigm]]
 - [[H4_rl-specialization-value-pocket]]
 - [[ai-development-facilitator]] — Weber's 2021 pattern; RL-fine-tuning APIs are the 2026 surviving sub-pattern after foundation-model commoditization compressed generic facilitators.
+- [[specialist-subagent-for-orchestrators]] — this surface is what a specialist-subagent vendor competes against on hosting: if defensibility is "I host the model on my own GPUs," any of these RL APIs lets the buyer replicate the hosting layer in an afternoon. Defensibility has to live in the model artifact and its data moat, not in the hosting.
 
 ## Referenced by
 

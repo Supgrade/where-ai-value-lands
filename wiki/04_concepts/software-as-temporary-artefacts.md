@@ -79,6 +79,7 @@ The U-curve, post-sharpening, reads: top is fortified by interface position (har
 - [[application-layer]] — the layer most exposed to the substitution; the boundary between "application" and "synthesised tool" is exactly what this dynamic blurs.
 - [[vertical-ai-orchestration]] — vertical orchestrators sold as products are at risk of in-house synthesis substitutes; vertical orchestration *primitives* are not.
 - [[context-control]] — Chase's framing; context-management primitives are exactly the sort of middle-layer product that survives as a primitive for in-house synthesis.
+- [[specialist-subagent-for-orchestrators]] — specialist subagents are a *second* category of surviving middle (alongside primitives): things in-house synthesis cannot reach because the gap is closed by proprietary data the buyer does not own. The page operationalises this as a candidate business.
 
 ## Source
 

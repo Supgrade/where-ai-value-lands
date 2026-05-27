@@ -85,6 +85,7 @@ Protschky's cycle is the *production discipline for an ML system*; the five-laye
 - [[middle-layer-defensibility]] — refractored by Layer 3 synthesising its own middle.
 - [[H2_u-curve-of-value]] — sharpened by the loop's tool layer absorbing what was previously middle-layer SaaS.
 - [[vertical-ai-orchestration]] — the externally-sold analogue of what the loop does internally; vertical orchestrators sell the loop-as-a-product to firms that won't build it.
+- [[specialist-subagent-for-orchestrators]] — Layer 3 (tool) is the architectural slot the specialist subagent occupies inside the *buyer's* loop; the page describes a business that sells precisely that tool to other operators running their own loops.
 
 ## Source
 
